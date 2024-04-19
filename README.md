@@ -8,11 +8,32 @@
 
 - [x] Initialize a new Next.js project using create-t3-app.
 - [x] Set up version control with Git.
-- [ ] Configure deployment with Vercel (if using Git version control).
+- [ ] Configure deployment with Vercel.
 
 #### Basic UI Scaffolding:
 
 - [ ] Design and implement core user interfaces using Next.js components.
+  - [ ] Main Page (Dashboard):
+    - [ ] Top Navigation Bar (Remains constant throughout the user journey)
+      - [ ] App Logo: Prominently displayed on the left side for brand recognition.
+      - [ ] Sign In/Sign Out Button: Clearly visible on the right for user authentication.
+      - [ ] (Optional) Search Bar: Allow users to search for specific subjects or tests (if applicable).
+    - [ ] Left Side Panel (Remains constant throughout the user journey, providing navigation options.):
+      - [ ] "Dashboard" link to return to the main page.
+      - [ ] (Optional, if applicable) "My Tests" link to view user-created tests.
+      - [ ] "Logout" link to log out of the user account.
+    - [ ] Main Panel:
+      - [ ] Welcome Message (Non-Logged-in Users): Briefly introduce the app's purpose and encourage user registration.
+      - [ ] User Summary (Logged-in Users):
+        - [ ] Display user profile information (name, avatar, etc.).
+        - [ ] Show recently created tests or accessed books (if the feature is implemented).
+        - [ ] (Optional) Progress indicators: Visualize user's progress in completed tests or completed books (badges, points, etc.).
+      - [ ] Featured Content (Optional):
+        - [ ] Showcase curated test collections for popular subjects or age groups.
+        - [ ] Highlight newly added digital books to the library (if implemented).
+      - [ ] Call to Action Buttons:
+        - [ ] "Create Test" button to initiate test creation.
+        - [ ] "Explore Library" button (if implemented) to navigate to the digital book collection.
 - [ ] Create mock data to populate UI elements initially.
 - [ ] User Authentication (w/ Clerk):
 - [ ] Integrate Clerk for user registration, login, and authentication.
@@ -23,6 +44,27 @@
 #### Test Creation:
 
 - [ ] Develop UI elements for users to select subjects and create tests.
+  - [ ] Subject Selection Page (This page would be reached by clicking the "Create Test" button on the main page.):
+    - [ ] Subject List: Display a well-organized list of subjects relevant to creating tests.
+    - [ ] Create categories or subcategories to group related subjects if we have a large number.
+    - [ ] Each subject can be a clickable element leading to the test creation page.
+  - [ ] Test Creation Page (Accessible after selecting a subject from the previous page.):
+    - [ ] Main Panel:
+      - [ ] Test Details Section:
+        - [ ] Input field for the test title.
+        - [ ] Option to select target age group or difficulty level (if applicable).
+        - [ ] (Optional) Description field to add a short overview of the test.
+      - [ ] Question Creation Section:
+        - [ ] Allow adding multiple questions.
+        - [ ] For each question:
+          - [ ] Text area for entering the question text.
+          - [ ] Option to add different question types (multiple choice, true/false, short answer, etc.).
+          - [ ] Multiple input fields for answer choices (depending on question type).
+          - [ ] Ability to mark one answer as the correct one.
+          - [ ] Add/Remove buttons for managing questions.
+      - [ ] Action Buttons:
+        - [ ] "Save Test" button to save the created test with its details and questions.
+        - [ ] (Optional) "Preview Test" button to allow users to see a preview of the created test before saving.
 - [ ] Implement logic for users to add questions, answer choices, and mark correct answers.
 - [ ] Consider initial support for text-based questions and answers.
 - [ ] Database (Vercel Postgres - Development):
