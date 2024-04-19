@@ -8,15 +8,15 @@
 
 - [x] Initialize a new Next.js project using create-t3-app.
 - [x] Set up version control with Git.
-- [ ] Configure deployment with Vercel.
+- [x] Configure deployment with Vercel.
 
 #### Basic UI Scaffolding:
 
 - [ ] Design and implement core user interfaces using Next.js components.
   - [ ] Main Page (Dashboard):
     - [ ] Top Navigation Bar (Remains constant throughout the user journey)
-      - [ ] App Logo: Prominently displayed on the left side for brand recognition.
-      - [ ] Sign In/Sign Out Button: Clearly visible on the right for user authentication.
+      - [x] App Logo: Prominently displayed on the left side for brand recognition.
+      - [x] Sign In/Sign Out Button: Clearly visible on the right for user authentication.
       - [ ] (Optional) Search Bar: Allow users to search for specific subjects or tests (if applicable).
     - [ ] Left Side Panel (Remains constant throughout the user journey, providing navigation options.):
       - [ ] "Dashboard" link to return to the main page.
@@ -92,7 +92,7 @@
 
 #### Additional Features:
 
-- [ ]User-created test sharing (with access control).
+- [ ] User-created test sharing (with access control).
 - [ ] Test taking functionality with answer submission and scoring.
 - [ ] Analytics and reporting for tests and user activity (consider Posthog integration).
 - [ ] User progress tracking for completed tests.
