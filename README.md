@@ -14,10 +14,10 @@
 
 - [ ] Design and implement core user interfaces using Next.js components.
   - [ ] Main Page (Dashboard):
-    - [ ] Top Navigation Bar (Remains constant throughout the user journey)
+    - [x] Top Navigation Bar (Remains constant throughout the user journey)
       - [x] App Logo: Prominently displayed on the left side for brand recognition.
       - [x] Sign In/Sign Out Button: Clearly visible on the right for user authentication.
-      - [ ] (Optional) Search Bar: Allow users to search for specific subjects or tests (if applicable).
+      - [x] (Optional) Search Bar: Allow users to search for specific subjects or tests (if applicable).
     - [ ] Left Side Panel (Remains constant throughout the user journey, providing navigation options.):
       - [ ] "Dashboard" link to return to the main page.
       - [ ] (Optional, if applicable) "My Tests" link to view user-created tests.
@@ -34,6 +34,7 @@
       - [ ] Call to Action Buttons:
         - [ ] "Create Test" button to initiate test creation.
         - [ ] "Explore Library" button (if implemented) to navigate to the digital book collection.
+- [ ]
 - [ ] Create mock data to populate UI elements initially.
 - [ ] User Authentication (w/ Clerk):
 - [ ] Integrate Clerk for user registration, login, and authentication.

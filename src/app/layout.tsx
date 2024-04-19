@@ -1,6 +1,6 @@
-import TopNav from "@/_components/TopNav";
 import "@/styles/globals.css";
 
+import TopNav from "@/_components/TopNav";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
