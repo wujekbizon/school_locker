@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 
 import { Poppins } from "next/font/google";
 import { ClerkProvider, SignedIn } from "@clerk/nextjs";
+import { dark, neobrutalism } from "@clerk/themes";
 import TopNav from "@/app/_components/TopNav";
 import SidePanel from "@/app/_components/SidePanel";
 
@@ -22,7 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: [dark],
+      }}
+    >
       <html lang="en">
         <body className={`${poppins.className} dark h-screen overflow-hidden`}>
           <TopNav />

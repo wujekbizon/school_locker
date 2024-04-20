@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Welcome() {
   return (
@@ -32,9 +33,12 @@ export default function Welcome() {
         </p>
       </article>
 
-      <button className="rounded bg-zinc-800 px-4 py-2 text-xl font-semibold hover:bg-amber-500 hover:text-zinc-950">
-        Sign in today!
-      </button>
+      <Link
+        href="/sign-up"
+        className="rounded bg-zinc-800 px-4 py-2 text-xl font-semibold hover:bg-amber-500 hover:text-zinc-950"
+      >
+        Sign up today!
+      </Link>
     </section>
   );
 }

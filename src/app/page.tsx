@@ -1,5 +1,5 @@
 import { SignedOut } from "@clerk/nextjs";
-import Welcome from "@/components/screens/Welcome";
+import Welcome from "@/app/_components/Welcome";
 
 export default function HomePage() {
   return (
