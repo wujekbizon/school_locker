@@ -7,9 +7,7 @@ export default function HomePage() {
       <SignedOut>
         <Welcome />
       </SignedOut>
-      <SignedIn>
-        <h1>Dashboard</h1>
-      </SignedIn>
+      <SignedIn>Dashboard</SignedIn>
     </main>
   );
 }
