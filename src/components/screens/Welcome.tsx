@@ -4,7 +4,7 @@ export default function Welcome() {
   return (
     <section className="flex h-full w-full flex-col items-center justify-center gap-10 bg-black p-12">
       <div className="flex w-full justify-start">
-        <h1 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2 text-center text-3xl text-transparent text-white md:text-5xl">
+        <h1 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2 text-center text-3xl text-transparent  md:text-5xl">
           Learning shouldn&apos;t be a
           <span className="text-amber-500"> drag!</span>
         </h1>
@@ -20,7 +20,7 @@ export default function Welcome() {
         />
       </div>
       <div className="flex w-full justify-end">
-        <h1 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2  text-center text-3xl text-transparent text-white md:text-5xl">
+        <h1 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2  text-center text-3xl text-transparent  md:text-5xl">
           make studying fun with <span className="text-amber-500"> us!</span>
         </h1>
       </div>
@@ -31,6 +31,7 @@ export default function Welcome() {
           and experience a smarter way to learn!
         </p>
       </article>
+
       <button className="rounded bg-zinc-800 px-4 py-2 text-xl font-semibold hover:bg-amber-500 hover:text-zinc-950">
         Sign in today!
       </button>

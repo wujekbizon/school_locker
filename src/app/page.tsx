@@ -1,4 +1,4 @@
-import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedOut } from "@clerk/nextjs";
 import Welcome from "@/components/screens/Welcome";
 
 export default function HomePage() {
@@ -7,7 +7,6 @@ export default function HomePage() {
       <SignedOut>
         <Welcome />
       </SignedOut>
-      <SignedIn>Dashboard</SignedIn>
     </main>
   );
 }

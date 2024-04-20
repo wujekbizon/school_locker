@@ -37,7 +37,7 @@
         - [ ] "Create Test" button to initiate test creation.
         - [ ] "Explore Library" button (if implemented) to navigate to the digital book collection.
     - [ ] Framer Motion aniamtions
-- [ ] User Authentication (w/ Clerk):
+- [x] User Authentication (w/ Clerk):
 - [ ] Create mock data to populate UI elements initially.
 - [ ] Integrate Clerk for user registration, login, and authentication.
 - [ ] Implement user profile management and authorization checks.
