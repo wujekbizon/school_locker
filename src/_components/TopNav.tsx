@@ -2,11 +2,11 @@ import NavButton from "@/components/ui/NavButton";
 
 export default function TopNav() {
   return (
-    <header className="supports-\[backdrop-filter\]\:bg-background\/60 sticky top-0 z-50 flex w-full border-b border-border/40 bg-zinc-950 backdrop-blur">
-      <div className="container flex h-14 max-w-screen-2xl items-center gap-4">
+    <header className="sticky top-0 z-50 flex w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 max-w-screen-2xl items-center gap-4">
         <div className="mr-4 hidden flex-1 md:flex">
-          <h1 className="border-t border-zinc-800 text-2xl text-white">
-            School <span className="text-zinc-600">Locker</span>{" "}
+          <h1 className="border border-amber-200/10 border-zinc-800 px-4 text-2xl font-bold text-white">
+            School <span className="font-bold text-amber-500">Locker</span>{" "}
           </h1>
         </div>
         <NavButton />

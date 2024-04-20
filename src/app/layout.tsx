@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 
 import TopNav from "@/_components/TopNav";
 import { Poppins } from "next/font/google";
+import SidePanel from "@/_components/SidePanel";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,9 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className}`}>
+      <body className={`${poppins.className} dark h-screen overflow-hidden`}>
         <TopNav />
-        {children}
+        <main className="relative flex h-[calc(100vh_-_56px)]">
+          <SidePanel />
+          {children}
+        </main>
       </body>
     </html>
   );
