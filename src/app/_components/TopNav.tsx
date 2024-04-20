@@ -1,4 +1,5 @@
 import NavButton from "@/components/ui/NavButton";
+import { SignedIn, SignInButton, SignedOut, UserButton } from "@clerk/nextjs";
 
 export default function TopNav() {
   return (
@@ -22,7 +23,12 @@ export default function TopNav() {
             </kbd>
           </div>
           <div className="flex w-20 items-center justify-center text-white">
-            Sign in
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
         </div>
       </div>

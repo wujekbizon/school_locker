@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
 
-import TopNav from "@/app/_components/TopNav";
 import { Poppins } from "next/font/google";
+import { ClerkProvider, SignedIn } from "@clerk/nextjs";
+import TopNav from "@/app/_components/TopNav";
 import SidePanel from "@/app/_components/SidePanel";
 
 const poppins = Poppins({
@@ -21,14 +22,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} dark h-screen overflow-hidden`}>
-        <TopNav />
-        <main className="relative flex h-[calc(100vh_-_56px)]">
-          <SidePanel />
-          {children}
-        </main>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${poppins.className} dark h-screen overflow-hidden`}>
+          <TopNav />
+          <main className="relative flex h-[calc(100vh_-_56px)]">
+            <SignedIn>
+              <SidePanel />
+            </SignedIn>
+            {children}
+          </main>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

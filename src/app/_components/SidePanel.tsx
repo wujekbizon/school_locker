@@ -8,8 +8,8 @@ export default function SidePanel() {
           <CustomButton>Dashboard</CustomButton>
           <CustomButton>My Tests</CustomButton>
         </div>
+
         <div className="flex flex-col gap-4 py-2">
-          <CustomButton>Logout</CustomButton>
           <CustomButton>Settings</CustomButton>
         </div>
       </div>
