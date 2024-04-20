@@ -1,8 +1,8 @@
 import "@/styles/globals.css";
 
-import TopNav from "@/_components/TopNav";
+import TopNav from "@/app/_components/TopNav";
 import { Poppins } from "next/font/google";
-import SidePanel from "@/_components/SidePanel";
+import SidePanel from "@/app/_components/SidePanel";
 
 const poppins = Poppins({
   subsets: ["latin"],

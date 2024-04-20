@@ -25,7 +25,7 @@
       - [x] "Logout" button to log out of the user account(Optional).
       - [ ] Implement button that toggle on/off side-panel
     - [ ] Main Panel:
-      - [ ] Welcome Message (Non-Logged-in Users): Briefly introduce the app's purpose and encourage user registration.
+      - [x] Welcome Message (Non-Logged-in Users): Briefly introduce the app's purpose and encourage user registration.
       - [ ] User Summary (Logged-in Users):
         - [ ] Display user profile information (name, avatar, etc.).
         - [ ] Show recently created tests or accessed books (if the feature is implemented).
@@ -36,6 +36,7 @@
       - [ ] Call to Action Buttons:
         - [ ] "Create Test" button to initiate test creation.
         - [ ] "Explore Library" button (if implemented) to navigate to the digital book collection.
+    - [ ] Framer Motion aniamtions
 - [ ] Create mock data to populate UI elements initially.
 - [ ] User Authentication (w/ Clerk):
 - [ ] Integrate Clerk for user registration, login, and authentication.
