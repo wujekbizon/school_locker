@@ -5,7 +5,8 @@ export default function Welcome() {
     <section className="flex h-full w-full flex-col items-center justify-center gap-10 bg-black p-12">
       <div className="flex w-full justify-start">
         <h1 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2 text-center text-3xl text-transparent text-white md:text-5xl">
-          Learning shouldn't be a<span className="text-amber-500"> drag!</span>
+          Learning shouldn&apos;t be a
+          <span className="text-amber-500"> drag!</span>
         </h1>
       </div>
 
