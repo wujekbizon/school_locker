@@ -19,10 +19,11 @@
       - [x] Sign In/Sign Out Button: Clearly visible on the right for user authentication.
       - [x] (Optional) Search Bar: Allow users to search for specific subjects or tests (if applicable).
     - [ ] Left Side Panel (Remains constant throughout the user journey, providing navigation options.):
-      - [ ] Create custom button component
-      - [ ] "Dashboard" link to return to the main page.
-      - [ ] (Optional, if applicable) "My Tests" link to view user-created tests.
-      - [ ] "Logout" link to log out of the user account.
+      - [x] Create custom button component
+      - [x] "Dashboard" button to return to the main page.
+      - [x] (Optional, if applicable) "My Tests" button to view user-created tests.
+      - [x] "Logout" button to log out of the user account(Optional).
+      - [ ] Implement button that toggle on/off side-panel
     - [ ] Main Panel:
       - [ ] Welcome Message (Non-Logged-in Users): Briefly introduce the app's purpose and encourage user registration.
       - [ ] User Summary (Logged-in Users):
