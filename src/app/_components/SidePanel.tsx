@@ -2,7 +2,7 @@ import CustomButton from "@/components/CustomButton";
 
 export default function SidePanel() {
   return (
-    <aside className="sticky top-0 hidden border-r border-border/40 bg-zinc-950 p-4 md:block">
+    <aside className="sticky top-0 hidden border-r border-border/40 bg-gradient-to-b from-zinc-900 to-black p-4 md:block">
       <div className="flex h-full flex-col justify-between">
         <div className="flex flex-col gap-4 ">
           <CustomButton href="/dashboard">Dashboard</CustomButton>

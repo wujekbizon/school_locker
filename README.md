@@ -27,7 +27,7 @@
     - [ ] Main Panel:
       - [x] Welcome Message (Non-Logged-in Users): Briefly introduce the app's purpose and encourage user registration.
       - [ ] User Summary (Logged-in Users):
-        - [ ] Display user profile information (name, avatar, etc.).
+        - [x] Display user profile information (name, avatar, etc.).
         - [ ] Show recently created tests or accessed books (if the feature is implemented).
         - [ ] (Optional) Progress indicators: Visualize user's progress in completed tests or completed books (badges, points, etc.).
       - [ ] Featured Content (Optional):

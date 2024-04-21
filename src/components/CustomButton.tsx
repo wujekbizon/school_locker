@@ -7,7 +7,7 @@ export default function CustomButton(props: {
   return (
     <Link
       href={props.href}
-      className="rounded bg-gradient-to-r from-gray-600 to-gray-800 px-12 py-1 text-center text-white hover:from-gray-600 hover:to-gray-400"
+      className="rounded bg-gradient-to-r from-gray-600 to-gray-800 px-16 py-1 text-center text-white hover:from-gray-600 hover:to-gray-400"
     >
       {props.children}
     </Link>

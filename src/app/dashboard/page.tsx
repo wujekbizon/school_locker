@@ -1,8 +1,5 @@
-import EditIcon from "@/components/icons/Edit";
-import { Textarea } from "@/components/ui/textarea";
-import { displayMemberSince } from "@/helpers/displayMemberSince";
+import UserInfo from "@/components/UserInfo";
 import { currentUser } from "@clerk/nextjs/server";
-import Image from "next/image";
 
 export default async function DashboardPage() {
   const user = await currentUser();
@@ -11,60 +8,33 @@ export default async function DashboardPage() {
 
   return (
     <section className="flex h-[calc(100%_-_56px)] w-full flex-col px-4 pb-3">
-      <div className="flex h-full w-full flex-row">
-        <div className="flex w-full flex-col items-center pt-28">
-          <h1 className="font-semi-bold w-1/2 bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text py-2 text-center text-4xl text-transparent">
+      <div className="flex h-full w-full flex-row gap-4">
+        <div className="flex w-full flex-col items-center justify-evenly ">
+          <h1 className="font-semi-bold w-full bg-gradient-to-r from-gray-500 to-gray-700 bg-clip-text py-1  text-center text-2xl text-transparent md:w-3/4 md:text-4xl">
             Hello,{" "}
             <span className="font-bold text-amber-500"> {user?.firstName}</span>{" "}
-            welcome in your personal digital locker.
+            welcome to your personal digital locker.
           </h1>
-          <h2 className="text-center text-lg font-semibold text-zinc-500"></h2>
-        </div>
-        <div className="flex h-full flex-col justify-between">
-          <div className="flex flex-col gap-3">
-            <p className="border-b text-sm text-zinc-300">User info:</p>
-            <div className="w-45 h-45 relative ">
-              <Image
-                className="rounded-xl object-contain"
-                src={user.imageUrl}
-                alt="user"
-                width={300}
-                height={300}
-              />
-              <EditIcon />
-            </div>
-            <div>
-              <p>{user.fullName}</p>
-            </div>
-            <div>
-              <p className="text-sm text-zinc-300">Email:</p>
-              <p className="blur-sm hover:blur-none">
-                {user.emailAddresses[0]?.emailAddress}
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-4 pt-20">
-              <p className="text-sm text-zinc-300">Motto:</p>
-              <Textarea
-                className="resize-none border-border/40 bg-transparent"
-                placeholder="Share your learning motto, one that will motivate you every day."
-              />
-              <div className="flex w-full justify-end ">
-                <button className="rounded bg-gradient-to-r from-gray-600 to-gray-800 px-3 py-1 text-center text-sm text-white hover:from-gray-600 hover:to-gray-400">
-                  Submit
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="flex w-full flex-col gap-3">
-            <p className="text-md border-b  text-zinc-300">
-              {displayMemberSince(user)}
+          <div className="flex flex-col gap-4">
+            <h4 className="border-b text-zinc-400 ">How to start: </h4>
+            <p className="text-lg  text-zinc-500">
+              1. Navigate using the side panel or quick links below.
             </p>
-            <button className="mb-2 rounded bg-gradient-to-r from-red-400 to-red-700 py-1 hover:from-red-600 hover:to-red-200">
-              Close Account
-            </button>
+            <p className="text-lg  text-zinc-500">
+              2. Create a motto that will be shared throughout the different
+              screens of this application.
+            </p>
+            <p className="text-lg  text-zinc-500">
+              3. Have fun and enjoy learning new things.
+            </p>
+          </div>
+          <div className="flex  w-full flex-row items-center justify-center gap-10">
+            <div className="flex h-32 w-32 rounded border">B</div>
+            <div className="flex h-32 w-32 rounded border ">C</div>
+            <div className="flex h-32 w-32 rounded border ">A</div>
           </div>
         </div>
+        <UserInfo />
       </div>
     </section>
   );
