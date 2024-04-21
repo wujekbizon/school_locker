@@ -1,4 +1,6 @@
+import QuickLink from "@/components/QuickLink";
 import UserInfo from "@/components/UserInfo";
+import { quickLinks } from "@/constants/quickLinks";
 import { currentUser } from "@clerk/nextjs/server";
 
 export default async function DashboardPage() {
@@ -29,9 +31,11 @@ export default async function DashboardPage() {
             </p>
           </div>
           <div className="flex  w-full flex-row items-center justify-center gap-10">
-            <div className="flex h-32 w-32 rounded border">B</div>
-            <div className="flex h-32 w-32 rounded border ">C</div>
-            <div className="flex h-32 w-32 rounded border ">A</div>
+            <>
+              {quickLinks.map((link) => (
+                <QuickLink key={link.id} {...link} />
+              ))}
+            </>
           </div>
         </div>
         <UserInfo />
