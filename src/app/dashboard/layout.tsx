@@ -4,11 +4,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
-      {/* Include shared UI here e.g. a header or sidebar */}
-      <nav></nav>
-
+    <main className="h-full w-full bg-black">
+      {/* <nav className="flex h-14 items-center justify-center">
+        Inner Layout Component - Optional
+      </nav> */}
       {children}
-    </section>
+    </main>
   );
 }
