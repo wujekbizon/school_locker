@@ -5,9 +5,9 @@ export default function DashboardLayout({
 }) {
   return (
     <main className="h-full w-full bg-black">
-      {/* <nav className="flex h-14 items-center justify-center">
+      <nav className="flex h-14 items-center justify-center">
         Inner Layout Component - Optional
-      </nav> */}
+      </nav>
       {children}
     </main>
   );

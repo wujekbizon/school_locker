@@ -1,4 +1,5 @@
-import EditIcon from "@/components/ui/icons/Edit";
+import EditIcon from "@/components/icons/Edit";
+import { Textarea } from "@/components/ui/textarea";
 import { displayMemberSince } from "@/helpers/displayMemberSince";
 import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
@@ -9,7 +10,7 @@ export default async function DashboardPage() {
   if (!user) throw new Error("Unauthorized");
 
   return (
-    <section className="flex h-full w-full flex-col p-4">
+    <section className="flex h-[calc(100%_-_56px)] w-full flex-col px-4 pb-3">
       <div className="flex h-full w-full flex-row">
         <div className="flex w-full flex-col items-center pt-28">
           <h1 className="font-semi-bold w-1/2 bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text py-2 text-center text-4xl text-transparent">
@@ -41,11 +42,28 @@ export default async function DashboardPage() {
                 {user.emailAddresses[0]?.emailAddress}
               </p>
             </div>
-            <p className="text-md text-zinc-300">{displayMemberSince(user)}</p>
+
+            <div className="flex flex-col gap-4 pt-20">
+              <p className="text-sm text-zinc-300">Motto:</p>
+              <Textarea
+                className="resize-none border-border/40 bg-transparent"
+                placeholder="Share your learning motto, one that will motivate you every day."
+              />
+              <div className="flex w-full justify-end ">
+                <button className="rounded bg-gradient-to-r from-gray-600 to-gray-800 px-3 py-1 text-center text-sm text-white hover:from-gray-600 hover:to-gray-400">
+                  Submit
+                </button>
+              </div>
+            </div>
           </div>
-          <button className="mx-8 mb-4 bg-red-400 py-1 hover:bg-red-500">
-            Close Account
-          </button>
+          <div className="flex w-full flex-col gap-3">
+            <p className="text-md border-b  text-zinc-300">
+              {displayMemberSince(user)}
+            </p>
+            <button className="mb-2 rounded bg-gradient-to-r from-red-400 to-red-700 py-1 hover:from-red-600 hover:to-red-200">
+              Close Account
+            </button>
+          </div>
         </div>
       </div>
     </section>

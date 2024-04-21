@@ -1,5 +1,5 @@
-import Logo from "@/components/ui/Logo";
-import NavButton from "@/components/ui/NavButton";
+import Logo from "@/components/Logo";
+import NavButton from "@/components/NavButton";
 import { SignedIn, SignInButton, SignedOut, UserButton } from "@clerk/nextjs";
 
 export default function TopNav() {

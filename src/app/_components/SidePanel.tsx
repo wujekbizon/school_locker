@@ -1,4 +1,4 @@
-import CustomButton from "@/components/ui/CustomButton";
+import CustomButton from "@/components/CustomButton";
 
 export default function SidePanel() {
   return (
