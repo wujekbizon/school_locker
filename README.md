@@ -18,12 +18,12 @@
       - [x] App Logo: Prominently displayed on the left side for brand recognition.
       - [x] Sign In/Sign Out Button: Clearly visible on the right for user authentication.
       - [x] (Optional) Search Bar: Allow users to search for specific subjects or tests (if applicable).
-    - [ ] Left Side Panel (Remains constant throughout the user journey, providing navigation options.):
+    - [x] Left Side Panel (Remains constant throughout the user journey, providing navigation options.):
       - [x] Create custom button component
       - [x] "Dashboard" button to return to the main page.
       - [x] (Optional, if applicable) "My Tests" button to view user-created tests.
       - [x] "Logout" button to log out of the user account(Optional).
-      - [ ] Implement button that toggle on/off side-panel
+      - [x] Implement button that toggle on/off side-panel
     - [ ] Main Panel:
       - [x] Welcome Message (Non-Logged-in Users): Briefly introduce the app's purpose and encourage user registration.
       - [ ] User Summary (Logged-in Users):
@@ -38,8 +38,9 @@
         - [ ] "Explore Library" button (if implemented) to navigate to the digital book collection.
     - [ ] Framer Motion aniamtions
 - [x] User Authentication (w/ Clerk):
-- [ ] Create mock data to populate UI elements initially.
+- [x] Create mock data to populate UI elements initially.
 - [x] Integrate Clerk for user registration, login, and authentication.
+- [x] Add Zustand to manage global state
 - [ ] Implement user profile management and authorization checks.
 
 ### Phase 2: Core Functionality - Tests and Books

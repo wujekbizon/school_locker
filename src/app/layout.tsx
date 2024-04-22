@@ -1,10 +1,9 @@
 import "@/styles/globals.css";
 
 import { Poppins } from "next/font/google";
-import { ClerkProvider, SignedIn } from "@clerk/nextjs";
-import { dark, neobrutalism } from "@clerk/themes";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 import TopNav from "@/app/_components/TopNav";
-import SidePanel from "@/app/_components/SidePanel";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,9 +31,6 @@ export default function RootLayout({
         <body className={`${poppins.className} dark h-screen overflow-hidden`}>
           <TopNav />
           <main className="relative flex h-[calc(100vh_-_56px)]">
-            <SignedIn>
-              <SidePanel />
-            </SignedIn>
             {children}
           </main>
         </body>

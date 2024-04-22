@@ -10,7 +10,7 @@ export default async function UserInfo() {
   if (!user) throw new Error("Unauthorized");
 
   return (
-    <div className="flex h-full flex-col justify-between">
+    <div className="flex h-full w-64  flex-col justify-between">
       <div className="flex flex-col gap-3">
         <p className="border-b text-sm text-zinc-300">User info:</p>
         <div className="w-45 h-45 relative ">
@@ -49,10 +49,10 @@ export default async function UserInfo() {
         </div>
       </div>
       <div className="flex w-full flex-col gap-3">
-        <p className="text-md border-b  text-zinc-300">
+        <p className="text-md border-b pb-1 text-zinc-300">
           Member {displayMemberSince(user)}
         </p>
-        <button className="mb-2 rounded bg-gradient-to-r from-red-400 to-red-700 py-1 hover:from-red-600 hover:to-red-200">
+        <button className="mb-3 rounded bg-gradient-to-r from-red-400 to-red-700 py-1 hover:from-red-600 hover:to-red-200">
           Close Account
         </button>
       </div>
