@@ -10,14 +10,16 @@ export function displayMemberSince(user: User) {
 
   let memberSinceText;
   if (differenceInMs < oneDayInMs) {
-    memberSinceText = "Member joined just now";
+    memberSinceText = "joined just now";
   } else if (differenceInMs < oneMonthInMs) {
     const days = Math.floor(differenceInMs / oneDayInMs);
-    memberSinceText = days === 1 ? `Member since 1 day` : `${days} days ago`;
+    console.log(days);
+    memberSinceText =
+      days === 1 ? `joined ${days} day ago` : `joined ${days} days ago`;
   } else {
     const months = Math.floor(differenceInMs / oneMonthInMs);
     memberSinceText =
-      months === 1 ? `Memeber since 1 month` : `${months} months ago`;
+      months === 1 ? `joined month ago` : `joined ${months} months ago`;
   }
 
   return memberSinceText;

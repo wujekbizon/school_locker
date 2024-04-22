@@ -50,7 +50,7 @@ export default async function UserInfo() {
       </div>
       <div className="flex w-full flex-col gap-3">
         <p className="text-md border-b  text-zinc-300">
-          {displayMemberSince(user)}
+          Member {displayMemberSince(user)}
         </p>
         <button className="mb-2 rounded bg-gradient-to-r from-red-400 to-red-700 py-1 hover:from-red-600 hover:to-red-200">
           Close Account
