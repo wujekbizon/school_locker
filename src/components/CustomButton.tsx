@@ -7,7 +7,7 @@ export default function CustomButton(props: {
   return (
     <Link
       href={props.href}
-      className="rounded bg-gradient-to-r from-gray-600 to-gray-800 px-20 py-1 text-center text-white hover:from-gray-600 hover:to-gray-400"
+      className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border border-border/40 bg-zinc-950 px-16 py-2 text-sm font-medium text-secondary-foreground shadow transition-colors hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
     >
       {props.children}
     </Link>

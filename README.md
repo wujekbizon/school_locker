@@ -29,12 +29,12 @@
       - [ ] User Summary (Logged-in Users):
         - [x] Display user profile information (name, avatar, etc.).
         - [ ] Show recently created tests or accessed books (if the feature is implemented).
-        - [ ] (Optional) Progress indicators: Visualize user's progress in completed tests or completed books (badges, points, etc.).
+        - [x] (Optional) Progress indicators: Visualize user's progress in completed tests or completed books (badges, points, etc.).
       - [ ] Featured Content (Optional):
         - [ ] Showcase curated test collections for popular subjects or age groups.
         - [ ] Highlight newly added digital books to the library (if implemented).
       - [ ] Call to Action Buttons:
-        - [ ] "Create Test" button to initiate test creation.
+        - [x] "Create Test" button to initiate test creation.
         - [ ] "Explore Library" button (if implemented) to navigate to the digital book collection.
     - [ ] Framer Motion aniamtions
 - [x] User Authentication (w/ Clerk):
