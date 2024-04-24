@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -74,7 +74,57 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (
+        newUtilities: {
+          ".scrollbar-thin": {
+            scrollbarWidth: string;
+            scrollbarColor: string;
+          };
+          ".scrollbar-webkit": {
+            "&::-webkit-scrollbar": {
+              width: string;
+            };
+            "&::-webkit-scrollbar-track": {
+              background: string;
+            };
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: string;
+              borderRadius: string;
+              border: string;
+            };
+          };
+        },
+        []: string[],
+      ) => void;
+    }) {
+      const newUtilities = {
+        ".scrollbar-thin": {
+          scrollbarWidth: "thin",
+          scrollbarColor: "black white",
+        },
+        ".scrollbar-webkit": {
+          "&::-webkit-scrollbar": {
+            width: "8px",
+          },
+          "&::-webkit-scrollbar-track": {
+            background: "black",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "rgb(245 158 11)",
+            borderRadius: "20px",
+            border: "1px solid black",
+          },
+        },
+      };
 
-export default config
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
+} satisfies Config;
+
+export default config;

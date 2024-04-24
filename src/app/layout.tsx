@@ -30,7 +30,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${poppins.className} dark h-screen overflow-hidden`}>
           <TopNav />
-          <main className="relative flex h-[calc(100vh_-_56px)]">
+          <main className="relative flex h-[calc(100vh_-_64px)]">
             {children}
           </main>
         </body>

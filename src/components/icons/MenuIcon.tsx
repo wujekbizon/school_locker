@@ -6,7 +6,7 @@ export default function MenuIcon() {
   const toggleSidePanel = useStore((state) => state.toggleSidePanel);
   return (
     <svg
-      className="absolute left-2 h-8 w-8 cursor-pointer"
+      className="absolute left-2 hidden h-8 w-8 cursor-pointer md:block"
       width="28px"
       height="28px"
       viewBox="0 0 24 24"

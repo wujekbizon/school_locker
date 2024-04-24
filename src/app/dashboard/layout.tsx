@@ -9,7 +9,7 @@ export default function DashboardLayout({
   return (
     <main className="flex w-full flex-row bg-black">
       <SidePanel />
-      <div className="w-full overflow-y-scroll">
+      <div className="scrollbar-webkit w-full overflow-y-scroll">
         <DasboardNav />
         {children}
       </div>

@@ -9,7 +9,7 @@ export default async function DashboardPage() {
   if (!user) throw new Error("Unauthorized");
 
   return (
-    <section className="flex h-[calc(100%_-_56px)] w-full flex-col px-4 pb-3">
+    <section className="flex h-[calc(100%_-_64px)] w-full flex-col px-4 pb-3">
       <div className="flex h-full w-full flex-row gap-4">
         <div className="flex w-full flex-col items-center justify-evenly ">
           <h1 className="font-semi-bold w-full bg-gradient-to-r from-gray-500 to-gray-700 bg-clip-text py-1  text-center text-2xl text-transparent md:w-3/4 md:text-4xl">

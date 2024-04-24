@@ -1,16 +1,13 @@
 import Badge from "@/components/Badge";
-import CustomButton from "@/components/CustomButton";
-import Logo from "@/components/Logo";
-import { ENGLISH_A1_DATA } from "@/data/englishA1";
 
 export default function TestsPage() {
   return (
-    <section className="flex min-h-[calc(100%_-_64px)] w-full flex-col justify-center p-6">
+    <section className="flex min-h-[calc(100%_-_64px)] w-full flex-col justify-center px-2 py-4">
       <div className="grid auto-rows-max gap-4 md:gap-8 lg:col-span-3">
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4">
           {/*Total Test*/}
           <div className="rounded-xl border border-border/40 bg-card p-4 text-card-foreground shadow transition-colors sm:col-span-2">
-            <div className="flex flex-col gap-6 space-y-2.5">
+            <div className="flex flex-col gap-4 space-y-2.5">
               <h3 className="text-left text-sm tracking-tight text-muted-foreground">
                 Total Tests Created
               </h3>
@@ -29,7 +26,7 @@ export default function TestsPage() {
             </div>
           </div>
           {/*Week - Month*/}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <div className="rounded-xl border border-border/40 bg-card p-4 text-card-foreground shadow transition-colors">
               <div className="flex flex-col gap-2">
                 <p className="text-sm text-muted-foreground">This Week</p>
@@ -87,13 +84,6 @@ export default function TestsPage() {
               </div>
             </div>
           </div>
-          {/* Badges */}
-          <div className="rounded-xl border border-border/40 bg-card p-4 text-card-foreground shadow ">
-            <p className="text-sm text-muted-foreground">Badges</p>
-            <div className="flex flex-wrap items-center  gap-2 pt-8">
-              <Badge title="Tester" />
-            </div>
-          </div>
           {/*Experience Tree*/}
           <div className="rounded-xl border border-border/40 bg-card p-4 text-card-foreground shadow sm:col-span-2">
             <div className="flex flex-col items-center gap-4 space-y-1.5 pb-2">
@@ -108,6 +98,14 @@ export default function TestsPage() {
               </button>
             </div>
           </div>
+          {/* Badges */}
+          <div className="rounded-xl border border-border/40 bg-card p-4 text-card-foreground shadow ">
+            <p className="text-sm text-muted-foreground">Badges</p>
+            <div className="flex flex-wrap items-center  gap-2 pt-8">
+              <Badge title="Tester" />
+            </div>
+          </div>
+          {/* Buttons */}
           <div className="rounded-xl border border-border/40 bg-zinc-950 p-4 text-card-foreground shadow">
             <div className="flex h-full flex-col justify-around gap-4">
               <button className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-amber-500/80 px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-amber-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ">

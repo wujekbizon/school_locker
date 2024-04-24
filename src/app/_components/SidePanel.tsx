@@ -8,8 +8,8 @@ export default function SidePanel() {
   return (
     <>
       {isSidePanelOpen && (
-        <aside className="hidden h-full flex-col justify-between border-r border-border/40 p-4 md:flex ">
-          <div className="flex flex-col gap-4 ">
+        <aside className="hidden  flex-col justify-between border-r border-border/40 p-4 md:flex ">
+          <div className="flex flex-col gap-4">
             <CustomButton href="/dashboard">Dashboard</CustomButton>
             <CustomButton href="/dashboard/tests">My Tests</CustomButton>
             <CustomButton href="/dashboard/learn">Learn</CustomButton>

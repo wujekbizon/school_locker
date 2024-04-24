@@ -69,10 +69,6 @@ export const ENGLISH_A1_DATA = [
         option: "Where am we? I think this is Oxford street.",
         isCorrect: false,
       },
-      {
-        option: "Where am we? I think this is Oxford street.",
-        isCorrect: false,
-      },
     ],
   },
   {
@@ -927,7 +923,6 @@ export const ENGLISH_A1_DATA = [
     answers: [
       { option: "Sit down. You look tired.", isCorrect: true },
       { option: "Sit down. You tired look.", isCorrect: false },
-      { option: "Sit down. You look tired.", isCorrect: false },
     ],
   },
   {
