@@ -36,7 +36,7 @@
       - [ ] Call to Action Buttons:
         - [x] "Create Test" button to initiate test creation.
         - [ ] "Explore Library" button (if implemented) to navigate to the digital book collection.
-    - [ ] Framer Motion aniamtions
+    - [ ] Framer Motion animations
 - [x] User Authentication (w/ Clerk):
 - [x] Create mock data to populate UI elements initially.
 - [x] Integrate Clerk for user registration, login, and authentication.
@@ -47,6 +47,7 @@
 
 #### Test Creation:
 
+- [x] Reshape Drizzle Schema for Tests.
 - [ ] Develop UI elements for users to select subjects and create tests.
   - [ ] Subject Selection Page (This page would be reached by clicking the "Create Test" button on the main page.):
     - [ ] Subject List: Display a well-organized list of subjects relevant to creating tests.
@@ -71,6 +72,7 @@
         - [ ] (Optional) "Preview Test" button to allow users to see a preview of the created test before saving.
 - [ ] Implement logic for users to add questions, answer choices, and mark correct answers.
 - [ ] Consider initial support for text-based questions and answers.
+
 - [ ] Database (Vercel Postgres - Development):
 - [ ] Set up a Vercel Postgres database to store test data (questions, answers, user associations).
 - [ ] Establish connection between your Next.js application and the database.

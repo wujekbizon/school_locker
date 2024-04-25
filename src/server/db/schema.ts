@@ -8,6 +8,7 @@ import {
   serial,
   timestamp,
   varchar,
+  jsonb,
 } from "drizzle-orm/pg-core";
 
 /**
@@ -18,17 +19,19 @@ import {
  */
 export const createTable = pgTableCreator((name) => `school-locker_${name}`);
 
-export const posts = createTable(
-  "post",
+export const tests = createTable(
+  "test",
   {
     id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }),
+    userId: varchar("userId", { length: 256 }).notNull(), // Store Clerk-provided user ID
+    category: varchar("category", { length: 256 }).notNull(), // Test category (English, Law, etc.)
+    data: jsonb("data").notNull(), // Stores TestDataInterface in JSON format
     createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp("updatedAt"),
   },
   (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
+    nameIndex: index("name_idx").on(example.userId),
+  }),
 );
