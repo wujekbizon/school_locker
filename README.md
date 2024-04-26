@@ -31,7 +31,7 @@
         - [ ] Show recently created tests or accessed books (if the feature is implemented).
         - [x] (Optional) Progress indicators: Visualize user's progress in completed tests or completed books (badges, points, etc.).
       - [ ] Featured Content (Optional):
-        - [ ] Showcase curated test collections for popular subjects or age groups.
+        - [ ] Showcase created test collections for popular subjects or age groups.
         - [ ] Highlight newly added digital books to the library (if implemented).
       - [ ] Call to Action Buttons:
         - [x] "Create Test" button to initiate test creation.
@@ -73,9 +73,9 @@
 - [ ] Implement logic for users to add questions, answer choices, and mark correct answers.
 - [ ] Consider initial support for text-based questions and answers.
 
-- [ ] Database (Vercel Postgres - Development):
-- [ ] Set up a Vercel Postgres database to store test data (questions, answers, user associations).
-- [ ] Establish connection between your Next.js application and the database.
+- [x] Database (Vercel Postgres - Development):
+  - [x] Set up a Vercel Postgres database to store test data (questions, answers, user associations).
+  - [x] Establish connection between your Next.js application and the database.
 
 #### User-Created Test Storage:
 

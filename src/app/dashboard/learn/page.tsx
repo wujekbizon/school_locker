@@ -1,14 +1,21 @@
 import QuestionCard from "@/components/QuestionCard";
-import { ENGLISH_A1_DATA } from "@/data/englishA1";
+import { db } from "@/server/db";
+import { eq } from "drizzle-orm";
+import TestDataInterface from "@/types/testData";
+import { getTestsByUser } from "@/server/queries";
 
-export default function LearnPage() {
+export default async function LearnPage() {
+  // const category = "english";
+
+  const tests = await getTestsByUser();
+
   return (
     <section className="flex flex-col items-center gap-7 p-2 md:p-8">
-      {ENGLISH_A1_DATA.map((item) => (
+      {tests.map((item) => (
         <QuestionCard
-          key={item.number} // this need to be replace lateer with proper unique id
-          data={item}
-          length={ENGLISH_A1_DATA.length}
+          key={item.id}
+          data={item.data as TestDataInterface}
+          length={tests.length}
         />
       ))}
     </section>

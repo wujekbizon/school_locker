@@ -26,7 +26,7 @@ export default function TopNav() {
               <SignInButton />
             </SignedOut>
             <SignedIn>
-              <UserButton />
+              <UserButton afterSignOutUrl="/" />
             </SignedIn>
           </div>
         </div>

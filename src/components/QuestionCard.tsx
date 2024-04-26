@@ -16,10 +16,7 @@ export default function QuestionCard(props: {
   };
 
   return (
-    <div
-      key={number}
-      className="relative w-full rounded-lg border border-border/40 bg-zinc-900 px-4 py-8 text-white md:w-2/3 "
-    >
+    <div className="relative w-full rounded-lg border border-border/40 bg-zinc-900 px-4 py-8 text-white md:w-2/3 ">
       <p className="absolute right-2 top-1 text-sm text-muted-foreground">
         {number}/{props.length}
       </p>
