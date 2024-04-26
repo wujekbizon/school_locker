@@ -1,4 +1,5 @@
 import Badge from "@/components/Badge";
+import Link from "next/link";
 
 export default function TestsPage() {
   return (
@@ -108,12 +109,16 @@ export default function TestsPage() {
           {/* Buttons */}
           <div className="rounded-xl border border-border/40 bg-zinc-950 p-4 text-card-foreground shadow">
             <div className="flex h-full flex-col justify-around gap-4">
-              <button className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-amber-500/80 px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-amber-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ">
-                Start Test
-              </button>
-              <button className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ">
-                Create Test
-              </button>
+              <Link href="/dashboard/learn">
+                <button className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-amber-500/80 px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-amber-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ">
+                  Start Learning
+                </button>
+              </Link>
+              <Link href="/dashboard/tests/create">
+                <button className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ">
+                  Create Test
+                </button>
+              </Link>
             </div>
           </div>
         </div>

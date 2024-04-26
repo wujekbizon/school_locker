@@ -7,9 +7,10 @@ import { useState } from "react";
 export default function QuestionCard(props: {
   data: TestDataInterface;
   length: number;
+  index: number;
 }) {
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
-  const { answers, number, question } = props.data;
+  const { answers, question } = props.data;
 
   const handleCorrectAnswer = () => {
     setShowCorrectAnswer(!showCorrectAnswer);
@@ -18,7 +19,8 @@ export default function QuestionCard(props: {
   return (
     <div className="relative w-full rounded-lg border border-border/40 bg-zinc-900 px-4 py-8 text-white md:w-2/3 ">
       <p className="absolute right-2 top-1 text-sm text-muted-foreground">
-        {number}/{props.length}
+        {/* To Do: How to index questions... */}
+        {props.index + 1}/{props.length}
       </p>
       <h3 className="border-b border-border/40 px-4 pb-4 text-lg">
         {question}

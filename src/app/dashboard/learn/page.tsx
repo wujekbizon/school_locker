@@ -1,21 +1,21 @@
 import QuestionCard from "@/components/QuestionCard";
-import { db } from "@/server/db";
-import { eq } from "drizzle-orm";
 import TestDataInterface from "@/types/testData";
-import { getTestsByUser } from "@/server/queries";
+import { getAllTests } from "@/server/queries";
+
+export const dynamic = "force-dynamic";
 
 export default async function LearnPage() {
-  // const category = "english";
-
-  const tests = await getTestsByUser();
+  // getting all tests from db
+  const tests = await getAllTests();
 
   return (
     <section className="flex flex-col items-center gap-7 p-2 md:p-8">
-      {tests.map((item) => (
+      {tests.map((item, index) => (
         <QuestionCard
           key={item.id}
           data={item.data as TestDataInterface}
           length={tests.length}
+          index={index}
         />
       ))}
     </section>
