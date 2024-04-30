@@ -62,10 +62,10 @@
       - [ ] Question Creation Section:
         - [ ] Allow adding multiple questions.
         - [ ] For each question:
-          - [ ] Text area for entering the question text.
+          - [x] Text area for entering the question text.
           - [ ] Option to add different question types (multiple choice, true/false, short answer, etc.).
-          - [ ] Multiple input fields for answer choices (depending on question type).
-          - [ ] Ability to mark one answer as the correct one.
+          - [x] Multiple input fields for answer choices (depending on question type).
+          - [x] Ability to mark one answer as the correct one.
           - [ ] Add/Remove buttons for managing questions.
       - [ ] Action Buttons:
         - [ ] "Save Test" button to save the created test with its details and questions.

@@ -6,7 +6,7 @@ export default function CreateTestPage() {
       <div>
         <h1>Welcome to tests creating page.</h1>
       </div>
-      <CreateTestForm optionsNumber={3} />
+      <CreateTestForm />
     </section>
   );
 }

@@ -1,26 +1,48 @@
 "use client";
 
 import { useFormState } from "react-dom";
-import { Checkbox } from "./ui/checkbox";
-import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { createTest } from "@/actions/acions";
 import { EMPTY_FORM_STATE } from "@/constants/formState";
+import FieldError from "@/app/_components/FieldError";
+import SubmitButton from "@/app/_components/SubmitButton";
+import { useFormReset } from "@/hooks/useFormReset";
+import renderAnswers from "@/helpers/renderTestsAnswers";
+import { useState } from "react";
 
-export default function CreateTestForm(props: { optionsNumber: number }) {
+export default function CreateTestForm() {
+  const [answersNumber, setAnswersNumber] = useState(3); // later
   const [formState, action] = useFormState(createTest, EMPTY_FORM_STATE);
-
-  // create empty options array based on options number
-  const options = Array.from({ length: props.optionsNumber }, (_, i) => ({
-    id: `option${i + 1}`,
-    label: `Option ${i + 1}`,
-    value: "", // Initial empty value for input
-    isChecked: false, // Initial unchecked state for checkbox
-  }));
+  const formRef = useFormReset(formState);
 
   return (
-    <form className="flex w-full flex-col gap-8 md:w-1/2" action={action}>
-      <div className="">
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <div className="flex flex-col">
+        <label className="text-sm text-muted-foreground" htmlFor="select">
+          How many options?
+        </label>
+        <select
+          id="select"
+          className="h-8 rounded border border-border/60 bg-zinc-950"
+          value={answersNumber}
+          onChange={(e) => {
+            const parseNumber = parseInt(e.target.value);
+            if (!isNaN(parseNumber)) {
+              setAnswersNumber(parseNumber);
+            }
+          }}
+          defaultValue={answersNumber}
+        >
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+        </select>
+      </div>
+      <form
+        className="flex w-full flex-col md:w-1/2"
+        action={action}
+        ref={formRef}
+      >
         <div className="flex flex-col">
           <label htmlFor="number" className="text-sm text-muted-foreground">
             Test Number:
@@ -32,44 +54,27 @@ export default function CreateTestForm(props: { optionsNumber: number }) {
             id="number"
             className="inline-flex h-8 w-28 items-center justify-start whitespace-nowrap rounded-md border border-input bg-zinc-950 px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           />
+          <FieldError formState={formState} name="number" />
         </div>
-      </div>
-      <div className="flex flex-col gap-2">
-        <label htmlFor="question" className="text-sm text-muted-foreground">
-          Question:
-        </label>
-        <Textarea className="resize-none" id="question" name="question" />
-      </div>
-      <div className="flex flex-col items-center gap-4">
-        {options.map((option) => (
-          <div
-            key={option.id}
-            className="flex w-full items-center justify-between gap-4"
+        <div className="flex flex-col">
+          <label
+            htmlFor="question"
+            className="pb-2 text-sm text-muted-foreground"
           >
-            <div className="flex w-full flex-col gap-2">
-              <label
-                htmlFor={option.label}
-                className="text-sm text-muted-foreground"
-              >
-                {option.label}
-              </label>
-              <Input id={option.label} type="text" name={option.label} />
-            </div>
-            <div className="flex h-16 w-24 flex-col items-center justify-end gap-1">
-              <label
-                htmlFor="checkbox3"
-                className="text-sm text-muted-foreground"
-              >
-                Is correct?
-              </label>
-              <Checkbox id="checkbox3" />
-            </div>
-          </div>
-        ))}
-      </div>
-      <button className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ">
-        Create Test
-      </button>
-    </form>
+            Question:
+          </label>
+          <Textarea className="resize-none" id="question" name="question" />
+          <FieldError formState={formState} name="question" />
+        </div>
+        <div className="flex flex-col items-center ">
+          {/* using helper function to render answers */}
+          {renderAnswers(formState, answersNumber)}
+        </div>
+        <FieldError formState={formState} name="checkbox" />
+        <div className="flex w-1/2 self-center">
+          <SubmitButton label="Create Test" loading="Creating..." />
+        </div>
+      </form>
+    </div>
   );
 }
