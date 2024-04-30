@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import TopNav from "@/app/_components/TopNav";
+import ToastProvider from "./_components/ToastProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -31,7 +32,7 @@ export default function RootLayout({
         <body className={`${poppins.className} dark h-screen overflow-hidden`}>
           <TopNav />
           <main className="relative flex h-[calc(100vh_-_64px)]">
-            {children}
+            <ToastProvider>{children}</ToastProvider>
           </main>
         </body>
       </html>

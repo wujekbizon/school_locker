@@ -9,21 +9,24 @@ import SubmitButton from "@/app/_components/SubmitButton";
 import { useFormReset } from "@/hooks/useFormReset";
 import renderAnswers from "@/helpers/renderTestsAnswers";
 import { useState } from "react";
+import { useToastMessage } from "@/hooks/useToastMessage";
 
 export default function CreateTestForm() {
-  const [answersNumber, setAnswersNumber] = useState(3); // later
+  const [answersNumber, setAnswersNumber] = useState(3);
   const [formState, action] = useFormState(createTest, EMPTY_FORM_STATE);
   const formRef = useFormReset(formState);
+
+  const noScriptFallback = useToastMessage(formState);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
       <div className="flex flex-col">
-        <label className="text-sm text-muted-foreground" htmlFor="select">
-          How many options?
+        <label className="pb-1 text-sm text-muted-foreground" htmlFor="select">
+          How many answers?
         </label>
         <select
           id="select"
-          className="h-8 rounded border border-border/60 bg-zinc-950"
+          className="ob h-8 rounded border border-border/60 bg-zinc-950"
           value={answersNumber}
           onChange={(e) => {
             const parseNumber = parseInt(e.target.value);
@@ -31,7 +34,6 @@ export default function CreateTestForm() {
               setAnswersNumber(parseNumber);
             }
           }}
-          defaultValue={answersNumber}
         >
           <option value={2}>2</option>
           <option value={3}>3</option>
@@ -44,7 +46,10 @@ export default function CreateTestForm() {
         ref={formRef}
       >
         <div className="flex flex-col">
-          <label htmlFor="number" className="text-sm text-muted-foreground">
+          <label
+            htmlFor="number"
+            className="pb-1 text-sm text-muted-foreground"
+          >
             Test Number:
           </label>
           <input
@@ -59,7 +64,7 @@ export default function CreateTestForm() {
         <div className="flex flex-col">
           <label
             htmlFor="question"
-            className="pb-2 text-sm text-muted-foreground"
+            className="pb-1 text-sm text-muted-foreground"
           >
             Question:
           </label>
@@ -74,6 +79,7 @@ export default function CreateTestForm() {
         <div className="flex w-1/2 self-center">
           <SubmitButton label="Create Test" loading="Creating..." />
         </div>
+        {noScriptFallback}
       </form>
     </div>
   );

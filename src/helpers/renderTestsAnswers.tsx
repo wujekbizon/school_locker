@@ -15,10 +15,10 @@ export default function renderAnswers(
         className="flex w-full items-center justify-between gap-4"
         key={`answer-${i}`}
       >
-        <div className="flex w-full flex-col gap-2">
+        <div className="flex w-full flex-col">
           <label
             htmlFor={`option${i}`}
-            className="text-sm text-muted-foreground"
+            className="pb-1 text-sm text-muted-foreground"
           >
             {`Answer ${i}`}
           </label>

@@ -56,7 +56,6 @@
   - [ ] Test Creation Page (Accessible after selecting a subject from the previous page.):
     - [ ] Main Panel:
       - [ ] Test Details Section:
-        - [ ] Input field for the test title.
         - [ ] Option to select target age group or difficulty level (if applicable).
         - [ ] (Optional) Description field to add a short overview of the test.
       - [ ] Question Creation Section:

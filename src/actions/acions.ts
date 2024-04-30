@@ -4,9 +4,11 @@ import {
   fromErrorToFormState,
   toFormState,
 } from "@/helpers/fromErrorToFormState";
+import { db } from "@/server/db";
+import { tests } from "@/server/db/schema";
 import { FormState } from "@/types/actionTypes";
+import { auth } from "@clerk/nextjs/server";
 import { z } from "zod";
-import { revalidatePath } from "next/cache";
 
 export async function createTest(FormState: FormState, formData: FormData) {
   const createTestSchema = z.object({
@@ -28,6 +30,9 @@ export async function createTest(FormState: FormState, formData: FormData) {
     ),
   });
 
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+
   try {
     const formDataAnswers = [];
     for (let i = 1; i <= 3; i++) {
@@ -42,18 +47,19 @@ export async function createTest(FormState: FormState, formData: FormData) {
       answers: formDataAnswers,
     });
 
-    console.log(parseResult);
-
     // Additional validation for exactly one correct answer
     const correctAnswers = formDataAnswers.filter((answer) => answer.isCorrect);
 
     if (correctAnswers.length !== 1) {
-      throw new Error("Please select exactly one correct answer.");
+      return toFormState("ERROR", "Please select exactly one correct answer.");
     }
+
+    await db
+      .insert(tests)
+      .values({ userId: user.userId, data: parseResult, category: "test" });
   } catch (error) {
     return fromErrorToFormState(error);
   }
 
-  revalidatePath("/dashboard/tests");
   return toFormState("SUCCESS", "Test Created");
 }
