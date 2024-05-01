@@ -1,16 +1,15 @@
 "use client";
 
 import { LETTERS } from "@/constants/optionsLetters";
-import TestDataInterface from "@/types/testData";
+import type { TestsData } from "@/types/testData";
 import { useState } from "react";
 
 export default function QuestionCard(props: {
-  data: TestDataInterface;
-  length: number;
-  index: number;
+  test: TestsData;
+  questionNumber: string;
 }) {
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
-  const { answers, question } = props.data;
+  const { answers, question } = props.test.data;
 
   const handleCorrectAnswer = () => {
     setShowCorrectAnswer(!showCorrectAnswer);
@@ -19,8 +18,7 @@ export default function QuestionCard(props: {
   return (
     <div className="relative w-full rounded-lg border border-border/40 bg-zinc-900 px-4 py-8 text-white md:w-2/3 ">
       <p className="absolute right-2 top-1 text-sm text-muted-foreground">
-        {/* To Do: How to index questions... */}
-        {props.index + 1}/{props.length}
+        {props.questionNumber}
       </p>
       <h3 className="border-b border-border/40 px-4 pb-4 text-lg">
         {question}

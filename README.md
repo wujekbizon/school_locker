@@ -42,6 +42,7 @@
 - [x] Integrate Clerk for user registration, login, and authentication.
 - [x] Add Zustand to manage global state
 - [ ] Implement user profile management and authorization checks.
+- [ ] Enable caching with TanStack Query
 
 ### Phase 2: Core Functionality - Tests and Books
 
@@ -49,26 +50,28 @@
 
 - [x] Reshape Drizzle Schema for Tests.
 - [ ] Develop UI elements for users to select subjects and create tests.
-  - [ ] Subject Selection Page (This page would be reached by clicking the "Create Test" button on the main page.):
-    - [ ] Subject List: Display a well-organized list of subjects relevant to creating tests.
-    - [ ] Create categories or subcategories to group related subjects if we have a large number.
-    - [ ] Each subject can be a clickable element leading to the test creation page.
-  - [ ] Test Creation Page (Accessible after selecting a subject from the previous page.):
-    - [ ] Main Panel:
-      - [ ] Test Details Section:
-        - [ ] Option to select target age group or difficulty level (if applicable).
-        - [ ] (Optional) Description field to add a short overview of the test.
-      - [ ] Question Creation Section:
-        - [ ] Allow adding multiple questions.
-        - [ ] For each question:
-          - [x] Text area for entering the question text.
-          - [ ] Option to add different question types (multiple choice, true/false, short answer, etc.).
-          - [x] Multiple input fields for answer choices (depending on question type).
-          - [x] Ability to mark one answer as the correct one.
-          - [ ] Add/Remove buttons for managing questions.
-      - [ ] Action Buttons:
-        - [ ] "Save Test" button to save the created test with its details and questions.
-        - [ ] (Optional) "Preview Test" button to allow users to see a preview of the created test before saving.
+- [ ] Learn Page (This page would be reached by clicking the "Lean" button on the side menu.):
+  - [ ] List all the categories and tests
+  - [ ] Create categories or subcategories to group related subjects if we have a large number.
+  - [ ] Filter through the test based on different category
+  - [ ] Subject List: Display a well-organized list of subjects relevant to creating tests.
+  - [ ] Each subject can have a button leading to the start test page.
+- [ ] Test Creation Page (Accessible after selecting a subject from the previous page.):
+  - [ ] Main Panel:
+    - [ ] Test Details Section:
+      - [ ] Option to select target age group or difficulty level (if applicable).
+      - [ ] (Optional) Description field to add a short overview of the test.
+    - [ ] Question Creation Section:
+      - [ ] Allow adding multiple questions.
+      - [ ] For each question:
+        - [x] Text area for entering the question text.
+        - [ ] Option to add different question types (multiple choice, true/false, short answer, etc.).
+        - [x] Multiple input fields for answer choices (depending on question type).
+        - [x] Ability to mark one answer as the correct one.
+        - [ ] Add/Remove buttons for managing questions.
+    - [ ] Action Buttons:
+      - [ ] "Save Test" button to save the created test with its details and questions.
+      - [ ] (Optional) "Preview Test" button to allow users to see a preview of the created test before saving.
 - [ ] Implement logic for users to add questions, answer choices, and mark correct answers.
 - [ ] Consider initial support for text-based questions and answers.
 
