@@ -1,5 +1,4 @@
 interface TestDataInterface {
-  number: number;
   question: string;
   answers: {
     option: string;

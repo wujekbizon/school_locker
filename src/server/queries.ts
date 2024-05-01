@@ -1,6 +1,8 @@
 import "server-only";
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
+import { tests } from "./db/schema";
+import { and, eq } from "drizzle-orm";
 
 export async function getAllTests() {
   const tests = await db.query.tests.findMany({
@@ -30,4 +32,13 @@ export async function getTestsByUser() {
   });
 
   return tests;
+}
+
+export async function deleteTest(id: number) {
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+
+  await db
+    .delete(tests)
+    .where(and(eq(tests.id, id), eq(tests.userId, user.userId)));
 }

@@ -12,7 +12,7 @@ import { z } from "zod";
 
 export async function createTest(FormState: FormState, formData: FormData) {
   const createTestSchema = z.object({
-    number: z.string().min(1, { message: "Test number field cannot be empty" }),
+    category: z.string().min(1, { message: "Please select a category" }),
     question: z
       .string()
       .min(1, { message: "Question field cannot be empty" })
@@ -41,8 +41,8 @@ export async function createTest(FormState: FormState, formData: FormData) {
       formDataAnswers.push({ option, isCorrect: isChecked });
     }
 
-    const parseResult = createTestSchema.parse({
-      number: formData.get("number"),
+    const { answers, category, question } = createTestSchema.parse({
+      category: formData.get("category"),
       question: formData.get("question"),
       answers: formDataAnswers,
     });
@@ -54,9 +54,12 @@ export async function createTest(FormState: FormState, formData: FormData) {
       return toFormState("ERROR", "Please select exactly one correct answer.");
     }
 
-    await db
-      .insert(tests)
-      .values({ userId: user.userId, data: parseResult, category: "test" });
+    const data = {
+      question,
+      answers,
+    };
+
+    await db.insert(tests).values({ userId: user.userId, data, category });
   } catch (error) {
     return fromErrorToFormState(error);
   }

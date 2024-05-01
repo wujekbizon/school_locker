@@ -1,6 +1,6 @@
 const QUESTIONPRESENTSIMPLE1 = `Choose the correct present simple forms of 'to be' for the gaps below: `;
 const QUESTIONPRESENTSIMPLE2 =
-  "Complete the sentences with 'this, that, these, those': ";
+  "Complete the sentences with 'this, that, these, those: ";
 const QUESTIONPRESENTSIMPLE3 =
   "Choose 'this, that, these, those' to complete the following sentences: ";
 const QUESTIONPRESENTSIMPLE4 =

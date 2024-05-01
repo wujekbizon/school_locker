@@ -10,6 +10,10 @@ import { useFormReset } from "@/hooks/useFormReset";
 import renderAnswers from "@/helpers/renderTestsAnswers";
 import { useState } from "react";
 import { useToastMessage } from "@/hooks/useToastMessage";
+import {
+  CATEGORY_OPTIONS,
+  NUMBER_OF_ANSWERS,
+} from "@/constants/categoryOptions";
 
 export default function CreateTestForm() {
   const [answersNumber, setAnswersNumber] = useState(3);
@@ -26,7 +30,7 @@ export default function CreateTestForm() {
         </label>
         <select
           id="select"
-          className="ob h-8 rounded border border-border/60 bg-zinc-950"
+          className="h-8 rounded border border-border/60 bg-zinc-950 px-2"
           value={answersNumber}
           onChange={(e) => {
             const parseNumber = parseInt(e.target.value);
@@ -35,9 +39,11 @@ export default function CreateTestForm() {
             }
           }}
         >
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-          <option value={4}>4</option>
+          {NUMBER_OF_ANSWERS.map((item) => (
+            <option key={item.title} value={item.value}>
+              {item.title}
+            </option>
+          ))}
         </select>
       </div>
       <form
@@ -50,16 +56,20 @@ export default function CreateTestForm() {
             htmlFor="number"
             className="pb-1 text-sm text-muted-foreground"
           >
-            Test Number:
+            Test Category:
           </label>
-          <input
-            min={1}
-            name="number"
-            type="number"
-            id="number"
-            className="inline-flex h-8 w-28 items-center justify-start whitespace-nowrap rounded-md border border-input bg-zinc-950 px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-          />
-          <FieldError formState={formState} name="number" />
+          <select
+            name="category"
+            id="category"
+            className="h-8 rounded border border-border/60 bg-zinc-950 px-2 text-sm"
+          >
+            {CATEGORY_OPTIONS.map((item) => (
+              <option key={item.category} value={item.value}>
+                {item.category}
+              </option>
+            ))}
+          </select>
+          <FieldError formState={formState} name="category" />
         </div>
         <div className="flex flex-col">
           <label
