@@ -14,6 +14,7 @@ import {
   CATEGORY_OPTIONS,
   NUMBER_OF_ANSWERS,
 } from "@/constants/categoryOptions";
+import Select from "./Select";
 
 export default function CreateTestForm() {
   const [answersNumber, setAnswersNumber] = useState(3);
@@ -52,23 +53,7 @@ export default function CreateTestForm() {
         ref={formRef}
       >
         <div className="flex flex-col">
-          <label
-            htmlFor="number"
-            className="pb-1 text-sm text-muted-foreground"
-          >
-            Test Category:
-          </label>
-          <select
-            name="category"
-            id="category"
-            className="h-8 rounded border border-border/60 bg-zinc-950 px-2 text-sm"
-          >
-            {CATEGORY_OPTIONS.map((item) => (
-              <option key={item.category} value={item.value}>
-                {item.category}
-              </option>
-            ))}
-          </select>
+          <Select options={CATEGORY_OPTIONS} label="Test Category: " />
           <FieldError formState={formState} name="category" />
         </div>
         <div className="flex flex-col">

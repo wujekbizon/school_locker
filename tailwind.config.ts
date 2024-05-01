@@ -110,12 +110,13 @@ const config = {
         ".scrollbar-webkit": {
           "&::-webkit-scrollbar": {
             width: "8px",
+            height: "8px",
           },
           "&::-webkit-scrollbar-track": {
             background: "black",
           },
           "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "rgb(245 158 11)",
+            backgroundColor: "rgba(245 158 11)",
             borderRadius: "20px",
             border: "1px solid black",
           },

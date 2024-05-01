@@ -16,7 +16,7 @@ export default function QuestionCard(props: {
   };
 
   return (
-    <div className="relative w-full rounded-lg border border-border/40 bg-zinc-900 px-4 py-8 text-white md:w-2/3 ">
+    <div className="relative w-full rounded-lg border border-border/40 bg-zinc-950 px-4 py-8 text-white md:w-2/3 ">
       <p className="absolute right-2 top-1 text-sm text-muted-foreground">
         {props.questionNumber}
       </p>
@@ -41,9 +41,9 @@ export default function QuestionCard(props: {
         <div className="flex w-full justify-center self-center pt-4 md:w-1/2">
           <button
             onClick={handleCorrectAnswer}
-            className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 "
+            className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-primary/90 px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-amber-500/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 "
           >
-            {showCorrectAnswer ? "Back" : "Correct anwser"}
+            {showCorrectAnswer ? "Hide Answer" : "Reveal Answer"}
           </button>
         </div>
       </ul>
