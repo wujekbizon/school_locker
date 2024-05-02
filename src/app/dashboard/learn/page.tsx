@@ -8,7 +8,6 @@ export const dynamic = "force-dynamic";
 
 const Tests = async () => {
   // getting all tests from db
-
   const tests = await getAllTests();
   const typedTests = tests as TestsData[]; // Type assertion
 

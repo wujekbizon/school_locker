@@ -42,7 +42,7 @@
 - [x] Integrate Clerk for user registration, login, and authentication.
 - [x] Add Zustand to manage global state
 - [ ] Implement user profile management and authorization checks.
-- [ ] Enable caching with TanStack Query
+- [x] Enable caching with TanStack Query
 
 ### Phase 2: Core Functionality - Tests and Books
 
@@ -51,11 +51,11 @@
 - [x] Reshape Drizzle Schema for Tests.
 - [ ] Develop UI elements for users to select subjects and create tests.
 - [ ] Learn Page (This page would be reached by clicking the "Lean" button on the side menu.):
-  - [ ] List all the categories and tests
-  - [ ] Create categories or subcategories to group related subjects if we have a large number.
-  - [ ] Filter through the test based on different category
+  - [x] List all the categories and tests
+  - [x] Create categories or subcategories to group related subjects if we have a large number.
+  - [x] Filter through the test based on different category
   - [ ] Subject List: Display a well-organized list of subjects relevant to creating tests.
-  - [ ] Each subject can have a button leading to the start test page.
+  - [x] Each subject can have a button leading to the start test page.
 - [ ] Test Creation Page (Accessible after selecting a subject from the previous page.):
   - [ ] Main Panel:
     - [ ] Test Details Section:

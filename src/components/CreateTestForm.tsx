@@ -24,31 +24,39 @@ export default function CreateTestForm() {
   const noScriptFallback = useToastMessage(formState);
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center">
-      <div className="flex flex-col">
-        <label className="pb-1 text-sm text-muted-foreground" htmlFor="select">
-          How many answers?
-        </label>
-        <select
-          id="select"
-          className="h-8 rounded border border-border/60 bg-zinc-950 px-2"
-          value={answersNumber}
-          onChange={(e) => {
-            const parseNumber = parseInt(e.target.value);
-            if (!isNaN(parseNumber)) {
-              setAnswersNumber(parseNumber);
-            }
-          }}
-        >
-          {NUMBER_OF_ANSWERS.map((item) => (
-            <option key={item.title} value={item.value}>
-              {item.title}
-            </option>
-          ))}
-        </select>
+    <div className="flex w-full flex-col items-center justify-center">
+      <div className="flex w-full justify-between pb-4 lg:w-3/4">
+        <h2 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2  text-center text-base text-transparent sm:text-2xl  md:text-3xl">
+          Create Test Page:
+        </h2>
+        <div className="flex flex-col">
+          <label
+            className="pb-1 text-sm text-muted-foreground"
+            htmlFor="select"
+          >
+            How many answers?
+          </label>
+          <select
+            id="select"
+            className="h-8 rounded border border-border/60 bg-zinc-950 px-2"
+            value={answersNumber}
+            onChange={(e) => {
+              const parseNumber = parseInt(e.target.value);
+              if (!isNaN(parseNumber)) {
+                setAnswersNumber(parseNumber);
+              }
+            }}
+          >
+            {NUMBER_OF_ANSWERS.map((item) => (
+              <option key={item.title} value={item.value}>
+                {item.title}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <form
-        className="flex w-full flex-col md:w-1/2"
+        className="flex w-full flex-col p-0 sm:p-4 lg:w-2/3"
         action={action}
         ref={formRef}
       >
