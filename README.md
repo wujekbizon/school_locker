@@ -84,6 +84,11 @@
 - [ ] Develop logic to store user-created test data (including text content) in the database.
 - [ ] Implement functionalities for users to access, view, and manage their created tests.
 
+#### Documentation
+
+- [x] Create Documentation page
+- [x] Add how to prepare your test data file
+
 ### Phase 3: Advanced Features (Consider for later updates):
 
 #### Image-Based Tests (Optional):

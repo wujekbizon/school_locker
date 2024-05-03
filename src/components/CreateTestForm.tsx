@@ -24,9 +24,9 @@ export default function CreateTestForm() {
   const noScriptFallback = useToastMessage(formState);
 
   return (
-    <div className="flex w-full flex-col items-center justify-center">
-      <div className="flex w-full justify-between pb-4 lg:w-3/4">
-        <h2 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2  text-center text-base text-transparent sm:text-2xl  md:text-3xl">
+    <div className="flex w-full flex-col items-center justify-center gap-8 px-0 py-14 sm:px-4">
+      <div className="flex w-full flex-col justify-between sm:flex-row">
+        <h2 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2  text-center text-2xl text-transparent  md:text-3xl">
           Create Test Page:
         </h2>
         <div className="flex flex-col">
@@ -53,8 +53,10 @@ export default function CreateTestForm() {
               </option>
             ))}
           </select>
+          <button>Upload from file</button>
         </div>
       </div>
+
       <form
         className="flex w-full flex-col p-0 sm:p-4 lg:w-2/3"
         action={action}
