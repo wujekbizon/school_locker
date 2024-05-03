@@ -27,7 +27,7 @@ export default function CreateTestForm() {
     <div className="flex w-full flex-col items-center justify-center gap-8 px-0 py-14 sm:px-4">
       <div className="flex w-full flex-col justify-between sm:flex-row">
         <h2 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2  text-center text-2xl text-transparent  md:text-3xl">
-          Create Test Page:
+          Create Test:
         </h2>
         <div className="flex flex-col">
           <label
@@ -53,7 +53,6 @@ export default function CreateTestForm() {
               </option>
             ))}
           </select>
-          <button>Upload from file</button>
         </div>
       </div>
 
