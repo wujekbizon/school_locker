@@ -25,7 +25,7 @@ export default function CreateTestForm() {
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-8 px-0 py-14 sm:px-4">
-      <div className="flex w-full flex-col justify-between sm:flex-row">
+      <div className="flex w-full flex-col justify-evenly sm:flex-row">
         <h2 className="bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text p-2  text-center text-2xl text-transparent  md:text-3xl">
           Create Test:
         </h2>

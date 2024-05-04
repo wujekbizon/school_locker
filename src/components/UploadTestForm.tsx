@@ -6,6 +6,9 @@ import { EMPTY_FORM_STATE } from "@/constants/formState";
 import UploadSVG from "@/components/icons/Upload";
 import { Input } from "./ui/input";
 import FieldError from "@/app/_components/FieldError";
+import SubmitButton from "@/app/_components/SubmitButton";
+import { useFormReset } from "@/hooks/useFormReset";
+import { useToastMessage } from "@/hooks/useToastMessage";
 
 export default function UploadTestForm() {
   const [formState, action] = useFormState(
@@ -13,8 +16,11 @@ export default function UploadTestForm() {
     EMPTY_FORM_STATE,
   );
 
+  const formRef = useFormReset(formState);
+  const noScriptFallback = useToastMessage(formState);
+
   return (
-    <form action={action} className="flex items-center gap-8">
+    <form action={action} className="flex items-center gap-8" ref={formRef}>
       <div className="grid w-full items-center gap-1.5">
         <label htmlFor="fileUpload" className="cursor-pointer">
           <div className="flex items-center gap-2 ">
@@ -26,10 +32,9 @@ export default function UploadTestForm() {
         </label>
         <Input type="file" id="fileUpload" name="file" className="h-8 p-1" />
         <FieldError formState={formState} name="file" />
-        <button className="inline-flex h-8 w-full items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-amber-500/80  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-          Add Tests
-        </button>
+        <SubmitButton label="Add Tests" loading="Uploading..." />
       </div>
+      {noScriptFallback}
     </form>
   );
 }
