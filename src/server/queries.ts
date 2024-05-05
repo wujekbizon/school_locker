@@ -42,3 +42,8 @@ export async function deleteTest(id: number) {
     .delete(tests)
     .where(and(eq(tests.id, id), eq(tests.userId, user.userId)));
 }
+
+export async function getCategories() {
+  const categories = await db.select({ category: tests.category }).from(tests);
+  return categories;
+}

@@ -72,6 +72,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      width: {
+        "128": "32rem",
+      },
     },
   },
   plugins: [
@@ -109,16 +112,16 @@ const config = {
         },
         ".scrollbar-webkit": {
           "&::-webkit-scrollbar": {
-            width: "8px",
-            height: "8px",
+            width: "10px",
+            height: "10px",
           },
           "&::-webkit-scrollbar-track": {
             background: "black",
           },
           "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "rgba(245 158 11)",
+            backgroundColor: "rgb(9 9 11)",
             borderRadius: "20px",
-            border: "1px solid black",
+            border: "1px solid rgb(24 24 27)",
           },
         },
       };

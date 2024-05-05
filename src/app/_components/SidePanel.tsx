@@ -15,6 +15,9 @@ export default function SidePanel() {
             <CustomButton href="/dashboard/tests/create">
               Create Test
             </CustomButton>
+            <CustomButton href="/dashboard/learn/subjects">
+              Subjects
+            </CustomButton>
             <CustomButton href="/dashboard/learn">Start Learn</CustomButton>
             <CustomButton href="/library">Library</CustomButton>
           </div>
