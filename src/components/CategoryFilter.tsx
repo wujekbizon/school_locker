@@ -1,12 +1,12 @@
 import { useSelectedCategoryStore } from "@/store/useSelectedCategory";
 
 export default function CategoryFilter(props: {
-  options: { category: string; value: string }[];
+  categories: { category: string; value: string }[];
 }) {
   const { selectedCategory, setSelectedCategory } = useSelectedCategoryStore();
 
   return (
-    <div className="flex flex-col">
+    <div className="flex w-full flex-col md:w-1/3">
       <label htmlFor="category" className="pb-1 text-sm text-muted-foreground">
         Filter by category:
       </label>
@@ -17,7 +17,7 @@ export default function CategoryFilter(props: {
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
       >
-        {props.options.map((item) => (
+        {props.categories.map((item) => (
           <option key={item.category} value={item.value}>
             {item.category}
           </option>

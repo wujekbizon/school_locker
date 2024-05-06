@@ -8,18 +8,18 @@ import { CATEGORY_OPTIONS } from "@/constants/categoryOptions";
 import { useSearchTermStore } from "@/store/useSearchTermStore";
 import { useSelectedCategoryStore } from "@/store/useSelectedCategory";
 import CategoryFilter from "./CategoryFilter";
-import SubjectCard from "./SubjectCard";
 import SearchBar from "./SearchBar";
 import FilteredTestsList from "./FilteredTestsList";
-import SubjectsList from "./SubjectsList";
+import { Categories } from "@/types/categoriesType";
 
-const AllTests: React.FC<TestsData[]> = (tests) => {
+const AllTests = (props: { tests: TestsData[]; categories: Categories[] }) => {
   const { searchTerm } = useSearchTermStore();
   const { selectedCategory } = useSelectedCategoryStore();
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
   const debouncedSearchTermUpdated = useDebounce(debouncedSearchTerm, 250); // Debounce search
+
   // creates an array directly from object's values
-  const testsArr = Object.values(tests);
+  const testsArr = Object.values(props.tests);
 
   const filteredTestsQueryFn = useMemo(() => {
     return async () => {
@@ -90,7 +90,7 @@ const AllTests: React.FC<TestsData[]> = (tests) => {
   return (
     <section className="flex flex-col items-center gap-7 p-2 md:p-8">
       <div className="flex w-full flex-col justify-center gap-4 md:flex-row">
-        <CategoryFilter options={CATEGORY_OPTIONS} />
+        <CategoryFilter categories={props.categories} />
         <SearchBar />
       </div>
       <FilteredTestsList
