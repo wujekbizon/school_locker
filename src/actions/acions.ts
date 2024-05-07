@@ -25,9 +25,25 @@ export async function createTest(FormState: FormState, formData: FormData) {
       formDataAnswers.push({ option, isCorrect: isChecked });
     }
 
+    let c; // Initialize category
+
+    // Check if user wants to create a new category or select an existing one
+    const newCategory = formData?.get("newCategory");
+    const existingCategory = formData.get("category");
+
+    if (!newCategory && !existingCategory) {
+      return toFormState("ERROR", "Please select category or create a new.");
+    }
+
+    if (newCategory) {
+      c = newCategory;
+    } else {
+      c = existingCategory;
+    }
+
     // Validate and destructure form data using Zod schema
     const { answers, category, question } = createTestSchema.parse({
-      category: formData.get("category"),
+      category: c,
       question: formData.get("question"),
       answers: formDataAnswers,
     });

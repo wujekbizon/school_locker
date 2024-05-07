@@ -11,7 +11,9 @@ const useToastMessage = (formState: FormState) => {
     if (showToast) {
       if (formState.status === "ERROR") {
         toast.error(formState.message);
-      } else {
+      }
+
+      if (formState.status === "SUCCESS") {
         toast.success(formState.message);
       }
 

@@ -1,23 +1,28 @@
+import { Categories } from "@/types/categoriesType";
+import Label from "./Label";
+
 export default function Select(props: {
-  options: { category: string; value: string }[];
+  categories: Categories[];
   label: string;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  disabled: boolean;
 }) {
   return (
-    <>
-      <label htmlFor="category" className="pb-1 text-sm text-muted-foreground">
-        {props.label}
-      </label>
+    <div className="flex w-full flex-col">
+      <Label label={props.label} htmlFor="category" />
       <select
         name="category"
         id="category"
-        className="h-8 rounded border border-border/60 bg-zinc-950 px-2 text-sm"
+        className="text-md h-10 rounded border border-border/60 bg-zinc-950 px-2"
+        onChange={props.onChange}
+        disabled={props.disabled}
       >
-        {props.options.map((item) => (
+        {props.categories.map((item) => (
           <option key={item.category} value={item.value}>
             {item.category}
           </option>
         ))}
       </select>
-    </>
+    </div>
   );
 }
