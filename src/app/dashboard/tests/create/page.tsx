@@ -10,7 +10,7 @@ export default async function CreateTestPage() {
   const CATEGORIES = populateCategories(categories);
 
   return (
-    <section className="flex w-full flex-col items-center overflow-x-hidden p-4">
+    <section className="flex w-full flex-col items-center p-4">
       <Title title="Create Test:" />
       <CreateTestForm categories={CATEGORIES} />
       <UploadTestForm />

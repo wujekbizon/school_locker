@@ -48,7 +48,7 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
   };
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-8 px-0 py-14 sm:px-4">
+    <div className="flex w-full flex-col items-center justify-center gap-8 px-0 py-14 sm:px-4 lg:w-3/4">
       <form
         className="flex w-full flex-col p-0 sm:p-4 lg:w-2/3"
         action={action}
