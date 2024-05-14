@@ -50,7 +50,7 @@
 
 - [x] Reshape Drizzle Schema for Tests.
 - [ ] Develop UI elements for users to select subjects and create tests.
-- [ ] Learn Page (This page would be reached by clicking the "Lean" button on the side menu.):
+- [ ] Learn Page (This page would be reached by clicking the "Learn" button on the side menu.):
   - [x] List all the categories and tests
   - [x] Create categories or subcategories to group related subjects if we have a large number.
   - [x] Filter through the test based on different category
