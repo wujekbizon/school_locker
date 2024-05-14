@@ -10,7 +10,7 @@ export default function SubjectCard(props: {
       </p>
       <Link
         className="inline-flex  w-3/4 items-center justify-center whitespace-nowrap rounded-md bg-primary/90 px-2 py-1 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-amber-500/80  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-        href={`/dashboard/learn/${props.item.value}`}
+        href={`/dashboard/learn/subjects/${props.item.value}`}
       >
         Take Test
       </Link>

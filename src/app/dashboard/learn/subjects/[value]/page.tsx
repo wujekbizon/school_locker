@@ -1,5 +1,5 @@
 import FallbackComponent from "@/app/_components/Fallback";
-import QuestionCard from "@/components/QuestionCard";
+import SubjectTests from "@/components/SubjectTests";
 import { getTestsByCategory } from "@/server/queries";
 import { TestsData } from "@/types/testData";
 import { Suspense } from "react";
@@ -14,17 +14,7 @@ async function TestsByCategory({ category }: { category: string }) {
     category,
   )) as TestsData[];
 
-  return (
-    <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:w-5/6">
-      {typedTestsByCategory.map((item, index) => (
-        <QuestionCard
-          key={item.id}
-          test={item}
-          questionNumber={`${index + 1}/${typedTestsByCategory.length}`}
-        />
-      ))}
-    </div>
-  );
+  return <SubjectTests tests={typedTestsByCategory} />;
 }
 
 export default async function CategoryTestPage(props: CategoryPageProps) {
