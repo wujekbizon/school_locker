@@ -21,6 +21,16 @@ export async function getTestsByCategory(category: string) {
   return tests;
 }
 
+export async function countTestsByCategory(category: string) {
+  const testsCount = await db.query.tests
+    .findMany({
+      where: (model, { eq }) => eq(model.category, category),
+    })
+    .then((tests) => tests.length);
+
+  return testsCount;
+}
+
 export async function getTestsByUser() {
   const user = auth();
 

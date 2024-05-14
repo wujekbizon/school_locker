@@ -19,10 +19,8 @@ async function TestsByCategory({ category }: { category: string }) {
 
 export default async function CategoryTestPage(props: CategoryPageProps) {
   return (
-    <div className="flex w-full justify-center">
-      <Suspense fallback={<FallbackComponent />}>
-        <TestsByCategory category={props.params.value} />
-      </Suspense>
-    </div>
+    <Suspense fallback={<FallbackComponent />}>
+      <TestsByCategory category={props.params.value} />
+    </Suspense>
   );
 }
