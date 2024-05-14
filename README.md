@@ -55,6 +55,9 @@
   - [x] Create categories or subcategories to group related subjects if we have a large number.
   - [x] Filter through the test based on different category
   - [ ] Subject List: Display a well-organized list of subjects relevant to creating tests.
+    - [x] Separate page for subjects
+    - [ ] Custom subject cards
+    - [x] Populate cards with data of subjects retrieved from database.
   - [x] Each subject can have a button leading to the start test page.
 - [ ] Test Creation Page (Accessible after selecting a subject from the previous page.):
   - [ ] Main Panel:
