@@ -6,7 +6,11 @@ import {
 } from "@/helpers/fromErrorToFormState";
 import { db } from "@/server/db";
 import { tests } from "@/server/db/schema";
-import { createTestSchema, testFileSchema } from "@/server/schema";
+import {
+  answerSchema,
+  createTestSchema,
+  testFileSchema,
+} from "@/server/schema";
 import type { FormState } from "@/types/actionTypes";
 import { auth } from "@clerk/nextjs/server";
 
@@ -142,7 +146,24 @@ export async function uploadTestsFromFile(
 }
 
 export async function submitAnswer(FormState: FormState, formData: FormData) {
-  console.log(formData);
+  // Check user authorization
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
 
-  return toFormState("SUCCESS", "Test Submitted");
+  const answer = formData.get("answer");
+
+  try {
+    const validatedAnswer = answerSchema.safeParse(answer);
+
+    if (!validatedAnswer.success) {
+      // Handle validation errors
+      return toFormState("ERROR", "Please select an answer");
+    }
+
+    console.log(validatedAnswer.data);
+  } catch (error) {
+    return fromErrorToFormState(error);
+  }
+
+  return toFormState("SUCCESS", "Answer Saved!");
 }

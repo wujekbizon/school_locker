@@ -64,7 +64,11 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
                 disabled={selectionMethod === "newCategory"}
               />
               <div className="flex w-full flex-col">
-                <Label label="Add New Category" htmlFor="addCategory" />
+                <Label
+                  label="Add New Category"
+                  htmlFor="addCategory"
+                  className="p-0"
+                />
                 <Input
                   type="text"
                   id="addCategory"

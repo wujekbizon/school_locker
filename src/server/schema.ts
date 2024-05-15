@@ -46,3 +46,7 @@ export const testFileSchema = z.array(
     category: z.string().min(1, { message: "Category field is required" }),
   }),
 );
+
+export const answerSchema = z
+  .string()
+  .min(1, { message: "Please select an answer" });
