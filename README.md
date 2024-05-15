@@ -49,14 +49,14 @@
 #### Test Creation:
 
 - [x] Reshape Drizzle Schema for Tests.
-- [ ] Develop UI elements for users to select subjects and create tests.
-- [ ] Learn Page (This page would be reached by clicking the "Learn" button on the side menu.):
+- [x] Develop UI elements for users to select subjects and create tests.
+- [x] Learn Page (This page would be reached by clicking the "Learn" button on the side menu.):
   - [x] List all the categories and tests
   - [x] Create categories or subcategories to group related subjects if we have a large number.
   - [x] Filter through the test based on different category
-  - [ ] Subject List: Display a well-organized list of subjects relevant to creating tests.
+  - [x] Subject List: Display a well-organized list of subjects relevant to creating tests.
     - [x] Separate page for subjects
-    - [ ] Custom subject cards
+    - [x] Custom subject cards
     - [x] Populate cards with data of subjects retrieved from database.
   - [x] Each subject can have a button leading to the start test page.
 - [ ] Test Creation Page (Accessible after selecting a subject from the previous page.):

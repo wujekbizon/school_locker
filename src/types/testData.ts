@@ -8,6 +8,11 @@ interface TestDataInterface {
 
 export default TestDataInterface;
 
+export interface AvailableOption {
+  option: string;
+  isCorrect: boolean;
+}
+
 export interface TestsData {
   id: number;
   data: TestDataInterface;

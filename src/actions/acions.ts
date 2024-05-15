@@ -140,3 +140,9 @@ export async function uploadTestsFromFile(
   }
   return toFormState("SUCCESS", "File Uploaded");
 }
+
+export async function submitAnswer(FormState: FormState, formData: FormData) {
+  console.log(formData);
+
+  return toFormState("SUCCESS", "Test Submitted");
+}
