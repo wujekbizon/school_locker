@@ -10,10 +10,10 @@ import FieldError from "@/app/_components/FieldError";
 import SubmitButton from "@/app/_components/SubmitButton";
 import { useFormReset } from "@/hooks/useFormReset";
 import { useToastMessage } from "@/hooks/useToastMessage";
-import renderAnswers from "@/helpers/renderTestsAnswers";
 import Select from "./Select";
 import Label from "./Label";
 import { Input } from "./ui/input";
+import Answers from "@/components/Answers";
 
 export default function CreateTestForm(props: { categories: Categories[] }) {
   const [answersNumber, setAnswersNumber] = useState(3);
@@ -47,9 +47,9 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
   };
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-8 px-0 py-14 sm:px-4 lg:w-3/4">
+    <div className="flex w-full flex-col items-center justify-center gap-8 px-0 pb-10 sm:px-4 lg:w-3/4">
       <form
-        className="flex w-full flex-col p-0 sm:p-4 lg:w-2/3"
+        className="flex w-full flex-col  lg:w-2/3"
         action={action}
         ref={formRef}
       >
@@ -62,12 +62,9 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
                 onChange={handleDropdownChange}
                 disabled={selectionMethod === "newCategory"}
               />
+              <FieldError formState={formState} name="category" />
               <div className="flex w-full flex-col">
-                <Label
-                  label="Add New Category"
-                  htmlFor="addCategory"
-                  className="p-0"
-                />
+                <Label label="Add New Category" htmlFor="addCategory" />
                 <Input
                   type="text"
                   id="addCategory"
@@ -77,6 +74,7 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
                   disabled={selectionMethod === "existingCategory"}
                 />
               </div>
+              <FieldError formState={formState} name="category" />
             </div>
             <div className="flex w-full flex-col justify-end sm:flex-row">
               <div className="flex flex-col">
@@ -96,7 +94,6 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
               </div>
             </div>
           </div>
-          <FieldError formState={formState} name="category" />
         </div>
         <div className="flex flex-col">
           <Label htmlFor="question" label="Question:" />
@@ -104,8 +101,7 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
           <FieldError formState={formState} name="question" />
         </div>
         <div className="flex flex-col items-center ">
-          {/* using helper function to render answers */}
-          {renderAnswers(formState, answersNumber)}
+          <Answers formState={formState} numberOfAnswers={answersNumber} />
         </div>
         <FieldError formState={formState} name="checkbox" />
         <div className="flex w-1/2 self-center">

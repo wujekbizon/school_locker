@@ -11,7 +11,7 @@ const FieldError = ({ formState, name }: FieldErrorProps) => {
       className={`${formState.status === "ERROR" && "bg-black/5"} flex min-h-5 w-full items-center justify-center bg-transparent`}
     >
       <span className="text-sm text-red-300">
-        {(name === "checkbox" || name === "answer") &&
+        {(name === "checkbox" || name === "answer" || name === "category") &&
           formState.status === "ERROR" &&
           formState.message}
         {formState.fieldErrors[name]?.[0]}

@@ -11,7 +11,7 @@ export default async function CreateTestPage() {
 
   return (
     <section className="flex w-full flex-col items-center p-4">
-      <Title title="Create Test:" />
+      {/* <Title title="Create Test:" /> */}
       <CreateTestForm categories={CATEGORIES} />
       <UploadTestForm />
       <h4 className="py-4 text-center text-base text-muted-foreground sm:text-left">

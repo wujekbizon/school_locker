@@ -33,11 +33,11 @@ export async function createTest(FormState: FormState, formData: FormData) {
 
     // Check if user wants to create a new category or select an existing one
     const newCategory = formData?.get("newCategory");
-    const existingCategory = formData.get("category");
+    const existingCategory = formData?.get("category");
 
-    if (!newCategory && !existingCategory) {
-      return toFormState("ERROR", "Please select category or create a new.");
-    }
+    // if (!newCategory && !existingCategory) {
+    //   throw new Error("Please select category or create a new.");
+    // }
 
     if (newCategory) {
       c = newCategory;
