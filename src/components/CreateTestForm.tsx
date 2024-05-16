@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { useFormState } from "react-dom";
+import { useState, useActionState } from "react";
 import { Textarea } from "./ui/textarea";
 import { createTest } from "@/actions/acions";
 import { EMPTY_FORM_STATE } from "@/constants/formState";
@@ -19,7 +18,7 @@ import { Input } from "./ui/input";
 export default function CreateTestForm(props: { categories: Categories[] }) {
   const [answersNumber, setAnswersNumber] = useState(3);
   const [selectionMethod, setSelectionMethod] = useState(""); // Initial state
-  const [formState, action] = useFormState(createTest, EMPTY_FORM_STATE);
+  const [formState, action] = useActionState(createTest, EMPTY_FORM_STATE);
   const formRef = useFormReset(formState);
 
   const noScriptFallback = useToastMessage(formState);

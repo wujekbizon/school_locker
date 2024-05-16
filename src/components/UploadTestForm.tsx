@@ -1,6 +1,5 @@
 "use client";
-
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { uploadTestsFromFile } from "@/actions/acions";
 import { EMPTY_FORM_STATE } from "@/constants/formState";
 import UploadSVG from "@/components/icons/Upload";
@@ -11,11 +10,10 @@ import { useFormReset } from "@/hooks/useFormReset";
 import { useToastMessage } from "@/hooks/useToastMessage";
 
 export default function UploadTestForm() {
-  const [formState, action] = useFormState(
+  const [formState, action] = useActionState(
     uploadTestsFromFile,
     EMPTY_FORM_STATE,
   );
-
   const formRef = useFormReset(formState);
   const noScriptFallback = useToastMessage(formState);
 
