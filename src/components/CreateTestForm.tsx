@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useActionState } from "react";
+import { useEffect } from "react";
+import { useActionState } from "react";
 import { Textarea } from "./ui/textarea";
 import { createTest } from "@/actions/acions";
 import { EMPTY_FORM_STATE } from "@/constants/formState";
 import type { Categories } from "@/types/categoriesType";
-import { NUMBER_OF_ANSWERS } from "@/constants/categoryOptions";
 import FieldError from "@/app/_components/FieldError";
 import SubmitButton from "@/app/_components/SubmitButton";
 import { useFormReset } from "@/hooks/useFormReset";
@@ -14,21 +14,15 @@ import Select from "./Select";
 import Label from "./Label";
 import { Input } from "./ui/input";
 import Answers from "@/components/Answers";
+import { useTestFormState } from "@/store/useTestFormStore";
+import AnswersSelect from "./AnswersSelect";
 
 export default function CreateTestForm(props: { categories: Categories[] }) {
-  const [answersNumber, setAnswersNumber] = useState(3);
-  const [selectionMethod, setSelectionMethod] = useState(""); // Initial state
+  const { selectionMethod, setSelectionMethod } = useTestFormState();
   const [formState, action] = useActionState(createTest, EMPTY_FORM_STATE);
   const formRef = useFormReset(formState);
 
   const noScriptFallback = useToastMessage(formState);
-
-  const parseAnswerNumber = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const parseNumber = parseInt(e.target.value);
-    if (!isNaN(parseNumber)) {
-      setAnswersNumber(parseNumber);
-    }
-  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectionMethod("newCategory");
@@ -45,6 +39,13 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
       setSelectionMethod("");
     }
   };
+
+  useEffect(() => {
+    setSelectionMethod(
+      formState.status === "SUCCESS" ? "" : "existingCategory",
+    );
+    return () => setSelectionMethod("");
+  }, [formState.status, setSelectionMethod]);
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-8 px-0 pb-10 sm:px-4 lg:w-3/4">
@@ -76,22 +77,8 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
               </div>
               <FieldError formState={formState} name="category" />
             </div>
-            <div className="flex w-full flex-col justify-end sm:flex-row">
-              <div className="flex flex-col">
-                <Label htmlFor="select" label=" How many answers?" />
-                <select
-                  id="select"
-                  className="h-10 rounded border border-border/60 bg-zinc-950 px-2"
-                  value={answersNumber}
-                  onChange={parseAnswerNumber}
-                >
-                  {NUMBER_OF_ANSWERS.map((item) => (
-                    <option key={item.title} value={item.value}>
-                      {item.title}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            <div className="flex w-full flex-col justify-end pb-6 sm:flex-row">
+              <AnswersSelect />
             </div>
           </div>
         </div>
@@ -101,7 +88,7 @@ export default function CreateTestForm(props: { categories: Categories[] }) {
           <FieldError formState={formState} name="question" />
         </div>
         <div className="flex flex-col items-center ">
-          <Answers formState={formState} numberOfAnswers={answersNumber} />
+          <Answers formState={formState} />
         </div>
         <FieldError formState={formState} name="checkbox" />
         <div className="flex w-1/2 self-center">

@@ -2,6 +2,8 @@ import type { FormState } from "@/types/actionTypes";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import FieldError from "@/app/_components/FieldError";
+import Label from "./Label";
+import { useTestFormState } from "@/store/useTestFormStore";
 
 interface Answer {
   id: string;
@@ -11,13 +13,13 @@ interface Answer {
 
 interface AnswersProps {
   formState: FormState;
-  numberOfAnswers: number;
 }
 
-const Answers: React.FC<AnswersProps> = ({ formState, numberOfAnswers }) => {
+const Answers: React.FC<AnswersProps> = ({ formState }) => {
   const answers: Answer[] = [];
+  const { answersNumber } = useTestFormState();
 
-  for (let i = 1; i <= numberOfAnswers; i++) {
+  for (let i = 1; i <= answersNumber; i++) {
     answers.push({
       id: `option${i}`,
       label: `Answer ${i}`,
@@ -33,26 +35,25 @@ const Answers: React.FC<AnswersProps> = ({ formState, numberOfAnswers }) => {
           className="flex w-full items-center justify-between gap-4"
         >
           <div className="flex w-full flex-col">
-            <label
+            <Label
               htmlFor={answer.id}
               className="pb-1 text-sm text-muted-foreground"
-            >
-              {answer.label}
-            </label>
+              label={answer.label}
+            />
+
             <Input id={answer.id} type="text" name={answer.name} />
             <FieldError formState={formState} name="answers" />
           </div>
           <div className="flex h-16 w-24 flex-col items-center justify-center gap-1">
-            <label
+            <Label
               htmlFor={`checkbox${answer.id}`}
               className="text-sm text-muted-foreground"
-            >
-              Is correct?
-            </label>
+              label="Is correct?"
+            />
             <Checkbox
               className="hover:bg-amber-500/60"
-              id={`checkbox${index}`}
-              name={`checkbox${index}`}
+              id={`checkbox${answer.id}`}
+              name={`checkbox${index + 1}`}
             />
           </div>
         </div>

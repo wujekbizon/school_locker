@@ -4,9 +4,10 @@ import { env } from "@/env";
 
 export default {
   schema: "./src/server/db/schema.ts",
+  dialect: "postgresql",
   driver: "pg",
   dbCredentials: {
-    connectionString: env.POSTGRES_URL,
+    url: env.POSTGRES_URL,
   },
   tablesFilter: ["school-locker_*"],
-} satisfies Config;
+} as Config;

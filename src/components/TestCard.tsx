@@ -41,7 +41,7 @@ export default function TestCard(props: {
           return (
             <div
               className={`flex w-full items-center gap-4 rounded-lg p-3 ${formState?.status === "UNSET" && "hover:bg-zinc-900"} ${formState?.status === "UNSET" && activeIndex === index && "bg-zinc-900"} ${formState?.status === "SUCCESS" && (answer.isCorrect ? "bg-amber-200/20" : "bg-black/50 opacity-20")}`}
-              key={answer.option}
+              key={`${answer.option}/${index}`}
             >
               <span className="pr-4 text-sm text-muted-foreground">
                 {LETTERS[index]})

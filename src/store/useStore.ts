@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
-type StateType = {
+interface StateType {
   isSidePanelOpen: boolean;
   toggleSidePanel: () => void;
-};
+}
 
 export const useStore = create<StateType>((set) => ({
   isSidePanelOpen: true,

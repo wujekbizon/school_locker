@@ -1,5 +1,7 @@
 "use server";
 
+import { determineTestCategory } from "@/helpers/determineTestCategory";
+import { extractAnswerData } from "@/helpers/extractAnswerData";
 import {
   fromErrorToFormState,
   toFormState,
@@ -21,39 +23,21 @@ export async function createTest(FormState: FormState, formData: FormData) {
   if (!user.userId) throw new Error("Unauthorized");
 
   try {
-    // Extract answers from the form data
-    const formDataAnswers = [];
-    for (let i = 1; i <= 3; i++) {
-      const option = formData.get(`option${i}`);
-      const isChecked = formData.has(`checkbox${i}`);
-      formDataAnswers.push({ option, isCorrect: isChecked });
-    }
+    // Extract answers from formData
+    const answersData = extractAnswerData(formData);
 
-    let c; // Initialize category
-
-    // Check if user wants to create a new category or select an existing one
-    const newCategory = formData?.get("newCategory");
-    const existingCategory = formData?.get("category");
-
-    // if (!newCategory && !existingCategory) {
-    //   throw new Error("Please select category or create a new.");
-    // }
-
-    if (newCategory) {
-      c = newCategory;
-    } else {
-      c = existingCategory;
-    }
+    // Determine the chosen category
+    const testCategory = determineTestCategory(formData);
 
     // Validate and destructure form data using Zod schema
     const { answers, category, question } = createTestSchema.parse({
-      category: c,
+      category: testCategory,
       question: formData.get("question"),
-      answers: formDataAnswers,
+      answers: answersData,
     });
 
     // Additional validation for exactly one correct answer
-    const correctAnswers = formDataAnswers.filter((answer) => answer.isCorrect);
+    const correctAnswers = answersData.filter((answer) => answer.isCorrect);
     if (correctAnswers.length !== 1) {
       return toFormState("ERROR", "Please select exactly one correct answer.");
     }
@@ -65,7 +49,9 @@ export async function createTest(FormState: FormState, formData: FormData) {
     };
 
     // Insert test data into database
-    await db.insert(tests).values({ userId: user.userId, data, category });
+    await db
+      .insert(tests)
+      .values({ userId: user.userId, data, category: category.toLowerCase() });
   } catch (error) {
     return fromErrorToFormState(error);
   }
