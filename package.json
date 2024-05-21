@@ -18,6 +18,8 @@
     "@t3-oss/env-nextjs": "^0.9.2",
     "@tanstack/react-query": "^5.37.1",
     "@tanstack/react-query-devtools": "^5.37.1",
+    "@types/react": "npm:types-react@19.0.0-beta.1",
+    "@types/react-dom": "npm:types-react-dom@beta",
     "@vercel/postgres": "^0.8.0",
     "babel-plugin-react-compiler": "0.0.0-experimental-c23de8d-20240515",
     "class-variance-authority": "^0.7.0",
@@ -32,15 +34,12 @@
     "server-only": "^0.0.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "use-debounce": "^10.0.0",
     "zod": "^3.23.8",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.12.12",
-    "@types/react": "npm:types-react@19.0.0-beta.1",
-    "@types/react-dom": "npm:types-react-dom@beta",
     "@typescript-eslint/eslint-plugin": "^7.10.0",
     "@typescript-eslint/parser": "^7.10.0",
     "drizzle-kit": "^0.21.2",
@@ -54,7 +53,7 @@
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
-  "overrides": {
+  "resolutions": {
     "@types/react": "npm:types-react@beta",
     "@types/react-dom": "npm:types-react-dom@beta"
   },
