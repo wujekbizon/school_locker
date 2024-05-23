@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useActionState } from "react";
 import { useFormReset } from "@/hooks/useFormReset";
 import { submitAnswer } from "@/actions/acions";
@@ -65,7 +63,7 @@ export default function TestCard(props: {
         })}
         <FieldError formState={formState} name="answer" />
       </div>
-      <div className="flex w-1/4 self-end">
+      <div className="flex w-full self-end sm:w-1/4">
         <SubmitButton
           label="Save"
           loading="Saving..."
