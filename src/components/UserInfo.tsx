@@ -10,7 +10,7 @@ export default async function UserInfo() {
   if (!user) throw new Error("Unauthorized");
 
   return (
-    <div className="flex h-full w-64  flex-col justify-between">
+    <div className="flex h-full w-full flex-col justify-between lg:w-64">
       <div className="flex flex-col gap-3">
         <p className="border-b text-sm text-zinc-300">User info:</p>
         <div className="w-45 h-45 relative ">

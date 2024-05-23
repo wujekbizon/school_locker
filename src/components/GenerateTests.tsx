@@ -18,7 +18,7 @@ export default function GenerateTests(props: {
         <TestCard
           key={item.id}
           test={item}
-          questionNumber={`${index + 1}/${props.tests.length}`}
+          questionNumber={`${index + 1}/${randomTests.length}`}
         />
       ))}
     </div>
