@@ -11,7 +11,7 @@ export default function TopNav() {
         <div className="flex flex-1 items-center justify-between gap-4 md:justify-end">
           <div className="flex w-20 items-center justify-center text-white">
             <SignedOut>
-              <SignInButton />
+              <SignInButton forceRedirectUrl="/dashboard" />
             </SignedOut>
             <SignedIn>
               <UserButton afterSignOutUrl="/" />
