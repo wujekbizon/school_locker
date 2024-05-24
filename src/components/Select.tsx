@@ -4,8 +4,6 @@ import Label from "./Label";
 export default function Select(props: {
   categories: Categories[];
   label: string;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  disabled: boolean;
 }) {
   return (
     <div className="flex w-full flex-col">
@@ -13,9 +11,7 @@ export default function Select(props: {
       <select
         name="category"
         id="category"
-        className="text-md h-10 rounded border border-border/60 bg-zinc-950 px-2"
-        onChange={props.onChange}
-        disabled={props.disabled}
+        className="h-10 cursor-pointer rounded border border-border/60 bg-neutral-900 px-2 text-sm  focus:border-amber-200/10 focus-visible:outline-none"
       >
         {props.categories.map((item) => (
           <option key={item.category} value={item.value}>

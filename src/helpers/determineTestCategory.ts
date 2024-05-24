@@ -15,6 +15,8 @@ export function determineTestCategory(formData: FormData) {
     category = existingCategory;
   }
 
+  if (!category) category = "";
+
   // Return the determined category (a string or null)
   return category;
 }

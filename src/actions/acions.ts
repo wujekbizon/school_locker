@@ -17,7 +17,10 @@ import type { FormState } from "@/types/actionTypes";
 import { auth } from "@clerk/nextjs/server";
 
 // Function to create a single test object
-export async function createTest(FormState: FormState, formData: FormData) {
+export async function createTestAction(
+  FormState: FormState,
+  formData: FormData,
+) {
   // Check user authorization
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");

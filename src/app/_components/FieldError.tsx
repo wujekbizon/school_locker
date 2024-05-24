@@ -8,9 +8,9 @@ type FieldErrorProps = {
 const FieldError = ({ formState, name }: FieldErrorProps) => {
   return (
     <div
-      className={`${formState.status === "ERROR" && "bg-black/5"} flex min-h-5 w-full items-center justify-center bg-transparent`}
+      className={`${formState.status === "ERROR" && "bg-black/5"} flex min-h-5 w-full animate-pulse items-center bg-transparent pl-4 pt-1 `}
     >
-      <span className="text-sm text-red-300">
+      <span className="text-xs text-red-400/60">
         {(name === "checkbox" || name === "answer" || name === "category") &&
           formState.status === "ERROR" &&
           formState.message}

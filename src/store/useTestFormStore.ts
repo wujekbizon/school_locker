@@ -9,7 +9,7 @@ interface TestFormState {
 
 export const useTestFormState = create<TestFormState>()((set) => ({
   answersNumber: 3,
-  selectionMethod: "",
+  selectionMethod: "existingCategory",
   setSelectionMethod: (method) => set({ selectionMethod: method }),
   setAnswersNumber: (number) => set({ answersNumber: number }),
 }));

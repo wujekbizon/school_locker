@@ -6,7 +6,6 @@ import UploadSVG from "@/components/icons/Upload";
 import { Input } from "./ui/input";
 import FieldError from "@/app/_components/FieldError";
 import SubmitButton from "@/app/_components/SubmitButton";
-import { useFormReset } from "@/hooks/useFormReset";
 import { useToastMessage } from "@/hooks/useToastMessage";
 
 export default function UploadTestForm() {
@@ -14,22 +13,30 @@ export default function UploadTestForm() {
     uploadTestsFromFile,
     EMPTY_FORM_STATE,
   );
-  const formRef = useFormReset(formState);
   const noScriptFallback = useToastMessage(formState);
 
   return (
-    <form action={action} className="flex w-full sm:w-1/3" ref={formRef}>
-      <div className="grid w-full items-center gap-1.5">
-        <label htmlFor="fileUpload" className="cursor-pointer">
-          <div className="flex items-center gap-2 ">
-            <UploadSVG />
-            <p className="text-xs text-muted-foreground">
-              Upload your tests file
-            </p>
-          </div>
-        </label>
-        <Input type="file" id="fileUpload" name="file" className="h-10 p-1" />
-        <FieldError formState={formState} name="file" />
+    <form
+      action={action}
+      className="flex w-full flex-col gap-2 rounded-lg border border-border/40 bg-zinc-950 px-4 py-8 lg:w-2/3"
+    >
+      <label
+        htmlFor="fileUpload"
+        className="flex h-36 w-full cursor-pointer flex-col items-center justify-center rounded-lg border  border-border/40 bg-neutral-900 hover:bg-neutral-800"
+      >
+        <div className="flex flex-col items-center justify-center pb-6 pt-5">
+          <UploadSVG />
+          <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+            <span className="font-semibold">Click to upload</span> or drag and
+            drop
+          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">JSON</p>
+        </div>
+        <Input type="file" id="fileUpload" name="file" className="hidden" />
+      </label>
+
+      <FieldError formState={formState} name="file" />
+      <div className="flex w-full self-center md:w-1/3">
         <SubmitButton label="Upload File" loading="Uploading..." />
       </div>
       {noScriptFallback}

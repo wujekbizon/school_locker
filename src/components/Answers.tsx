@@ -22,7 +22,7 @@ const Answers: React.FC<AnswersProps> = ({ formState }) => {
   for (let i = 1; i <= answersNumber; i++) {
     answers.push({
       id: `option${i}`,
-      label: `Answer ${i}`,
+      label: `Answer #${i}`,
       name: `option${i}`,
     });
   }
@@ -51,7 +51,7 @@ const Answers: React.FC<AnswersProps> = ({ formState }) => {
               label="Is correct?"
             />
             <Checkbox
-              className="hover:bg-amber-500/60"
+              className="hover:bg-amber-400/40"
               id={`checkbox${answer.id}`}
               name={`checkbox${index + 1}`}
             />
