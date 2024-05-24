@@ -23,7 +23,7 @@ export default function SidePanel() {
           </div>
           <div className="flex flex-col gap-4 py-2">
             <CustomButton href="/documentation">Documetation</CustomButton>
-            <CustomButton href="/dashboards/settings">Settings</CustomButton>
+            <CustomButton href="/dashboard/settings">Settings</CustomButton>
             <CustomButton href="/feedback">Feedback</CustomButton>
           </div>
         </aside>

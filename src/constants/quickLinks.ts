@@ -6,7 +6,7 @@ export const quickLinks = [
   },
   {
     id: 2,
-    href: "/dashboard/library",
+    href: "/library",
     text: "Scan a book",
   },
   {
