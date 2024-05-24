@@ -14,7 +14,7 @@ export default function TopNav() {
               <SignInButton forceRedirectUrl="/dashboard" />
             </SignedOut>
             <SignedIn>
-              <UserButton afterSignOutUrl="/" />
+              <UserButton />
             </SignedIn>
           </div>
         </div>

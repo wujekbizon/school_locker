@@ -1,8 +1,9 @@
-import { displayMemberSince } from "@/helpers/displayMemberSince";
-import { Textarea } from "./ui/textarea";
 import { currentUser } from "@clerk/nextjs/server";
-import EditIcon from "./icons/Edit";
+import { displayMemberSince } from "@/helpers/displayMemberSince";
+import { Textarea } from "@/components/ui/textarea";
+import EditIcon from "@/components/icons/Edit";
 import Image from "next/image";
+import Label from "@/components/Label";
 
 export default async function UserInfo() {
   const user = await currentUser();
@@ -36,8 +37,10 @@ export default async function UserInfo() {
         </div>
 
         <div className="flex flex-col gap-4 pt-20">
-          <p className="text-sm text-zinc-300">Motto:</p>
+          <Label htmlFor="motto" label="Motto:" />
           <Textarea
+            id="motto"
+            name="motto"
             className="resize-none border-border/40 bg-transparent"
             placeholder="Share your learning motto, one that will motivate you every day."
           />
