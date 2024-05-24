@@ -6,14 +6,14 @@ export default function CategoryFilter(props: {
   const { selectedCategory, setSelectedCategory } = useSelectedCategoryStore();
 
   return (
-    <div className="flex w-full flex-col md:w-1/3">
+    <div className="flex w-full flex-col">
       <label htmlFor="category" className="pb-1 text-sm text-muted-foreground">
         Filter by category:
       </label>
       <select
         name="category"
         id="category"
-        className="h-8 rounded border border-border/40 bg-zinc-950 px-2 text-sm"
+        className="h-10 cursor-pointer rounded border border-border/60 bg-neutral-900 px-2 text-sm  focus:border-amber-200/10 focus-visible:outline-none"
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
       >

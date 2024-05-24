@@ -67,8 +67,8 @@ const AllTests = (props: { tests: TestsData[]; categories: Categories[] }) => {
         : testsArr; // Concise conditional rendering
 
   return (
-    <section className="flex flex-col items-center gap-7 p-2 md:p-8">
-      <div className="flex w-full flex-col justify-center gap-4 md:flex-row">
+    <section className="flex flex-col items-center gap-8 p-2 md:p-8">
+      <div className="flex w-full flex-col-reverse justify-center gap-4 rounded-lg border border-border/40 bg-zinc-950 p-4 py-6 md:flex-row xl:w-5/6">
         <CategoryFilter categories={props.categories} />
         <SearchBar />
       </div>
