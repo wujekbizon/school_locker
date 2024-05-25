@@ -21,7 +21,9 @@ const Tests = async () => {
 
 export default async function LearnPage() {
   return (
-    <Suspense fallback={<FallbackComponent />}>
+    <Suspense
+      fallback={<FallbackComponent text="Loading all available tests..." />}
+    >
       <Tests />
     </Suspense>
   );

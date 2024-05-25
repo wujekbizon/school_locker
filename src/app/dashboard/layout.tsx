@@ -1,5 +1,5 @@
-import DasboardNav from "../_components/DasboardNav";
-import SidePanel from "../_components/SidePanel";
+import DasboardNav from "@/app/_components/DasboardNav";
+import SidePanel from "@/app/_components/SidePanel";
 
 export default function DashboardLayout({
   children,
@@ -9,7 +9,7 @@ export default function DashboardLayout({
   return (
     <main className="flex w-full flex-row bg-black">
       <SidePanel />
-      <div className="scrollbar-webkit w-full overflow-y-scroll">
+      <div className="w-full overflow-y-scroll scrollbar-webkit">
         <DasboardNav />
         {children}
       </div>

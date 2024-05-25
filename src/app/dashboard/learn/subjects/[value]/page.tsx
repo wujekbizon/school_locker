@@ -19,7 +19,7 @@ async function TestsByCategory({ category }: { category: string }) {
 
 export default async function CategoryTestPage(props: CategoryPageProps) {
   return (
-    <Suspense fallback={<FallbackComponent />}>
+    <Suspense fallback={<FallbackComponent text="Generating tests..." />}>
       <TestsByCategory category={props.params.value} />
     </Suspense>
   );

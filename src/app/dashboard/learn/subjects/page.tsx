@@ -13,7 +13,9 @@ async function Subjects() {
 
 export default function SubjectsPage() {
   return (
-    <Suspense fallback={<FallbackComponent />}>
+    <Suspense
+      fallback={<FallbackComponent text="Loading subjects categories..." />}
+    >
       <Subjects />
     </Suspense>
   );

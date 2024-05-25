@@ -112,3 +112,4 @@
 - [ ] Test taking functionality with answer submission and scoring.
 - [ ] Analytics and reporting for tests and user activity (consider Posthog integration).
 - [ ] User progress tracking for completed tests.
+- [ ] Chat Rooms
