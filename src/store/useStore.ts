@@ -6,7 +6,7 @@ interface StateType {
 }
 
 export const useStore = create<StateType>((set) => ({
-  isSidePanelOpen: true,
+  isSidePanelOpen: false,
   toggleSidePanel: () =>
     set((state: StateType) => ({ isSidePanelOpen: !state.isSidePanelOpen })),
 }));

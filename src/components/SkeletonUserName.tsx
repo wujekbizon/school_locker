@@ -5,6 +5,8 @@ export default function SkeletonUserName() {
       <div className="h-3 w-3 animate-ping rounded-full dark:bg-gray-700"></div>
       <div className="h-3 w-3 animate-ping rounded-full dark:bg-gray-800"></div>
       <div className="h-3 w-3 animate-ping rounded-full dark:bg-gray-700"></div>
+      <div className="h-3 w-3 animate-ping rounded-full dark:bg-gray-800"></div>
+      <div className="h-3 w-3 animate-ping rounded-full dark:bg-gray-700"></div>
     </div>
   );
 }

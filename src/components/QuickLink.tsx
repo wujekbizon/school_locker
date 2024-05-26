@@ -8,7 +8,7 @@ export default function QuickLink(props: {
   return (
     <Link
       href={props.href}
-      className="flex h-32 w-56 items-center justify-center rounded-lg border border-border/40 bg-gradient-to-tr from-black from-60% to-amber-500 p-2 text-center hover:from-gray-500 hover:to-gray-700 hover:text-zinc-950"
+      className="flex h-14 w-full items-center justify-center rounded-lg border border-border/40 bg-neutral-900 p-2 text-center text-sm transition-colors hover:bg-neutral-800 sm:h-16 sm:w-56"
     >
       {props.text}
     </Link>
