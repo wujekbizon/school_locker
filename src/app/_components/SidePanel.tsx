@@ -11,6 +11,7 @@ export default function SidePanel() {
         <aside className="hidden  flex-col justify-between border-r border-border/40 p-4 md:flex ">
           <div className="flex flex-col gap-4">
             <CustomButton href="/dashboard">Dashboard</CustomButton>
+            <CustomButton href="/dashboard/user">User Info</CustomButton>
             <CustomButton href="/dashboard/tests">My Progress</CustomButton>
             <CustomButton href="/dashboard/tests/create">
               Create Test
