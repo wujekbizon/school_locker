@@ -23,7 +23,7 @@ export default function QuestionCard(props: {
       <h3 className="border-b border-border/40 px-4 pb-2 text-base">
         {question}
       </h3>
-      <ul className="flex h-full flex-col  gap-2 px-4 pt-6">
+      <ul className="flex h-full flex-col gap-2 px-4 pt-6">
         {answers.map(({ option, isCorrect }, index) => (
           <li
             key={option}

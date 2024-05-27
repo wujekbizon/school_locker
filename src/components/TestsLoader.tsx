@@ -1,4 +1,4 @@
-export default function SkeletonUserName() {
+export default function TestLoader() {
   return (
     <div className="inline-flex gap-3.5">
       <div className="ms-2 h-3 w-3 animate-ping rounded-full dark:bg-gray-800"></div>
