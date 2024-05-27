@@ -9,7 +9,7 @@ import {
 import { db } from "@/server/db";
 import { tests } from "@/server/db/schema";
 import {
-  answerSchema,
+  answersSchema,
   createTestSchema,
   testFileSchema,
 } from "@/server/schema";
@@ -134,19 +134,24 @@ export async function uploadTestsFromFile(
   return toFormState("SUCCESS", "File Uploaded");
 }
 
-export async function submitAnswer(formState: FormState, formData: FormData) {
+export async function submitTestAction(
+  formState: FormState,
+  formData: FormData,
+) {
   // Check user authorization
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
 
-  const answer = formData.get("answer");
+  const answers: {}[] = [];
+
+  formData.forEach((value, key) => answers.push({ answer: value }));
 
   try {
-    const validatedAnswer = answerSchema.safeParse(answer);
+    const validatedAnswer = answersSchema.safeParse(answers);
 
     if (!validatedAnswer.success) {
       // Handle validation errors
-      return toFormState("ERROR", "Please select an answer");
+      return toFormState("ERROR", "Please answer all questions");
     }
 
     console.log(validatedAnswer.data);
@@ -154,13 +159,5 @@ export async function submitAnswer(formState: FormState, formData: FormData) {
     return fromErrorToFormState(error);
   }
 
-  return toFormState("SUCCESS", "Answer Saved!");
-}
-
-export async function submitTestAction(
-  formState: FormState,
-  formData: FormData,
-) {
-  console.log(formData.getAll("answer"));
   return toFormState("SUCCESS", "Test Successfully Submitted!");
 }

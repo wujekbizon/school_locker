@@ -47,6 +47,11 @@ export const testFileSchema = z.array(
   }),
 );
 
-export const answerSchema = z
-  .string()
-  .min(1, { message: "Please select an answer" });
+export const answersSchema = z
+  .array(
+    z.object({
+      answer: z.string().min(1, { message: "Please answer a question" }),
+    }),
+  )
+  .nonempty({ message: "Please answer all questions" })
+  .length(15 || 35 || 50, { message: "Please answer all questions" });

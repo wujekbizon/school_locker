@@ -1,31 +1,24 @@
-import { useState, useActionState } from "react";
-import { useFormReset } from "@/hooks/useFormReset";
-import { submitAnswer } from "@/actions/acions";
-import { TestsData } from "@/types/testData";
-import SubmitButton from "@/app/_components/SubmitButton";
-import Label from "./Label";
-import { EMPTY_FORM_STATE } from "@/constants/formState";
+import { useState } from "react";
+import type { TestsData } from "@/types/testData";
+import type { FormState } from "@/types/actionTypes";
+import Label from "@/components/Label";
 import { LETTERS } from "@/constants/optionsLetters";
 import FieldError from "@/app/_components/FieldError";
-import { useToastMessage } from "@/hooks/useToastMessage";
 
 export default function TestCard(props: {
   test: TestsData;
   questionNumber: string;
+  formState: FormState;
 }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [formState, action] = useActionState(submitAnswer, EMPTY_FORM_STATE);
-  const formRef = useFormReset(formState);
 
-  const noScriptFallback = useToastMessage(formState);
   const {
     data: { answers, question },
   } = props.test;
 
   return (
-    <form
-      ref={formRef}
-      action={action}
+    <div
+      // action={action}
       className="relative flex h-full min-h-80 w-full flex-col justify-between rounded-lg border border-border/40 bg-zinc-950 px-4 py-6 text-white"
     >
       <p className="absolute right-2 top-1 text-sm text-muted-foreground">
@@ -39,19 +32,19 @@ export default function TestCard(props: {
         {answers.map((answer, index) => {
           return (
             <div
-              className={`flex w-full items-center gap-4 rounded-lg px-2 py-1 ${formState?.status === "UNSET" && "hover:bg-zinc-900"} ${formState?.status === "UNSET" && activeIndex === index && "bg-zinc-900"} ${formState?.status === "SUCCESS" && (answer.isCorrect ? "bg-amber-200/20" : "bg-black/50 opacity-20")}`}
+              className={`flex w-full items-center gap-4 rounded-lg px-2 py-1 ${props.formState.status === "UNSET" && "hover:bg-zinc-900"} ${props.formState.status === "UNSET" && activeIndex === index && "bg-zinc-900"} ${props.formState.status === "SUCCESS" && (answer.isCorrect ? "bg-amber-200/20" : "bg-black/50 opacity-20")}`}
               key={`${answer.option}/${index}`}
             >
               <span className="text-balance text-sm leading-relaxed text-amber-300/40">
                 {LETTERS[index]})
               </span>
               <input
-                className={`${formState.status === "SUCCESS" && activeIndex === index && "bg-amber-300/70 before:animate-none before:bg-amber-500"}  before:content[''] border-blue-gray-200 before:bg-blue-gray-500 peer relative h-3.5 min-h-3.5 w-3.5 min-w-3.5 cursor-pointer appearance-none rounded-full border text-gray-900 transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-6 before:w-6 before:-translate-x-2/4 before:-translate-y-2/4 before:animate-pulse before:rounded-full before:opacity-0 before:transition-opacity checked:border-black checked:bg-amber-300/70 checked:before:bg-amber-500 hover:before:opacity-5 disabled:pointer-events-none`}
+                className={`${props.formState.status === "SUCCESS" && activeIndex === index && "bg-amber-300/70 before:animate-none before:bg-amber-500"}  before:content[''] border-blue-gray-200 before:bg-blue-gray-500 peer relative h-3.5 min-h-3.5 w-3.5 min-w-3.5 cursor-pointer appearance-none rounded-full border text-gray-900 transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-6 before:w-6 before:-translate-x-2/4 before:-translate-y-2/4 before:animate-pulse before:rounded-full before:opacity-0 before:transition-opacity checked:border-black checked:bg-amber-300/70 checked:before:bg-amber-500 hover:before:opacity-5 disabled:pointer-events-none`}
                 type="radio"
                 value={answer.isCorrect ? "true" : "false"}
                 id={answer.option}
-                disabled={formState?.status === "SUCCESS"}
-                name="answer"
+                disabled={props.formState.status === "SUCCESS"}
+                name={`answer-${props.test.id}`}
                 onClick={() => setActiveIndex(index)}
               />
               <Label
@@ -62,16 +55,8 @@ export default function TestCard(props: {
             </div>
           );
         })}
-        <FieldError formState={formState} name="answer" />
+        <FieldError formState={props.formState} name={`answer`} />
       </div>
-      {noScriptFallback}
-      <div className="flex w-full self-center md:w-1/2">
-        <SubmitButton
-          label="Save"
-          loading="Saving..."
-          disabled={formState?.status === "SUCCESS"}
-        />
-      </div>
-    </form>
+    </div>
   );
 }

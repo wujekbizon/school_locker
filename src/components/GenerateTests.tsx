@@ -8,6 +8,7 @@ import { useActionState } from "react";
 import { EMPTY_FORM_STATE } from "@/constants/formState";
 import { submitTestAction } from "@/actions/acions";
 import { useGenerateTestStore } from "@/store/useGenerateTestStore";
+import { useToastMessage } from "@/hooks/useToastMessage";
 
 export default function GenerateTests(props: { tests: TestsData[] }) {
   const { numberTests } = useGenerateTestStore();
@@ -15,6 +16,7 @@ export default function GenerateTests(props: { tests: TestsData[] }) {
     submitTestAction,
     EMPTY_FORM_STATE,
   );
+  const noScriptFallback = useToastMessage(formState);
 
   if (!numberTests || !props.tests.length) {
     return; // TODO implement better no test component
@@ -23,8 +25,8 @@ export default function GenerateTests(props: { tests: TestsData[] }) {
   const randomTests = generateRandomTests(props.tests, numberTests);
 
   return (
-    <div
-      // action={action}
+    <form
+      action={action}
       className="flex w-full flex-col items-center justify-center gap-4"
     >
       <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:w-5/6">
@@ -33,6 +35,7 @@ export default function GenerateTests(props: { tests: TestsData[] }) {
             key={item.id}
             test={item}
             questionNumber={`${index + 1}/${randomTests.length}`}
+            formState={formState}
           />
         ))}
       </div>
@@ -43,6 +46,7 @@ export default function GenerateTests(props: { tests: TestsData[] }) {
           disabled={formState?.status === "SUCCESS"}
         />
       </div>
-    </div>
+      {noScriptFallback}
+    </form>
   );
 }
