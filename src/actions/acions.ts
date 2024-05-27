@@ -18,7 +18,7 @@ import { auth } from "@clerk/nextjs/server";
 
 // Function to create a single test object
 export async function createTestAction(
-  FormState: FormState,
+  formState: FormState,
   formData: FormData,
 ) {
   // Check user authorization
@@ -134,7 +134,7 @@ export async function uploadTestsFromFile(
   return toFormState("SUCCESS", "File Uploaded");
 }
 
-export async function submitAnswer(FormState: FormState, formData: FormData) {
+export async function submitAnswer(formState: FormState, formData: FormData) {
   // Check user authorization
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
@@ -155,4 +155,12 @@ export async function submitAnswer(FormState: FormState, formData: FormData) {
   }
 
   return toFormState("SUCCESS", "Answer Saved!");
+}
+
+export async function submitTestAction(
+  formState: FormState,
+  formData: FormData,
+) {
+  console.log(formData.getAll("answer"));
+  return toFormState("SUCCESS", "Test Successfully Submitted!");
 }

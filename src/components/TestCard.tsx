@@ -26,7 +26,7 @@ export default function TestCard(props: {
     <form
       ref={formRef}
       action={action}
-      className="relative flex w-full flex-col justify-center rounded-lg border border-border/40 bg-zinc-950 px-4 pb-4 pt-8 text-white"
+      className="relative flex w-full flex-col justify-between rounded-lg border border-border/40 bg-zinc-950 px-4 pb-4 pt-8 text-white"
     >
       <p className="absolute right-2 top-1 text-sm text-muted-foreground">
         {props.questionNumber}
@@ -63,7 +63,7 @@ export default function TestCard(props: {
         })}
         <FieldError formState={formState} name="answer" />
       </div>
-      <div className="flex w-full self-end sm:w-1/4">
+      <div className="flex w-full self-center sm:w-1/4">
         <SubmitButton
           label="Save"
           loading="Saving..."
