@@ -3,6 +3,7 @@
 import { useGenerateTestStore } from "@/store/useGenerateTestStore";
 import RandomTestButon from "@/components/RandomTestButon";
 import { testsMenu } from "@/constants/testsMenu";
+import ResetTestButton from "./ResetTestButton";
 
 export default function SubjectTestsMenu() {
   const { setNumberTests, setIsTest, isTest } = useGenerateTestStore();
@@ -11,11 +12,6 @@ export default function SubjectTestsMenu() {
   const generateTest = (n: number) => {
     setNumberTests(n);
     setIsTest(true);
-  };
-
-  const resetTest = () => {
-    setNumberTests(null);
-    setIsTest(false);
   };
 
   return (
@@ -27,7 +23,7 @@ export default function SubjectTestsMenu() {
         <div className="hidden w-full items-center justify-evenly sm:flex">
           {testsMenu.map((m) => (
             <p
-              className="p-0 text-center text-sm text-muted-foreground md:p-4"
+              className="w-128 p-0 text-center text-sm text-muted-foreground md:p-4"
               key={m.testTitle}
             >
               <span className=" text-white">{m.testTitle}</span> -{" "}
@@ -37,12 +33,7 @@ export default function SubjectTestsMenu() {
         </div>
         <div className="flex w-full flex-col items-center justify-evenly gap-4 sm:flex-row">
           {isTest ? (
-            <button
-              onClick={resetTest}
-              className="items-cente inline-flex h-10 w-full justify-center whitespace-nowrap rounded-md border border-border/40 bg-neutral-900 px-8 py-2 text-base font-medium text-secondary-foreground shadow transition-colors hover:bg-red-400/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:w-48"
-            >
-              Reset Test
-            </button>
+            <ResetTestButton />
           ) : (
             testsMenu.map((m) => (
               <RandomTestButon

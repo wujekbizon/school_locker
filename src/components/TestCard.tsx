@@ -17,10 +17,7 @@ export default function TestCard(props: {
   } = props.test;
 
   return (
-    <div
-      // action={action}
-      className="relative flex h-full min-h-80 w-full flex-col justify-between rounded-lg border border-border/40 bg-zinc-950 px-4 py-6 text-white"
-    >
+    <div className="relative flex h-full min-h-80 w-full flex-col justify-between rounded-lg border border-border/40 bg-zinc-950 px-4 py-6 text-white">
       <p className="absolute right-2 top-1 text-sm text-muted-foreground">
         {props.questionNumber}
       </p>
