@@ -142,19 +142,30 @@ export async function submitTestAction(
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
 
-  const answers: {}[] = [];
+  const answers: Record<string, string>[] = [];
 
-  formData.forEach((value, key) => answers.push({ answer: value }));
+  formData.forEach((value, key) => {
+    if (key.slice(0, 6) === "answer") {
+      answers.push({ [key]: value.toString() });
+    }
+  });
+
+  console.log(answers);
 
   try {
-    const validatedAnswer = answersSchema.safeParse(answers);
+    const validationResult = answersSchema.safeParse(answers);
 
-    if (!validatedAnswer.success) {
-      // Handle validation errors
-      return toFormState("ERROR", "Please answer all questions");
+    if (!validationResult.success) {
+      const expectedKeys = [...Array(15)].map((_, i) => `answer-${i + 1}`); // Assuming 15 questions
+      const missingKeys = expectedKeys.filter(
+        (key) =>
+          !answers.some((answer) => Object.hasOwnProperty.call(answer, key)),
+      );
+      if (missingKeys.length > 0) {
+        return toFormState("ERROR", "Please answer question");
+      }
+      console.log(validationResult.data);
     }
-
-    console.log(validatedAnswer.data);
   } catch (error) {
     return fromErrorToFormState(error);
   }

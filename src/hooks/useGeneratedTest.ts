@@ -22,7 +22,6 @@ export function useGeneratedTest(
     if (!numberTests) {
       return;
     }
-    console.log("numberTests changed");
     // Generate tests using provided data and number
     const generatedTests = generateRandomTests(tests, numberTests);
     setRandomTestsArray(generatedTests); // Update state with generated tests

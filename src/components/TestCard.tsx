@@ -52,7 +52,6 @@ export default function TestCard(props: {
             </div>
           );
         })}
-        <FieldError formState={props.formState} name={`answer`} />
       </div>
     </div>
   );

@@ -1,19 +1,7 @@
-"use client";
-
-import { useGenerateTestStore } from "@/store/useGenerateTestStore";
 import RandomTestButon from "@/components/RandomTestButon";
 import { testsMenu } from "@/constants/testsMenu";
-import ResetTestButton from "./ResetTestButton";
 
 export default function SubjectTestsMenu() {
-  const { setNumberTests, setIsTest, isTest } = useGenerateTestStore();
-
-  // handler function to generate test
-  const generateTest = (n: number) => {
-    setNumberTests(n);
-    setIsTest(true);
-  };
-
   return (
     <div className="mt-10 flex w-full flex-col items-center gap-4 rounded-lg border border-border/40 bg-zinc-950 p-4 sm:mt-20 xl:w-5/6">
       <h4 className="p-0 text-center text-2xl text-amber-400 sm:p-4 sm:text-3xl ">
@@ -31,19 +19,13 @@ export default function SubjectTestsMenu() {
             </p>
           ))}
         </div>
+
         <div className="flex w-full flex-col items-center justify-evenly gap-4 sm:flex-row">
-          {isTest ? (
-            <ResetTestButton />
-          ) : (
-            testsMenu.map((m) => (
-              <RandomTestButon
-                key={m.testTitle}
-                onClickHandler={() => generateTest(m.number)}
-              >
-                {m.testTitle}
-              </RandomTestButon>
-            ))
-          )}
+          {testsMenu.map((m) => (
+            <RandomTestButon key={m.testTitle} number={m.number}>
+              {m.testTitle}
+            </RandomTestButon>
+          ))}
         </div>
       </div>
     </div>
