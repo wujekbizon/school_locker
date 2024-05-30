@@ -3,7 +3,7 @@
 import { TestsData } from "@/types/testData";
 import TestCard from "./TestCard";
 import SubmitButton from "@/app/_components/SubmitButton";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { EMPTY_FORM_STATE } from "@/constants/formState";
 import { submitTestAction } from "@/actions/acions";
 import { useGenerateTestStore } from "@/store/useGenerateTestStore";
@@ -12,6 +12,7 @@ import ResetTestButton from "./ResetTestButton";
 import { useGeneratedTest } from "@/hooks/useGeneratedTest";
 import SubjectTestsMenu from "./SubjectTestsMenu";
 import FieldError from "@/app/_components/FieldError";
+import { useSubmitTestSuccess } from "@/hooks/useSubmitTestSuccess";
 
 export default function GenerateTests(props: { tests: TestsData[] }) {
   const { numberTests, isTest } = useGenerateTestStore();
@@ -22,6 +23,14 @@ export default function GenerateTests(props: { tests: TestsData[] }) {
 
   const noScriptFallback = useToastMessage(formState);
   const randomTest = useGeneratedTest(props.tests, numberTests);
+
+  const { resetTestAndRedirect } = useSubmitTestSuccess();
+
+  useEffect(() => {
+    if (formState.status === "SUCCESS") {
+      resetTestAndRedirect("/dashboard/learn/test-result");
+    }
+  }, [formState.status === "SUCCESS"]);
 
   return (
     <section className="flex  w-full flex-col items-center gap-8 px-4">

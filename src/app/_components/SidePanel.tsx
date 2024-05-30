@@ -12,7 +12,6 @@ export default function SidePanel() {
           <div className="flex flex-col gap-4">
             <CustomButton href="/dashboard">Dashboard</CustomButton>
             <CustomButton href="/dashboard/user">User Info</CustomButton>
-            <CustomButton href="/dashboard/tests">User Progress</CustomButton>
             <CustomButton href="/dashboard/tests/create">
               Create Test
             </CustomButton>
@@ -20,6 +19,9 @@ export default function SidePanel() {
               Subjects
             </CustomButton>
             <CustomButton href="/dashboard/learn">Start Learn</CustomButton>
+            <CustomButton href="/dashboard/learn/progress">
+              User Progress
+            </CustomButton>
             <CustomButton href="/library">Library</CustomButton>
           </div>
           <div className="flex flex-col gap-4 py-2">

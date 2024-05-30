@@ -9,6 +9,7 @@ import {
   timestamp,
   varchar,
   jsonb,
+  integer,
 } from "drizzle-orm/pg-core";
 
 /**
@@ -35,3 +36,20 @@ export const tests = createTable(
     nameIndex: index("name_idx").on(example.userId),
   }),
 );
+
+export const userProgress = createTable("user-progress", {
+  id: serial("id").primaryKey(),
+  userId: varchar("userId", { length: 256 }).notNull(), // Store Clerk-provided user ID
+  userLevel: jsonb("level")
+    .notNull()
+    .default('{"level": 1, "currentExp": 0, "neededExp": 100}'), // Level object with level, current experience, and needed experience
+  userExperience: integer("totalExperience").default(0).notNull(), // Total accumulated experience points
+  lastTest: jsonb("lastTest"), // Object containing details of the user's last test (e.g., {id: 1, score: 80, completedAt: "2024-05-31T00:00:00.000Z"})
+  completedTests: jsonb("completedTests").default([]), // Array of completed tests with details (e.g., [{id: 1, score: 80}])
+  totalCreatedTests: integer("totalCreatedTests").default(0).notNull(), // Total number of tests created by the user
+  badges: jsonb("badges").default([]), // Array of earned badge IDs (e.g., [1, 2])
+  createdAt: timestamp("created_at")
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  updatedAt: timestamp("updatedAt"),
+});

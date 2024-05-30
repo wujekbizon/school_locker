@@ -3,7 +3,6 @@ import type { TestsData } from "@/types/testData";
 import type { FormState } from "@/types/actionTypes";
 import Label from "@/components/Label";
 import { LETTERS } from "@/constants/optionsLetters";
-import FieldError from "@/app/_components/FieldError";
 
 export default function TestCard(props: {
   test: TestsData;
@@ -29,7 +28,7 @@ export default function TestCard(props: {
         {answers.map((answer, index) => {
           return (
             <div
-              className={`flex w-full items-center gap-4 rounded-lg px-2 py-1 ${props.formState.status === "UNSET" && "hover:bg-zinc-900"} ${props.formState.status === "UNSET" && activeIndex === index && "bg-zinc-900"} ${props.formState.status === "SUCCESS" && (answer.isCorrect ? "bg-amber-200/20" : "bg-black/50 opacity-20")}`}
+              className={`flex w-full items-center gap-4 rounded-lg px-2 py-1 ${(props.formState.status === "UNSET" || props.formState.status === "ERROR") && "hover:bg-zinc-900"} ${props.formState.status === "UNSET" && activeIndex === index && "bg-zinc-900"} ${props.formState.status === "SUCCESS" && (answer.isCorrect ? "bg-amber-200/20" : "bg-black/50 opacity-20")}`}
               key={`${answer.option}/${index}`}
             >
               <span className="text-balance text-sm leading-relaxed text-amber-300/40">

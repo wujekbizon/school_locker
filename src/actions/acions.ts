@@ -156,16 +156,9 @@ export async function submitTestAction(
     const validationResult = answersSchema.safeParse(answers);
 
     if (!validationResult.success) {
-      const expectedKeys = [...Array(15)].map((_, i) => `answer-${i + 1}`); // Assuming 15 questions
-      const missingKeys = expectedKeys.filter(
-        (key) =>
-          !answers.some((answer) => Object.hasOwnProperty.call(answer, key)),
-      );
-      if (missingKeys.length > 0) {
-        return toFormState("ERROR", "Please answer question");
-      }
-      console.log(validationResult.data);
+      return toFormState("ERROR", "Please answer question");
     }
+    console.log(validationResult.data);
   } catch (error) {
     return fromErrorToFormState(error);
   }
