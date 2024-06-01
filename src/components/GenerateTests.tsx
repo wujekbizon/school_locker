@@ -12,29 +12,30 @@ import ResetTestButton from "./ResetTestButton";
 import { useGeneratedTest } from "@/hooks/useGeneratedTest";
 import SubjectTestsMenu from "./SubjectTestsMenu";
 import FieldError from "@/app/_components/FieldError";
-import { useSubmitTestSuccess } from "@/hooks/useSubmitTestSuccess";
 
 export default function GenerateTests(props: { tests: TestsData[] }) {
-  const { numberTests, isTest } = useGenerateTestStore();
+  const { numberTests, isTest, setNumberTests, setIsTest } =
+    useGenerateTestStore();
+
   const [formState, action] = useActionState(
     submitTestAction,
     EMPTY_FORM_STATE,
   );
 
-  const noScriptFallback = useToastMessage(formState);
-  const randomTest = useGeneratedTest(props.tests, numberTests);
-
-  const { resetTestAndRedirect } = useSubmitTestSuccess();
-
   useEffect(() => {
     if (formState.status === "SUCCESS") {
-      resetTestAndRedirect("/dashboard/learn/test-result");
+      setNumberTests(null);
+      setIsTest(false);
     }
   }, [formState.status === "SUCCESS"]);
+
+  const noScriptFallback = useToastMessage(formState);
+  const randomTest = useGeneratedTest(props.tests, numberTests);
 
   return (
     <section className="flex  w-full flex-col items-center gap-8 px-4">
       {!isTest && <SubjectTestsMenu />}
+
       <form
         action={action}
         className="flex w-full flex-col items-center justify-center gap-4"

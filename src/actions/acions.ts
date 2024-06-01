@@ -15,6 +15,7 @@ import {
 } from "@/server/schema";
 import type { FormState } from "@/types/actionTypes";
 import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 // Function to create a single test object
 export async function createTestAction(
@@ -150,8 +151,6 @@ export async function submitTestAction(
     }
   });
 
-  console.log(answers);
-
   try {
     const validationResult = answersSchema.safeParse(answers);
 
@@ -163,5 +162,6 @@ export async function submitTestAction(
     return fromErrorToFormState(error);
   }
 
-  return toFormState("SUCCESS", "Test Successfully Submitted!");
+  toFormState("SUCCESS", "Test Successfully Submitted!");
+  redirect("/dashboard/learn/test-result");
 }

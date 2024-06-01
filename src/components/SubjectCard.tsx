@@ -9,7 +9,7 @@ export default async function SubjectCard(props: {
   return (
     <div className="flex h-60 w-full flex-col items-center justify-between rounded-md border border-border/40 bg-zinc-950 p-3">
       <p className="text-md text-center text-muted-foreground">
-        Total tests:
+        Total available questions:
         <span className="px-3 text-lg text-amber-300"> {numberOfTest}</span>
       </p>
       <div className="flex h-24 w-full items-center justify-center rounded-xl bg-black">

@@ -25,8 +25,8 @@ export const testFileSchema = z.array(
       question: z
         .string()
         .min(1, { message: "Question field cannot be empty" })
-        .max(350, {
-          message: "The length cannot be longer than 350 characters",
+        .max(650, {
+          message: "The length cannot be longer than 650 characters",
         }),
       answers: z
         .array(
@@ -34,14 +34,14 @@ export const testFileSchema = z.array(
             option: z
               .string()
               .min(1, { message: "Answer field cannot be empty" })
-              .max(350, {
-                message: "The answer cannot be longer than 350 characters",
+              .max(500, {
+                message: "The answer cannot be longer than 500 characters",
               }),
             isCorrect: z.boolean(),
           }),
         )
         .min(2, { message: "Minimum of 2 answer options required" })
-        .max(4, { message: "Maximum of 4 answer options allowed" }),
+        .max(5, { message: "Maximum of 5 answer options allowed" }),
     }),
     category: z.string().min(1, { message: "Category field is required" }),
   }),

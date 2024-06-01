@@ -6,9 +6,9 @@ export const useSubmitTestSuccess = () => {
   const { setIsTest, setNumberTests } = useGenerateTestStore();
 
   const resetTestAndRedirect = (redirectUrl: string) => {
-    setIsTest(false);
     setNumberTests(null);
-    router.push(redirectUrl);
+    setIsTest(false);
+    router.replace(redirectUrl);
   };
 
   return { resetTestAndRedirect };
