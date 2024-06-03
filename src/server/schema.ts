@@ -5,7 +5,7 @@ export const createTestSchema = z.object({
   question: z
     .string()
     .min(1, { message: "Question field cannot be empty" })
-    .max(350, { message: "The length cannot be longer than 350 characters" }),
+    .max(550, { message: "The length cannot be longer than 550 characters" }),
   answers: z.array(
     z.object({
       option: z
