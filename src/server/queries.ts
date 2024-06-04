@@ -1,7 +1,7 @@
 import "server-only";
-import { db } from "./db";
+import { db } from "@/server/db/index";
 import { auth } from "@clerk/nextjs/server";
-import { tests, userProgress } from "./db/schema";
+import { tests } from "./db/schema";
 import { and, eq } from "drizzle-orm";
 
 export async function getAllTests() {

@@ -6,7 +6,7 @@ import {
   fromErrorToFormState,
   toFormState,
 } from "@/helpers/fromErrorToFormState";
-import { db } from "@/server/db";
+import { db } from "@/server/db/index";
 import { tests } from "@/server/db/schema";
 import {
   answersSchema,

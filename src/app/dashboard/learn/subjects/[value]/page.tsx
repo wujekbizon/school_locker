@@ -5,7 +5,7 @@ import type { CategoryPageProps } from "@/types/categoriesType";
 import GenerateTests from "@/components/GenerateTests";
 import TestLoader from "@/components/TestsLoader";
 
-// export const experimental_ppr = true;
+export const experimental_ppr = true;
 
 async function TestsByCategory({ category }: { category: string }) {
   const typedTestsByCategory = (await getTestsByCategory(
