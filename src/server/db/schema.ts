@@ -28,6 +28,8 @@ export const users = createTable("users", {
   motto: varchar("motto").default(""), // User's motto or quote (optional)
   personality: varchar("personality").default(""),
   educationalPath: jsonb("educationalPath").default([]),
+  createdAt: timestamp("createdAt"),
+  updatedAt: timestamp("updatedAt"),
 });
 
 export const tests = createTable(

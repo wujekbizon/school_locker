@@ -53,7 +53,7 @@ export async function POST(req: Request) {
   const eventType = evt.type;
 
   if (eventType === "user.created") {
-    const { id, image_url } = evt.data;
+    const { id, image_url, created_at, updated_at } = evt.data;
 
     if (!id) {
       return new Response("Error occured -- missing data", {
@@ -64,6 +64,8 @@ export async function POST(req: Request) {
     const user: UserData = {
       userId: id,
       imageUrl: image_url || "",
+      createdAt: new Date(created_at),
+      updatedAt: new Date(updated_at),
     };
 
     await insertUserToDb(user);
