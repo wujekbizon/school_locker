@@ -10,6 +10,7 @@ import {
 import { parseAnswerRecord } from "@/helpers/parseAnswerRecords";
 import { db } from "@/server/db/index";
 import { tests } from "@/server/db/schema";
+import { completedTests } from "@/server/db/schema";
 import {
   answersSchema,
   createTestSchema,
@@ -160,14 +161,18 @@ export async function submitTestAction(
       return toFormState("ERROR", "Please answer question");
     }
 
-    const testScore = countTestScore(validationResult.data);
+    const { totalScore } = countTestScore(validationResult.data);
     const testResult = parseAnswerRecord(validationResult.data);
 
     const completedTest = {
       userId: user.userId,
-      score: testScore,
+      score: totalScore,
       testResult,
     };
+
+    const result = await db.transaction(async (tx) => {
+      await tx.insert(completedTests).values(completedTest);
+    });
 
     console.log(completedTest);
   } catch (error) {

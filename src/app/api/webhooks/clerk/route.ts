@@ -1,7 +1,11 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
-import { deleteUserFromDb, insertUserToDb } from "@/server/db";
+import {
+  deleteUserFromDb,
+  initializeUserProgress,
+  insertUserToDb,
+} from "@/server/db";
 import { UserData } from "@/types/dbTypes";
 
 export async function POST(req: Request) {
@@ -68,7 +72,15 @@ export async function POST(req: Request) {
       updatedAt: new Date(updated_at),
     };
 
-    await insertUserToDb(user);
+    try {
+      await insertUserToDb(user);
+      await initializeUserProgress(id);
+    } catch (error) {
+      console.log(error);
+      return new Response("Failed to insert user to database", {
+        status: 500,
+      });
+    }
   }
 
   if (eventType === "user.deleted") {
