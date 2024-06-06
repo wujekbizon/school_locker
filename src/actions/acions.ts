@@ -1,11 +1,13 @@
 "use server";
 
+import { countTestScore } from "@/helpers/countTestScore";
 import { determineTestCategory } from "@/helpers/determineTestCategory";
 import { extractAnswerData } from "@/helpers/extractAnswerData";
 import {
   fromErrorToFormState,
   toFormState,
 } from "@/helpers/fromErrorToFormState";
+import { parseAnswerRecord } from "@/helpers/parseAnswerRecords";
 import { db } from "@/server/db/index";
 import { tests } from "@/server/db/schema";
 import {
@@ -157,7 +159,17 @@ export async function submitTestAction(
     if (!validationResult.success) {
       return toFormState("ERROR", "Please answer question");
     }
-    console.log(validationResult.data);
+
+    const testScore = countTestScore(validationResult.data);
+    const testResult = parseAnswerRecord(validationResult.data);
+
+    const completedTest = {
+      userId: user.userId,
+      score: testScore,
+      testResult,
+    };
+
+    console.log(completedTest);
   } catch (error) {
     return fromErrorToFormState(error);
   }
