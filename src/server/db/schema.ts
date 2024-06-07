@@ -1,6 +1,3 @@
-// Example model schema from the Drizzle docs
-// https://orm.drizzle.team/docs/sql-schema-declaration
-
 import { sql } from "drizzle-orm";
 import {
   index,
@@ -13,77 +10,124 @@ import {
 } from "drizzle-orm/pg-core";
 
 /**
- * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
- * database instance for multiple projects.
+ * Creates a table name with the provided prefix and a custom suffix.
  *
- * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
- */
-
+ * @param {string} name - The custom suffix to be appended to the table name.
+ * @returns {string} - The generated table name.
+ *
+ * @example
+ * const lockerTable = createTable((name) => `school_locker_${name}`);
+ * // lockerTable would be "school_locker_[your_custom_suffix]"
+ *
+ **/
 export const createTable = pgTableCreator((name) => `school_locker_${name}`);
 
-export const users = createTable("users", {
-  id: serial("id").primaryKey(),
-  userId: varchar("userId", { length: 256 }).notNull(), // Store Clerk-provided user ID
-  imageUrl: varchar("imageUrl").default(""), // User's profile picture URL (optional)
-  motto: varchar("motto").default(""), // User's motto or quote (optional)
-  personality: varchar("personality").default(""),
-  educationalPath: jsonb("educationalPath").default([]),
-  createdAt: timestamp("createdAt"),
-  updatedAt: timestamp("updatedAt"),
-});
-
-export const tests = createTable(
-  "test",
+/**
+ * Defines the "users" table schema in the database.
+ *
+ * This table stores information about users of the application.
+ */
+export const users = createTable(
+  "users",
   {
-    id: serial("id").primaryKey(),
-    userId: varchar("userId", { length: 256 }).notNull(), // Store Clerk-provided user ID
-    category: varchar("category", { length: 256 }).notNull(), // Test category (English, Law, etc.)
-    data: jsonb("data").notNull(), // Stores TestDataInterface in JSON format
-    createdAt: timestamp("created_at")
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: timestamp("updatedAt"),
+    id: serial("id").primaryKey(), // Unique identifier for the user record (auto-incrementing).
+    userId: varchar("userId", { length: 256 }).notNull(), // Unique identifier provided by Clerk for the user.
+    imageUrl: varchar("imageUrl").default(""), // User's profile picture URL (optional)
+    motto: varchar("motto").default(""), // User's motto or quote (optional)
+    personality: varchar("personality").default(""), // User's personality description (optional).
+    educationalPath: jsonb("educationalPath").default([]), // User's education path information stored as JSON data.
+    createdAt: timestamp("createdAt"), // Timestamp of the user record creation.
+    updatedAt: timestamp("updatedAt"), // Timestamp of the last user record update.
   },
   (table) => ({
-    userIdIndex: index("tests_user_id_idx").on(table.userId), // Index on userId
+    /**
+     * Index on the "userId" column for faster lookups by user ID.
+     */
+    userIdIndex: index("users_user_id_idx").on(table.userId),
   }),
 );
 
+/**
+ * Defines the "tests" table schema in the database.
+ *
+ * This table stores information about tests created by users.
+ */
+export const tests = createTable(
+  "test",
+  {
+    id: serial("id").primaryKey(), // Unique identifier for the test record (auto-incrementing).
+    userId: varchar("userId", { length: 256 }).notNull(), // Unique identifier provided by Clerk for the user who created the test.
+    category: varchar("category", { length: 256 }).notNull(), // Test category (English, Law, etc.)
+    data: jsonb("data").notNull(), // Test data object stored in JSON format, likely referencing a specific data structure.
+    createdAt: timestamp("created_at") // Timestamp of the test record creation (defaults to current timestamp).
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updatedAt"), // Timestamp of the last test record update.
+  },
+  (table) => ({
+    /**
+     * Index on the "userId" column for faster lookups by user ID.
+     */
+    userIdIndex: index("tests_user_id_idx").on(table.userId),
+  }),
+);
+
+/**
+ * Defines the "user_progress" table schema in the database.
+ *
+ * This table stores information about user progress within the application.
+ */
 export const userProgress = createTable(
   "user_progress",
   {
-    id: serial("id").primaryKey(),
-    userId: varchar("userId", { length: 256 }).notNull(), // Store Clerk-provided user ID
+    id: serial("id").primaryKey(), // Unique identifier for the user progress record (auto-incrementing).
+    userId: varchar("userId", { length: 256 }).notNull(), // Unique identifier provided by Clerk for the user.
+    /**
+     * User's level information stored in JSON format.
+     * Contains properties like "level", "currentExp", and "neededExp".
+     * (Default value: {"level": 1, "currentExp": 0, "neededExp": 100})
+     */
     userLevel: jsonb("level")
       .notNull()
-      .default('{"level": 1, "currentExp": 0, "neededExp": 100}'), // Level object with level, current experience, and needed experience
+      .default('{"level": 1, "currentExp": 0, "neededExp": 100}'),
     userExperience: integer("totalExperience").default(0).notNull(), // Total accumulated experience points
     totalCreatedTests: jsonb("totalCreatedTests").default([]), // Json that holds all tests created by user
     totalCompletedTests: jsonb("totalCompletedTests").default([]), // Json that holds all tests completed by user
     lastTestId: integer("lastTestId").references(() => completedTests.id),
     badges: jsonb("badges").default([]), // Array of earned badge IDs (e.g., [1, 2])
     createdAt: timestamp("created_at")
-      .default(sql`CURRENT_TIMESTAMP`)
+      .default(sql`CURRENT_TIMESTAMP`) // Timestamp of the test record creation (defaults to current timestamp).
       .notNull(),
-    updatedAt: timestamp("updatedAt"),
+    updatedAt: timestamp("updatedAt"), // Timestamp of the last test record update.
   },
   (table) => ({
-    userIdIndex: index("user_progress_user_id_idx").on(table.userId), // Index on userId
+    /**
+     * Index on the "userId" column for faster lookups by user ID.
+     */
+    userIdIndex: index("user_progress_user_id_idx").on(table.userId),
   }),
 );
 
+/**
+ * Defines the "completed_tests" table schema in the database.
+ *
+ * This table stores information about tests completed by users.
+ */
 export const completedTests = createTable(
   "completed_tests",
   {
-    id: serial("id").primaryKey(),
-    userId: varchar("userId", { length: 256 }).notNull(),
-    testResult: jsonb("testResult").default([]),
-    score: integer("score").notNull(), // User's score on the test
-    completedAt: timestamp("completedAt")
+    id: serial("id").primaryKey(), // Unique identifier for the completed test record (auto-incrementing).
+    userId: varchar("userId", { length: 256 }).notNull(), // Unique identifier provided by Clerk for the user who completed the test.
+    testResult: jsonb("testResult").default([]), // User's test results stored in JSON format
+    score: integer("score").notNull(), // User's score achieved on the completed test.
+    completedAt: timestamp("completedAt") // Timestamp of the test completion (defaults to current timestamp).
       .notNull()
-      .default(sql`CURRENT_TIMESTAMP`), // Timestamp of test completion
+      .default(sql`CURRENT_TIMESTAMP`),
   },
   (table) => ({
+    /**
+     * Index on the "userId" column for faster lookups by user ID.
+     */
     userIdIndex: index("completed_tests_user_id_idx").on(table.userId), // Index on userId
   }),
 );

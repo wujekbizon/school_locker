@@ -112,7 +112,6 @@ export async function uploadTestsFromFile(
     }
 
     // Data is valid, proceed with processing
-
     const validatedData = validationResult.data;
 
     const insertPromises = validatedData.map(async (testData) => {
@@ -155,15 +154,21 @@ export async function submitTestAction(
   });
 
   try {
+    // Validate the parsed JSON data using Zod schema
     const validationResult = answersSchema.safeParse(answers);
 
     if (!validationResult.success) {
       return toFormState("ERROR", "Please answer question");
     }
 
-    const { totalScore } = countTestScore(validationResult.data);
-    const testResult = parseAnswerRecord(validationResult.data);
+    // Processing test results to get score
+    const { totalScore } = countTestScore(validationResult?.data);
 
+    // Parses an array of question-answer records and transforms it into an array of formatted
+    // answers containing all question IDs and values for future database storage.
+    const testResult = parseAnswerRecord(validationResult?.data);
+
+    // Completed test object
     const completedTest = {
       userId: user.userId,
       score: totalScore,

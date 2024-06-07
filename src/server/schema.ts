@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+/**
+ * Schema for validating the data required to create a new test.
+ */
 export const createTestSchema = z.object({
   category: z.string().min(1, { message: "Please select a category" }),
   question: z
@@ -19,6 +22,9 @@ export const createTestSchema = z.object({
   ),
 });
 
+/**
+ * Schema for validating test data imported from a file.
+ */
 export const testFileSchema = z.array(
   z.object({
     data: z.object({
@@ -47,6 +53,10 @@ export const testFileSchema = z.array(
   }),
 );
 
+/**
+ * Schema for validating a user's answers to a test.
+ * Requires at least one answer and validates the format of each answer.
+ */
 export const answersSchema = z
   .array(z.record(z.string().min(1, { message: "Please answer a question" })))
   .nonempty({ message: "Please answer all questions" })

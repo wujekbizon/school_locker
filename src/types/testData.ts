@@ -21,3 +21,8 @@ export interface TestsData {
   createdAt: Date;
   updatedAt: Date | null;
 }
+
+// Create a custom type that uses the Omit utility type to exclude the data property
+// from TestsData and then adds it back with the type unknown.
+// this is because Drizzle doesn't support typed JSON in their schemas
+export type ExtendedTestsData = Omit<TestsData, "data"> & { data: unknown };
