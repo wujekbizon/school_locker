@@ -77,3 +77,14 @@ export async function getCategories() {
   const categories = await db.select({ category: tests.category }).from(tests);
   return categories;
 }
+
+/**
+ * Get user progress
+ */
+export async function getCurrentUserProgress(id: string) {
+  const userProgress = await db.query.userProgress.findFirst({
+    where: (model, { eq }) => eq(model.userId, id),
+  });
+
+  return userProgress;
+}

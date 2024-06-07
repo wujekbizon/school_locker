@@ -11,12 +11,10 @@ type QuestionAnswer = Record<string, string>;
 export function countTestScore(results: QuestionAnswer[]): {
   correct: number;
   incorrect: number;
-  totalScore: number;
 } {
   // Initialize counters for correct and incorrect answers , and the total score
   let correct: number = 0;
   let incorrect: number = 0;
-  let totalScore: number = 0;
 
   // Iterate over each record in the results array
   results.forEach((item) => {
@@ -35,12 +33,10 @@ export function countTestScore(results: QuestionAnswer[]): {
       case "true":
         // Increment the correct counter for a correct answer and update totalScore
         correct++;
-        totalScore++;
         break;
       case "false":
         // Increment the incorrect counter for an incorrect answer and update totalScore
         incorrect++;
-        totalScore--;
         break;
       default:
         // Handle unexpected answer values
@@ -51,5 +47,5 @@ export function countTestScore(results: QuestionAnswer[]): {
   });
 
   // Return the counts of correct and incorrect answers
-  return { correct, incorrect, totalScore };
+  return { correct, incorrect };
 }
