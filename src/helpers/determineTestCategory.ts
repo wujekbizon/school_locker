@@ -1,3 +1,5 @@
+import "server-only";
+
 // This function determines the test category based on user input in the FormData object.
 export function determineTestCategory(formData: FormData) {
   // Initialize a variable to store the category (either a string or null)

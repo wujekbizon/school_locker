@@ -1,5 +1,5 @@
-type QuestionAnswer = Record<string, string>;
-type FormattedAnswer = { questionId: number; answer: boolean };
+import "server-only";
+import type { FormattedAnswer, QuestionAnswer } from "@/types/dbTypes";
 
 /**
  * Parses an array of question-answer records and transforms it into an array of formatted answers.

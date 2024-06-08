@@ -1,8 +1,6 @@
-interface UserLevel {
-  level: number;
-  currentExp: number;
-  neededExp: number;
-}
+import "server-only";
+
+import type { UserLevel } from "@/types/dbTypes";
 
 export function calculateLevelUp(
   userLevel: UserLevel,

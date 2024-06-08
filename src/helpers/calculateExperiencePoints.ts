@@ -1,4 +1,6 @@
-const BASE_EXP = 2; // 10 pts for each correct answer
+import "server-only";
+
+const BASE_EXP = 2; // 2 pts for each correct answer
 
 export function calculateExperiencePoints(
   numberOfCorrectQuestons: number,

@@ -1,3 +1,5 @@
+import "server-only";
+
 import { AvailableOption } from "@/types/testData";
 
 // This function extracts answer data from a FormData object,

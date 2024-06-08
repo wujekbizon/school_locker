@@ -1,7 +1,5 @@
 "use server";
 
-import { calculateExperiencePoints } from "@/helpers/calculateExperiencePoints";
-import { calculateLevelUp } from "@/helpers/calculateLevelUp";
 import { countTestScore } from "@/helpers/countTestScore";
 import { determineTestCategory } from "@/helpers/determineTestCategory";
 import { extractAnswerData } from "@/helpers/extractAnswerData";
@@ -13,17 +11,17 @@ import { parseAnswerRecord } from "@/helpers/parseAnswerRecords";
 import { db } from "@/server/db/index";
 import { tests } from "@/server/db/schema";
 import { completedTests, userProgress } from "@/server/db/schema";
-import { getCurrentUserProgress } from "@/server/queries";
 import {
   answersSchema,
   createTestSchema,
   testFileSchema,
 } from "@/server/schema";
 import type { FormState } from "@/types/actionTypes";
-import { UserProgress } from "@/types/dbTypes";
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
+import { updateUserProgressAfterTest } from "./updateUserProgressAfterTest";
+import { QuestionAnswer } from "@/types/dbTypes";
 
 // Function to create a single test object
 export async function createTestAction(
@@ -150,7 +148,7 @@ export async function submitTestAction(
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
 
-  const answers: Record<string, string>[] = [];
+  const answers: QuestionAnswer[] = [];
 
   formData.forEach((value, key) => {
     if (key.slice(0, 6) === "answer") {
@@ -180,41 +178,19 @@ export async function submitTestAction(
       testResult,
     };
 
-    // getting current user progress
-    const currentUserProgress = (await getCurrentUserProgress(user.userId)) as
-      | UserProgress
-      | undefined;
+    const updatedUserProgress = await updateUserProgressAfterTest(
+      user.userId,
+      correct,
+      completedTest,
+    );
 
-    if (!currentUserProgress) {
-      throw new Error("User progress not found");
-    }
-
-    // Destructuring userProgress object
-    const { totalCompletedTests, lastTestId, userExperience, userLevel } =
-      currentUserProgress;
-    // calculate exerience that user gained for current test
-    const gainedExp = calculateExperiencePoints(correct, userLevel.level);
-    // re-calculate total user exp
-    const recalculatedExp = userLevel.currentExp + gainedExp;
-
-    const calculatedUserLevel = calculateLevelUp(userLevel, recalculatedExp);
-    const updatedUserProgress = {
-      ...currentUserProgress,
-      userLevel: calculatedUserLevel,
-      totalCompletedTests: [...totalCompletedTests, completedTest],
-      userExperience: userExperience + recalculatedExp,
-      updatedAt: new Date(),
-    };
-
-    const result = await db.transaction(async (tx) => {
+    await db.transaction(async (tx) => {
       await tx.insert(completedTests).values(completedTest);
       await tx
         .update(userProgress)
         .set(updatedUserProgress)
         .where(eq(userProgress.userId, user.userId));
     });
-
-    console.log(result);
   } catch (error) {
     return fromErrorToFormState(error);
   }

@@ -1,3 +1,4 @@
+import "server-only";
 import { Categories } from "@/types/categoriesType";
 
 export function populateCategories(

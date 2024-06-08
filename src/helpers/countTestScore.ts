@@ -1,4 +1,5 @@
-type QuestionAnswer = Record<string, string>;
+import { QuestionAnswer } from "@/types/dbTypes";
+import "server-only";
 
 /**
  * Counts the number of correct and incorrect answers from an array of question-answer records.
