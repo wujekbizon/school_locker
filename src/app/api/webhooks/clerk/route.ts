@@ -57,7 +57,7 @@ export async function POST(req: Request) {
   const eventType = evt.type;
 
   if (eventType === "user.created") {
-    const { id, image_url, created_at, updated_at } = evt.data;
+    const { id, image_url, updated_at } = evt.data;
 
     if (!id) {
       return new Response("Error occured -- missing data", {
@@ -68,13 +68,13 @@ export async function POST(req: Request) {
     const user: UserData = {
       userId: id,
       imageUrl: image_url || "",
-      createdAt: new Date(created_at),
       updatedAt: new Date(updated_at),
     };
 
     try {
       await insertUserToDb(user);
       await initializeUserProgress(id);
+      console.log("User Created");
     } catch (error) {
       console.log(error);
       return new Response("Failed to insert user to database", {
@@ -93,6 +93,7 @@ export async function POST(req: Request) {
     }
 
     await deleteUserFromDb(id);
+    console.log("User Deleted");
   }
 
   return new Response("", { status: 200 });

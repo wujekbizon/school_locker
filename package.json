@@ -43,7 +43,7 @@
     "@types/react": "npm:types-react@beta",
     "@typescript-eslint/eslint-plugin": "^7.12.0",
     "@typescript-eslint/parser": "^7.12.0",
-    "drizzle-kit": "^0.22.2",
+    "drizzle-kit": "^0.22.5",
     "eslint": "^9.4.0",
     "eslint-config-next": "15.0.0-rc.0",
     "eslint-plugin-drizzle": "^0.2.3",

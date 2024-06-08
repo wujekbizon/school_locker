@@ -1,12 +1,14 @@
+import { PgUUID } from "drizzle-orm/pg-core";
+
 export interface UserData {
   userId: string;
   imageUrl: string;
-  createdAt: Date;
+  createdAt?: Date;
   updatedAt: Date;
 }
 
 export interface UserProgress {
-  id: number;
+  id: string;
   userId: string;
   createdAt: Date;
   updatedAt: Date | null;
@@ -14,7 +16,7 @@ export interface UserProgress {
   userExperience: number;
   totalCreatedTests: {}[];
   totalCompletedTests: {}[];
-  lastTestId: number | null;
+  lastTestId: string | null;
   badges: string[];
 }
 

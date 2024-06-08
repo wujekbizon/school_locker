@@ -12,6 +12,8 @@ export async function insertUserToDb(userData: UserData): Promise<void> {
    * @throws {Error} - Re-throws any errors encountered during database insertion,
    *                   providing a more informative message.
    */
+
+  console.log(userData);
   try {
     await db.insert(users).values(userData);
   } catch (error) {
@@ -38,6 +40,7 @@ export async function deleteUserFromDb(id: string): Promise<void> {
    *                   providing a more informative message.
    */
   try {
+    console.log(id);
     await db.delete(users).where(eq(users.userId, id));
   } catch (error) {
     console.error("Error deleting user:", error);
@@ -54,7 +57,7 @@ export async function deleteUserFromDb(id: string): Promise<void> {
   }
 }
 
-export async function initializeUserProgress(id: string): Promise<void> {
+export async function initializeUserProgress(userId: string): Promise<void> {
   /**
    * Creates a new user progress record with initial values.
    *
@@ -63,7 +66,7 @@ export async function initializeUserProgress(id: string): Promise<void> {
    *                   providing a more informative message.
    */
   const initialUserProgress = {
-    userId: id,
+    userId,
   };
   try {
     await db.insert(userProgress).values(initialUserProgress);
