@@ -61,7 +61,7 @@ export async function getTestsByUser() {
 /**
  * Deletes a specific test record from the database, ensuring it belongs to the authenticated user.
  */
-export async function deleteTest(id: number) {
+export async function deleteTest(id: string) {
   const user = auth();
   if (!user.userId) throw new Error("Unauthorized");
 

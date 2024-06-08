@@ -14,7 +14,7 @@ export interface AvailableOption {
 }
 
 export interface TestsData {
-  id: number;
+  id: string;
   data: TestDataInterface;
   userId: string;
   category: string;
