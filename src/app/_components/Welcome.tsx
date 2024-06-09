@@ -18,6 +18,7 @@ export default function Welcome() {
           alt="fun-learn"
           width={500}
           height={500}
+          priority
         />
       </div>
       <div className="flex w-full justify-end">

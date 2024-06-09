@@ -1,6 +1,6 @@
-import { SignedOut, RedirectToSignUp } from "@clerk/nextjs";
+import { SignedOut } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import { auth, clerkClient } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import Welcome from "@/app/_components/Welcome";
 
 export default function HomePage() {

@@ -12,8 +12,6 @@ export async function insertUserToDb(userData: UserData): Promise<void> {
    * @throws {Error} - Re-throws any errors encountered during database insertion,
    *                   providing a more informative message.
    */
-
-  console.log(userData);
   try {
     await db.insert(users).values(userData);
   } catch (error) {

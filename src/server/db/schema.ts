@@ -55,9 +55,7 @@ export const users = createTable(
  */
 export const tests = createTable("tests", {
   id: uuid("id").primaryKey().defaultRandom(), // Unique identifier for the test record (auto-incrementing).
-  userId: varchar("userId", { length: 256 })
-    .notNull()
-    .references(() => users.userId), // Unique identifier provided by Clerk for the user who created the test.
+  userId: varchar("userId", { length: 256 }).notNull(), // Unique identifier provided by Clerk for the user who created the test.
   category: varchar("category", { length: 256 }).notNull(), // Test category (English, Law, etc.)
   data: jsonb("data").notNull(), // Test data object stored in JSON format, likely referencing a specific data structure.
   createdAt: timestamp("createdAt") // Timestamp of the test record creation (defaults to current timestamp).
@@ -75,7 +73,7 @@ export const userProgress = createTable("user_progress", {
   id: uuid("id").primaryKey().defaultRandom(), // Unique identifier for the user progress record (auto-incrementing).
   userId: varchar("userId", { length: 256 })
     .notNull()
-    .references(() => users.userId), // Unique identifier provided by Clerk for the user.
+    .references(() => users.userId, { onDelete: "cascade" }), // Unique identifier provided by Clerk for the user.
   /**
    * User's level information stored in JSON format.
    * Contains properties like "level", "currentExp", and "neededExp".
@@ -104,7 +102,7 @@ export const completedTests = createTable("completed_tests", {
   id: uuid("id").primaryKey().defaultRandom(), // Unique identifier for the completed test record (auto-incrementing).
   userId: varchar("userId", { length: 256 })
     .notNull()
-    .references(() => users.userId), // Unique identifier provided by Clerk for the user who completed the test.
+    .references(() => users.userId, { onDelete: "cascade" }), // Unique identifier provided by Clerk for the user who completed the test.
   testResult: jsonb("testResult").default([]), // User's test results stored in JSON format
   score: integer("score").notNull(), // User's score achieved on the completed test.
   completedAt: timestamp("completedAt") // Timestamp of the test completion (defaults to current timestamp).

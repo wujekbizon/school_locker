@@ -65,16 +65,17 @@ export async function POST(req: Request) {
       });
     }
 
-    const user: UserData = {
-      userId: id,
-      imageUrl: image_url || "",
-      updatedAt: new Date(updated_at),
-    };
-
     try {
+      const user: UserData = {
+        userId: id,
+        imageUrl: image_url || "",
+        updatedAt: new Date(updated_at),
+      };
+
+      // Insert a new user record into the database.
       await insertUserToDb(user);
+      // Creates a new user progress record with initial values.
       await initializeUserProgress(id);
-      console.log("User Created");
     } catch (error) {
       console.log(error);
       return new Response("Failed to insert user to database", {
@@ -92,8 +93,10 @@ export async function POST(req: Request) {
       });
     }
 
+    // Deletes a user record from the database based on the provided ID,
+    // all user progress and completed tests.
+    // NOTE: Tests created by this user are currently not deleted.
     await deleteUserFromDb(id);
-    console.log("User Deleted");
   }
 
   return new Response("", { status: 200 });

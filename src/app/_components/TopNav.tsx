@@ -1,6 +1,13 @@
 import Logo from "@/components/Logo";
 import NavButton from "@/components/NavButton";
-import { SignedIn, SignInButton, SignedOut, UserButton } from "@clerk/nextjs";
+import TestLoader from "@/components/TestsLoader";
+import {
+  SignedIn,
+  SignInButton,
+  SignedOut,
+  UserButton,
+  ClerkLoading,
+} from "@clerk/nextjs";
 
 export default function TopNav() {
   return (
@@ -10,11 +17,12 @@ export default function TopNav() {
         <NavButton />
         <div className="flex flex-1 items-center justify-between gap-4 md:justify-end">
           <div className="flex w-20 items-center justify-center text-white">
+            <ClerkLoading>Sign in</ClerkLoading>
             <SignedOut>
               <SignInButton forceRedirectUrl="/dashboard" />
             </SignedOut>
             <SignedIn>
-              <UserButton />
+              <UserButton afterSignOutUrl="/" />
             </SignedIn>
           </div>
         </div>
