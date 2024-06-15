@@ -1,6 +1,5 @@
 import Logo from "@/components/Logo";
 import NavButton from "@/components/NavButton";
-import TestLoader from "@/components/TestsLoader";
 import {
   SignedIn,
   SignInButton,

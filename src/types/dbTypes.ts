@@ -30,7 +30,12 @@ export type QuestionAnswer = Record<string, string>;
 export type FormattedAnswer = { questionId: number; answer: boolean };
 
 export interface CompletedTest {
+  id?: string;
   userId: string;
   score: number;
   testResult: FormattedAnswer[];
 }
+
+export type ExtendedCompletedTest = Omit<CompletedTest, "testResult"> & {
+  testResult: unknown;
+};

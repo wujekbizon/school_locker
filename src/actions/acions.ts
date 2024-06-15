@@ -21,7 +21,7 @@ import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { updateUserProgressAfterTest } from "./updateUserProgressAfterTest";
-import { QuestionAnswer } from "@/types/dbTypes";
+import type { QuestionAnswer } from "@/types/dbTypes";
 
 // Function to create a single test object
 export async function createTestAction(
@@ -140,61 +140,60 @@ export async function uploadTestsFromFile(
   return toFormState("SUCCESS", "File Uploaded");
 }
 
+/**
+ * Handles the entire test submission process, answer validation, score calculation,
+ * user progress update, and redirection to the test results page.
+ * Utilizes a drizzle database transaction to ensure data consistency during the update process.
+ */
 export async function submitTestAction(
   formState: FormState,
   formData: FormData,
 ) {
-  // Check user authorization
-  const user = auth();
-  if (!user.userId) throw new Error("Unauthorized");
-
-  const answers: QuestionAnswer[] = [];
-
-  formData.forEach((value, key) => {
-    if (key.slice(0, 6) === "answer") {
-      answers.push({ [key]: value.toString() });
-    }
-  });
+  // Check user authorization before allowing submission
+  const { userId } = auth();
+  if (!userId) throw new Error("Unauthorized");
 
   try {
+    // Extract answer data from the submitted form data
+    const answers: QuestionAnswer[] = [];
+    formData.forEach((value, key) => {
+      if (key.slice(0, 6) === "answer") {
+        answers.push({ [key]: value.toString() });
+      }
+    });
     // Validate the parsed JSON data using Zod schema
-    const validationResult = answersSchema.safeParse(answers);
+    const { success, data, error } = answersSchema.safeParse(answers);
 
-    if (!validationResult.success) {
+    if (!success) {
+      console.log(`Validation error: ${error.issues}`);
       return toFormState("ERROR", "Please answer question");
     }
-
     // Processing test results to get score
-    const { correct } = countTestScore(validationResult?.data);
-
+    const { correct } = countTestScore(data);
     // Parses an array of question-answer records and transforms it into an array of formatted
     // answers containing all question IDs and values for future database storage.
-    const testResult = parseAnswerRecord(validationResult?.data);
-
-    // Completed test object
-    const completedTest = {
-      userId: user.userId,
-      score: correct,
-      testResult,
-    };
-
+    const testResult = parseAnswerRecord(data);
+    // Create a completed test object
+    const completedTest = { userId, score: correct, testResult };
+    // Update user progress after completing the test
     const updatedUserProgress = await updateUserProgressAfterTest(
-      user.userId,
+      userId,
       correct,
       completedTest,
     );
 
+    // Persist data using a database transaction
     await db.transaction(async (tx) => {
       await tx.insert(completedTests).values(completedTest);
       await tx
         .update(userProgress)
         .set(updatedUserProgress)
-        .where(eq(userProgress.userId, user.userId));
+        .where(eq(userProgress.userId, userId));
     });
   } catch (error) {
     return fromErrorToFormState(error);
   }
-
+  // Update form state and redirect on success and redirect user to result page
   toFormState("SUCCESS", "Test Successfully Submitted!");
-  redirect("/dashboard/learn/test-result");
+  redirect("/tests-result");
 }

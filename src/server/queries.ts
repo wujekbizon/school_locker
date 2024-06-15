@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { tests } from "./db/schema";
 import { and, eq } from "drizzle-orm";
 import type { ExtendedTestsData } from "@/types/testData";
+import { ExtendedCompletedTest } from "@/types/dbTypes";
 
 /**
  * Fetches all test records from the database, ordered by ID in descending order.
@@ -14,6 +15,26 @@ export async function getAllTests(): Promise<ExtendedTestsData[]> {
   });
 
   return tests;
+}
+
+// this getting all completed test , it might get handy when we do Score Board
+export async function getAllCompletedTests(): Promise<ExtendedCompletedTest[]> {
+  const completedTests = await db.query.completedTests.findMany({
+    orderBy: (model, { desc }) => desc(model.userId),
+  });
+  return completedTests;
+}
+
+// get all tests by user
+export async function getCompletedTestsByUser(
+  userId: string,
+): Promise<ExtendedCompletedTest[]> {
+  const completedTests = await db.query.completedTests.findMany({
+    where: (model, { eq }) => eq(model.userId, userId),
+    orderBy: (model, { desc }) => desc(model.userId),
+  });
+
+  return completedTests;
 }
 
 /**
