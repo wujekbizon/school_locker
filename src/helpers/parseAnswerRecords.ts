@@ -5,7 +5,7 @@ import type { FormattedAnswer, QuestionAnswer } from "@/types/dbTypes";
  * Parses an array of question-answer records and transforms it into an array of formatted answers.
  *
  * @param results - An array of question-answer records where each record has a single key-value pair.
- * @returns An array of formatted answers with questionId as a number and answer as a boolean.
+ * @returns An array of formatted answers with questionId as a string and answer as a boolean.
  * @throws Will throw an error if a record is malformed or if the answer key is not present.
  */
 
@@ -24,7 +24,7 @@ export function parseAnswerRecord(
     // Get the value associated with the key.
     const answerValue = item[answerKey];
     // Extract the numeric part of the key by removing the 'answer-' prefix and parsing it to an integer.
-    const questionId = parseInt(answerKey.replace("answer-", ""), 10);
+    const questionId = answerKey.replace("answer-", "");
     // Convert the string value 'true'/'false' to a boolean.
     const answer = answerValue === "true";
 

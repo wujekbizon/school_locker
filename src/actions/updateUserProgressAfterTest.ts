@@ -45,14 +45,14 @@ export async function updateUserProgressAfterTest(
   const recalculatedExp = userLevel.currentExp + gainedExp;
 
   // Check if the user leveled up based on the new experience points
-  const calculatedUserLevel = calculateLevelUp(userLevel, recalculatedExp);
+  const calculatedUserLevel = calculateLevelUp(userLevel, gainedExp);
 
   // Create a new UserProgress object with updated values
   return {
     ...currentUserProgress,
     userLevel: calculatedUserLevel,
     totalCompletedTests: [...totalCompletedTests, completedTest],
-    userExperience: userExperience + recalculatedExp,
+    userExperience: userExperience + gainedExp,
     updatedAt: new Date(),
   };
 }

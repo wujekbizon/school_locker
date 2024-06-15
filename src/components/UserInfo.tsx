@@ -16,7 +16,7 @@ export default async function UserInfo() {
         <p className="border-b text-sm text-zinc-300">User info:</p>
         <div className="relative h-64 w-64 ">
           <Image
-            className="rounded-xl object-contain"
+            className="h-full w-full rounded-xl object-cover"
             src={user.imageUrl}
             alt="user"
             width={256}

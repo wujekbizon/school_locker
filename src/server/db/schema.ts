@@ -82,6 +82,7 @@ export const userProgress = createTable("user_progress", {
   userLevel: jsonb("level")
     .notNull()
     .default('{"level": 1, "currentExp": 0, "neededExp": 100}'),
+  // NOTE: totalExperience column name can be renamed to userExperience on next db wipe
   userExperience: integer("totalExperience").default(0).notNull(), // Total accumulated experience points
   totalCreatedTests: jsonb("totalCreatedTests").default([]), // Json that holds all tests created by user
   totalCompletedTests: jsonb("totalCompletedTests").default([]), // Json that holds all tests completed by user

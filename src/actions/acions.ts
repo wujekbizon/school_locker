@@ -173,7 +173,8 @@ export async function submitTestAction(
     // Parses an array of question-answer records and transforms it into an array of formatted
     // answers containing all question IDs and values for future database storage.
     const testResult = parseAnswerRecord(data);
-    // Create a completed test object
+
+    //Create a completed test object
     const completedTest = { userId, score: correct, testResult };
     // Update user progress after completing the test
     const updatedUserProgress = await updateUserProgressAfterTest(
@@ -182,7 +183,7 @@ export async function submitTestAction(
       completedTest,
     );
 
-    // Persist data using a database transaction
+    // // Persist data using a database transaction
     await db.transaction(async (tx) => {
       await tx.insert(completedTests).values(completedTest);
       await tx

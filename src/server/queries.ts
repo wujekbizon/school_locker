@@ -31,10 +31,18 @@ export async function getCompletedTestsByUser(
 ): Promise<ExtendedCompletedTest[]> {
   const completedTests = await db.query.completedTests.findMany({
     where: (model, { eq }) => eq(model.userId, userId),
-    orderBy: (model, { desc }) => desc(model.userId),
+    orderBy: (model, { desc }) => desc(model.completedAt),
   });
 
   return completedTests;
+}
+
+export async function getCompletedTest(testId: string) {
+  const completedTest = await db.query.completedTests.findFirst({
+    where: (model, { eq }) => eq(model.id, testId),
+  });
+
+  return completedTest;
 }
 
 /**
@@ -48,6 +56,14 @@ export async function getTestsByCategory(category: string) {
   });
 
   return tests;
+}
+
+export async function getQuestionById(testId: string) {
+  const question = await db.query.tests.findFirst({
+    where: (model, { eq }) => eq(model.id, testId),
+  });
+
+  return question;
 }
 
 /**

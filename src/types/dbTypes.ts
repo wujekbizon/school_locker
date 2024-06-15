@@ -27,7 +27,7 @@ export interface UserLevel {
 }
 
 export type QuestionAnswer = Record<string, string>;
-export type FormattedAnswer = { questionId: number; answer: boolean };
+export type FormattedAnswer = { questionId: string; answer: boolean };
 
 export interface CompletedTest {
   id?: string;

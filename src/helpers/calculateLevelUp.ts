@@ -4,18 +4,19 @@ import type { UserLevel } from "@/types/dbTypes";
 
 export function calculateLevelUp(
   userLevel: UserLevel,
-  recalculatedExp: number,
+  gainedExp: number,
 ): UserLevel {
   const { level, currentExp, neededExp } = userLevel;
 
   // Leveling up user
-  let newLevel = level;
-  let newCurrentExp = currentExp + recalculatedExp;
-  let newNeededExp = neededExp - newCurrentExp;
+  let newLevel = level; // 1
+  let newCurrentExp = currentExp + gainedExp;
+  let newNeededExp = neededExp; // Initialize with current neededExp
+
   // check if user level up
   if (newCurrentExp >= neededExp) {
-    newLevel = level + 1; // user level up
-    newNeededExp = neededExp * 2; // temporary multiplier , need to find a proper way of handling this
+    newLevel = level + 1; // User levels up
+    newNeededExp = 100 * newLevel; // New neededExp formula
   }
 
   return {
