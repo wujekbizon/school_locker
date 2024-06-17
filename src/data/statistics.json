@@ -1,7 +1,7 @@
 [
   {
-     "id":753,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -23,13 +23,13 @@
            }
         ],
         "question":"Rzucamy dwukrotnie symetryczną kostką do gry. Jakie jest\r\nprawdopodobieństwo, że w pierwszym rzucie wypadła mniejsza liczba oczek\r\nniż w drugim rzucie?"
-     },
-     "created_at":"2024-06-02T04:39:06.241Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":754,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -51,13 +51,13 @@
            }
         ],
         "question":"Ze zbioru liczb {1, 2, 3, …….., 12} losujemy jedną liczbę. Jakie jest\r\nprawdopodobieństwo wylosowania liczby podzielnej przez 2 lub przez 3?"
-     },
-     "created_at":"2024-06-02T04:41:53.571Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":755,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -79,13 +79,13 @@
            }
         ],
         "question":"Rzucamy trzy razy symetryczną monetą. Jakie jest prawdopodobieństwo,\r\nże co najmniej raz wypadnie orzeł?"
-     },
-     "created_at":"2024-06-02T04:44:58.204Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":756,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -107,13 +107,13 @@
            }
         ],
         "question":"Urzędnik bankowy wie, że 12% kredytobiorców traci pracę i przestaje\r\nspłacać pożyczkę w ciągu pięciu lat. Wie też, że 20% kredytobiorców traci\r\npracę w ciągu pięciu lat. Przy założeniu, że kredytobiorca stracił pracę, jakie\r\njest prawdopodobieństwo, że przestanie spłacać pożyczkę?\r\n"
-     },
-     "created_at":"2024-06-02T04:47:37.011Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":757,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -135,13 +135,13 @@
            }
         ],
         "question":"Urządzenie działa składa się z dwóch podzespołów, z których pierwszy\r\ncharakteryzuje się niezawodnością 0,9, a drugi 0,8. Urządzenie działa dobrze\r\ntylko wtedy, gdy oba podzespoły są sprawne. Jakie jest prawdopodobieństwo,\r\nże urządzenie będzie działało, kiedy będzie potrzebne?\r\n"
-     },
-     "created_at":"2024-06-02T04:48:30.662Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":758,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -163,13 +163,13 @@
            }
         ],
         "question":"Pośrednik chce sprzedać nieruchomość. Sądzi, że istnieje prawdopodobieństwo 90%,\r\nże nieruchomość będzie sprzedana w ciągu pół roku, jeżeli stan gospodarki będzie się\r\npoprawiał, oraz prawdopodobieństwo 50%, jeżeli stan gospodarki nie będzie się\r\npoprawiał. Ekonomiści są przekonani, że gospodarka ma 70% szans na rozwój w\r\nnajbliższym półroczu. Jakie jest prawdopodobieństwo, że nieruchomość zostanie\r\nsprzedana w ciągu pół roku?"
-     },
-     "created_at":"2024-06-02T04:51:39.905Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":759,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -191,13 +191,13 @@
            }
         ],
         "question":"Fabryka jest wyposażona w system alarmowy. W razie zagrożenia system działa w\r\n95% przypadków. Istnieje jednak prawdopodobieństwo 3%, że system włączy się, gdy\r\nnie ma żadnego zagrożenia. Rzeczywiste zagrożenie zdarza się rzadko - szanse na to\r\nwynoszą 0,4%. Gdy system alarmowy się uruchomi, jakie jest prawdopodobieństwo, że\r\nnaprawdę istnieje zagrożenie?"
-     },
-     "created_at":"2024-06-02T04:52:40.333Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":761,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -219,13 +219,13 @@
            }
         ],
         "question":"Ile 5-cyfrowych kodów złożonych z różnych cyfr możemy ułożyć?"
-     },
-     "created_at":"2024-06-02T04:57:10.767Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":762,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -247,13 +247,13 @@
            }
         ],
         "question":"Każdy uczestnik spotkania ośmioosobowej grupy przyjaciół uścisnął dłoń każdemu\r\nz pozostałych uczestników spotkania. Ile było uścisków dłoni?\r\n"
-     },
-     "created_at":"2024-06-02T04:58:17.932Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":763,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -275,13 +275,13 @@
            }
         ],
         "question":"Jaki procent populacji zawiera się pomiędzy kwartylami Q1 a Q3\r\n?\r\n"
-     },
-     "created_at":"2024-06-02T05:00:24.401Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":764,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -303,13 +303,13 @@
            }
         ],
         "question":"Miarami tendencji centralnej są:"
-     },
-     "created_at":"2024-06-02T05:02:36.198Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":765,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -331,13 +331,13 @@
            }
         ],
         "question":"W rozkładzie asymetrycznym prawostronnie:"
-     },
-     "created_at":"2024-06-02T05:03:36.819Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":766,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -359,13 +359,13 @@
            }
         ],
         "question":"25% pracowników dojeżdża do pracy w czasie nie krótszym niż 45 minut. To zdanie\r\njest interpretacją:"
-     },
-     "created_at":"2024-06-02T05:06:30.901Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":767,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -387,13 +387,13 @@
            }
         ],
         "question":"Które ze stwierdzeń jest fałszywe:"
-     },
-     "created_at":"2024-06-02T05:08:16.180Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":768,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -415,13 +415,13 @@
            }
         ],
         "question":"W grupie 100 osób przeprowadzono badanie liczby posiadanych polis\r\nubezpieczeniowych i uzyskano wartość dystrybuanty częstości dla dwóch polis\r\nrówną 0,45. Wynika z tego, że:"
-     },
-     "created_at":"2024-06-02T05:09:44.238Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":769,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -443,13 +443,13 @@
            }
         ],
         "question":" Mediana zestawu liczb { 2, 12, a, 10, 5, 3 } wynosi 7. Wówczas:"
-     },
-     "created_at":"2024-06-02T05:10:43.934Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":770,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -471,13 +471,13 @@
            }
         ],
         "question":"Odchylenie standardowe płacy w firmie X w styczniu wynosiło 200 PLN. W lutym\r\nwszyscy pracownicy otrzymali premię w wysokości 150 PLN. Odchylenie standardowe\r\npłacy w lutym wynosi:\r\n"
-     },
-     "created_at":"2024-06-02T05:12:29.722Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":771,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -499,13 +499,13 @@
            }
         ],
         "question":"Wykres pudełkowy („skrzynka-wąsy”) dostarcza informacji o:"
-     },
-     "created_at":"2024-06-02T05:13:30.650Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":772,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -527,13 +527,13 @@
            }
         ],
         "question":"Zastanawiamy się nad kupnem losu loterii-zdrapki. Los kosztuje 3 złote. Wygrana\r\nwynosi 50 złotych. Jeśli los nie wygra, jest bezwartościowy. Na stronie internetowej\r\nloterii podano informację, że wygrywa 0,02 wszystkich losów.\r\nIle wynosi wartość oczekiwana naszej wygranej?\r\n"
-     },
-     "created_at":"2024-06-02T05:23:46.205Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":773,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -555,13 +555,13 @@
            }
         ],
         "question":"W tłusty czwartek cukiernia ogłosiła promocję, że w średnio co trzecim pączku jest\r\nkupon na darmową kawę. Kupujemy (i jemy) pączki aż trafimy na pączek z kuponem na\r\nkawę. Niech zmienna losowa X oznacza ilość zakupionych pączków. Ile wynosi\r\ndystrybuanta tej zmiennej losowej dla argumentu 3? Tzn. jakie jest\r\nprawdopodobieństwo, że kupimy co najwyżej 3 pączki, aby dostać kawę?\r\n"
-     },
-     "created_at":"2024-06-02T05:27:17.033Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":774,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -583,13 +583,13 @@
            }
         ],
         "question":"Największa sieć fastfoodów prowadzi promocję, w której w 1 na 4 pudełka frytek\r\nzawiera kupon na darmowe pudełko frytek. Załóżmy, że w pewnym lokalu sprzedaje\r\nsię 100 pudełek frytek dziennie. Niech zmienna losowa X oznacza ilość wygrywających\r\nkuponów dziennie. Ile wynosi wartość oczekiwana i odchylenie standardowe tej\r\nzmiennej losowej?\r\n"
-     },
-     "created_at":"2024-06-02T05:33:54.433Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":775,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -611,13 +611,13 @@
            }
         ],
         "question":" Wysyłając ofertę do kontrahenta istnieje 60% szans, że odpowiedź będzie\r\npozytywna. Wysłaliśmy oferty do 5 kontrahentów. Jakie jest prawdopodobieństwo,\r\nże 3 z nich odpowie pozytywnie?"
-     },
-     "created_at":"2024-06-02T05:37:22.097Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":776,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -639,13 +639,13 @@
            }
         ],
         "question":"Gracz rzuca parą symetrycznych, sześciennych kostek do gry, do momentu\r\nuzyskania sumy oczek równej 7. Niech zmienna losowa Z oznacza liczbę rzutów\r\npotrzebnych do uzyskania wyznaczonej sumy.  Czy zmienna losowa Z ma rozkład dwumianowy? Dlaczego lub dlaczego nie?"
-     },
-     "created_at":"2024-06-02T05:50:44.941Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":777,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -667,13 +667,13 @@
            }
         ],
         "question":"Wyniki studentów z egzaminu ze statystyki mają rozkład normalny o wartości\r\noczekiwanej 70 punktów i odchyleniu standardowym 6 punktów. Jan uzyskał 73 punkty.\r\nJaki procent studentów uzyskał wynik gorszy lub równy?"
-     },
-     "created_at":"2024-06-02T05:52:29.078Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":778,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -695,13 +695,13 @@
            }
         ],
         "question":"Pompa paliwa na stacji benzynowej nie zawsze działa dokładnie tak, jak wskazuje\r\nlicznik. Gdy licznik wskazuje 10 l, statystyczna objętość paliwa, jaką wydaje pompa jest\r\nzgodna z rozkładem normalnym ze średnią 10 l i odchyleniem standardowym o\r\nwartości 0,5 l. Niech X = objętość paliwa wydana przez pompę w losowo wybranym\r\ntankowaniu, gdy licznik wskazuje 10 l.\r\nIle wynosi 𝑃 𝑋 > 10,5 ?"
-     },
-     "created_at":"2024-06-02T05:54:27.807Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":779,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -723,13 +723,13 @@
            }
         ],
         "question":"Dana jest zmienna losowa 𝑋~𝑁(4,3) oraz zmienna losowa 𝑌~𝑁(0,1)\r\n(𝑌 – standardowy rozkład normalny). Które ze stwierdzeń jest prawdziwe?"
-     },
-     "created_at":"2024-06-02T05:55:47.294Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":780,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -751,13 +751,13 @@
            }
         ],
         "question":"W pewnej uczelni stypendium naukowe otrzymuje 30% studentów o najwyższej\r\nśredniej ocen. Jaką średnia ocen powinien mieć kandydat do stypendium, jeśli\r\nwiadomo, że rozkład ocen jest rozkładem normalnym 𝑁(4,0; 0,5)?"
-     },
-     "created_at":"2024-06-02T05:57:05.770Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":781,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -779,13 +779,13 @@
            }
         ],
         "question":"Waga pewnego produktu wyrażona w gramach ma rozkład normalny 𝑁(500; 10).\r\nPodczas kontroli produkty, których waga jest za duża lub za mała są odrzucane.\r\nJaka może być maksymalna różnica między wagą wylosowanego produktu, a średnią,\r\njeśli wiadomo, że 4% sztuk podczas kontroli jest odrzucanych?\r\n"
-     },
-     "created_at":"2024-06-02T05:58:36.604Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":782,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -807,13 +807,13 @@
            }
         ],
         "question":"Wartość średnia rozkładu wagi odwiedzających galerię handlową wynosi 70 kg,\r\nz odchyleniem standardowym równym 10 kg. Pojemność każdej z wind w galerii\r\nwynosi 6 osób. Inspektor BHP postanowił sprawdzić, ile wynosi średnia waga osób\r\nkorzystających z wind przy pełnym obciążeniu. W tym celu wybierał losowo spośród\r\nklientów galerii próby składające się z 6 osób i obliczał ich średnią wagę 𝑥ҧw każdej\r\npróbie. Jaka jest wartość oczekiwana i odchylenie standardowe rozkładu 𝑥ҧ?\r\n"
-     },
-     "created_at":"2024-06-02T06:00:13.912Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":783,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -835,13 +835,13 @@
            }
         ],
         "question":" Kontroler jakości w fabryce samochodów mierzy grubość farby na świeżo\r\npomalowanych autach. Średnia grubość farby na pewnym fragmencie karoserii wynosi 2 mm z odchyleniem standardowym wynoszącym 0,8 mm.\r\nKontroler wybiera codziennie w sposób losowy 100 punktów na wspomnianej części samochodu i liczy 𝑥ҧ– średnią grubość farby w próbce. Możemy założyć, że punkty w każdej próbce są niezależne.\r\nJaki będzie rozkład 𝑥ҧ?\r\n"
-     },
-     "created_at":"2024-06-02T06:01:48.905Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":784,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -863,13 +863,13 @@
            }
         ],
         "question":"Przeciętne roczne spożycie pieczywa pszennego na 1 osobę w grupie zapytanych\r\n250 osób wynosiło 16 kg, przy odchyleniu standardowym 4 kg. Przyjmując\r\nwspółczynnik ufności 0,99 oszacować przeciętne spożycie pieczywa pszennego na\r\n1 osobę.\r\n"
-     },
-     "created_at":"2024-06-02T06:04:50.381Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":785,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -891,13 +891,13 @@
            }
         ],
         "question":"Pewne przedsiębiorstwo brokerskie chce ustalić przeciętne obroty na podstawie\r\nkolejnych 50 dni roboczych. Średnia dzienna wartość sprzedaży wyniosła 30 000 zł z\r\nodchyleniem standardowym 1000 zł. Otrzymano przedział ufności:\r\n29 723 𝑧ł < 𝑚 < 30 277 𝑧ł\r\nPrzy jakim współczynniku ufności zbudowano ten przedział?"
-     },
-     "created_at":"2024-06-02T06:06:48.337Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":786,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -919,13 +919,13 @@
            }
         ],
         "question":"Ankieter zapytał szesnastu studentów, ile litrów kawy każdy z nich wypił w tygodniu\r\npoprzedzającym egzamin ze statystyki. Średnia z tej próby wyniosła 5 litrów przy\r\nodchyleniu standardowym 2,5 litra. Proszę wyznaczyć 90% przedział ufności dla\r\nprzeciętnej ilości kawy wypijanej przez studentów przed egzaminem ze statystyki."
-     },
-     "created_at":"2024-06-02T06:10:12.345Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":787,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -947,13 +947,13 @@
            }
         ],
         "question":"Budujemy przedział ufności dla wartości średniej na podstawie małej próby. Wskaż\r\nzdanie fałszywe:\r\n"
-     },
-     "created_at":"2024-06-02T06:11:34.210Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":788,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -975,13 +975,13 @@
            }
         ],
         "question":"Przedwyborczy sondaż przeprowadzony wśród 150 osób pokazał, że 78 z nich\r\npopiera nowego kandydata na prezydenta. Bazując na tej próbie, jaki jest 90% przedział\r\nufności dla przewidywanego poparcia dla nowego kandydata?"
-     },
-     "created_at":"2024-06-02T06:15:04.592Z",
-     "updatedAt":null
+     }
+     
+     
   },
   {
-     "id":760,
-     "userId":"user_2fMmV3pT9jKXVYGz67YDKNHJh2M",
+     
+     
      "category":"statistics",
      "data":{
         "answers":[
@@ -1003,8 +1003,8 @@
            }
         ],
         "question":"Na ile sposobów można posadzić 4 dziewczynki i 6 chłopców na ławce, tak, by\r\ndziewczynki siedziały razem i chłopcy siedzieli razem?"
-     },
-     "created_at":"2024-06-02T04:54:19.653Z",
-     "updatedAt":null
+     }
+     
+     
   }
 ]

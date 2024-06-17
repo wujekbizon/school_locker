@@ -37,11 +37,10 @@ export default function RootLayout({
           <TopNav />
           <main className="relative flex h-[calc(100vh_-_64px)]">
             <Providers>
-              <ToastProvider>
-                {modal}
-                {children}
-              </ToastProvider>
+              <ToastProvider>{children}</ToastProvider>
             </Providers>
+            {modal}
+            <div id="modal-root" />
           </main>
         </body>
       </html>
