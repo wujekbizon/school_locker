@@ -45,7 +45,7 @@ export default function CourseCard(props: { course: CourseData }) {
           </p>
         </div>
       </div>
-      <button className="w-full rounded-md bg-zinc-400 py-1 text-black">
+      <button className="w-full rounded-md  bg-zinc-400 py-1 text-black hover:bg-zinc-500">
         {progress < 100 ? "Continue" : "Completed"}
       </button>
     </div>

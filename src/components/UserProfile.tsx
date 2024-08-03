@@ -35,10 +35,13 @@ export default async function UserProfile() {
           </div>
         </div>
         <p className="text-xl font-bold text-zinc-900">{user.fullName}</p>
+        {/* <p className="text-md text-zinc-900">
+            Member {displayMemberSince(user)}
+          </p> */}
       </div>
 
-      <div className="flex h-full w-full flex-col gap-5 lg:flex-row xl:w-[85%]">
-        <div className="h-full w-full flex-col p-2 lg:w-2/3">
+      <div className="flex h-full w-full flex-col gap-10 lg:flex-row xl:w-[85%]">
+        <div className="h-full w-full flex-col lg:w-[65%]">
           <p className="w-full pb-2 text-base">Courses</p>
           <div className="flex w-full flex-col gap-10 overflow-x-auto scrollbar-webkit md:flex-row">
             {coursesData.map((course) => (
@@ -59,7 +62,7 @@ export default async function UserProfile() {
             </p>
           </div>
         </div>
-        <div className="h-full w-full p-2 lg:w-1/3">
+        <div className="h-full w-full lg:w-[35%]">
           <div className="flex w-full items-center justify-between">
             <p className="w-full pb-2 text-base">Courses Tutor</p>
             <Link
@@ -70,19 +73,28 @@ export default async function UserProfile() {
               <span>{">>"}</span>
             </Link>
           </div>
-          <div className="flex w-full flex-row justify-evenly  overflow-x-auto rounded-xl bg-zinc-300 p-2  scrollbar-webkit">
-            {tutorsData.map((tutor) => (
-              <Link href={`/courses/tutors/${tutor.id}`} key={tutor.id}>
-                <Image
-                  className="h-16 w-16 rounded-full object-cover"
-                  src={tutor.tutorImgSrc}
-                  alt="user"
-                  width={200}
-                  height={200}
-                  priority
-                />
-              </Link>
-            ))}
+          <div className="flex h-28 w-full overflow-x-auto rounded-xl bg-zinc-900 p-2  scrollbar-webkit">
+            <div className="flex h-full w-full flex-row items-center justify-around rounded-md bg-zinc-950">
+              {tutorsData.map((tutor) => (
+                <Link
+                  className="transition ease-in-out hover:scale-105"
+                  href={`/courses/tutors/${tutor.id}`}
+                  key={tutor.id}
+                >
+                  <Image
+                    className="h-[80px] w-[80px] rounded-full object-cover"
+                    src={tutor.tutorImgSrc}
+                    alt="user"
+                    width={200}
+                    height={200}
+                    priority
+                  />
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="mt-6 flex w-full rounded-xl bg-zinc-900 p-2">
+            <UserMottoForm />
           </div>
           <div className="flex w-full items-center justify-between py-4">
             <p className="w-full pb-2 text-base">Assignment</p>
@@ -126,13 +138,41 @@ export default async function UserProfile() {
               </svg>
             </Link>
           </div>
-          <div className="h-[70vh] w-full bg-zinc-500">
-            <div className="flex flex-col gap-3">
-              <UserMottoForm />
+          <div className="flex h-full  w-full flex-col gap-6">
+            <div className="flex min-h-28 w-full items-center justify-between gap-2 rounded-xl bg-zinc-300 p-2">
+              <Image
+                className="h-24 w-32 rounded-lg object-cover"
+                src="/plans.png"
+                alt="user"
+                width={200}
+                height={200}
+                priority
+              />
+              <div className="flex flex-col gap-4">
+                <h2 className="text-md font-bold text-zinc-900">Case Study</h2>
+                <p className="text-sm text-zinc-900">9th July 12:00pm</p>
+              </div>
+              <div className="flex items-center justify-center rounded-sm bg-green-600 p-1">
+                <p className="text-md text-zinc-200">In Progress</p>
+              </div>
             </div>
-            <p className="text-md pb-2 text-zinc-300">
-              Member {displayMemberSince(user)}
-            </p>
+            <div className="flex min-h-28 w-full items-center justify-between gap-2 rounded-xl bg-zinc-300 p-2">
+              <Image
+                className="h-24 w-32 rounded-lg object-cover"
+                src="/plans.png"
+                alt="user"
+                width={200}
+                height={200}
+                priority
+              />
+              <div className="flex flex-col gap-4">
+                <h2 className="text-md font-bold text-zinc-900">Case Study</h2>
+                <p className="text-sm text-zinc-900">9th July 12:00pm</p>
+              </div>
+              <div className="flex items-center justify-center rounded-sm bg-green-600 p-1">
+                <p className="text-md text-zinc-200">In Progress</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
