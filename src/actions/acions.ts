@@ -198,3 +198,7 @@ export async function submitTestAction(
   toFormState("SUCCESS", "Test Successfully Submitted!");
   redirect("/tests-result");
 }
+
+export async function addUserMotto(formState: FormState, formData: FormData) {
+  return toFormState("SUCCESS", "Motto added");
+}

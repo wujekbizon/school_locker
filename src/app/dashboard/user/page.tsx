@@ -1,5 +1,5 @@
-import UserInfo from "@/components/UserInfo";
+import UserProfile from "@/components/UserProfile";
 
 export default function UserPage() {
-  return <UserInfo />;
+  return <UserProfile />;
 }
