@@ -5,7 +5,7 @@ export default function CourseCard(props: { course: CourseData }) {
   const { courseTitle, duration, imageSrc, progress } = props.course;
 
   return (
-    <div className="flex w-full flex-col justify-between gap-4 rounded-xl bg-zinc-300 p-3 md:w-1/2">
+    <div className="mb-1 flex w-full flex-col justify-between gap-4 rounded-xl bg-zinc-300 p-3 md:w-2/3 md:min-w-[320px]">
       <Image
         className="h-52 w-full rounded-lg object-cover"
         src={imageSrc}

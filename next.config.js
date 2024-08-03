@@ -10,6 +10,14 @@ const config = {
     remotePatterns: [{ hostname: "img.clerk.com" }],
   },
   experimental: {
+    turbo: {
+      rules: {
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
+      },
+    },
     reactCompiler: true,
     ppr: "incremental",
   },

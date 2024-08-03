@@ -15,7 +15,7 @@ export const coursesData: CourseData[] = [
     progress: 100,
   },
   {
-    id: "",
+    id: "2",
     courseTitle: "UI/UX Developer",
     imageSrc: "/image2.jpg",
     duration: 6,
