@@ -8,6 +8,8 @@ import {
   jsonb,
   integer,
   uuid,
+  pgEnum,
+  text,
 } from "drizzle-orm/pg-core";
 
 /**
@@ -110,3 +112,37 @@ export const completedTests = createTable("completed_tests", {
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),
 });
+
+/**
+ * Defines the "assignments" table schema in the database.
+ *
+ * This table stores information about assignments created by user.
+ */
+
+// create enum for status
+const statusEnum = pgEnum("status", ["Pending", "Progress", "Completed"]);
+
+export const assignments = createTable(
+  "assignments ",
+  {
+    id: uuid("id").primaryKey().defaultRandom(), // Unique identifier for the test record (auto-incrementing).
+    userId: varchar("userId", { length: 256 }).notNull(), // Unique identifier provided by Clerk for the user who created the test.
+    imageUrl: varchar("imageUrl").default(""), // Assingment image
+    title: varchar("title", { length: 256 }).notNull(),
+    status: statusEnum("color"),
+    description: text("description"),
+    dueDate: timestamp("dueDate"),
+    content: jsonb("content"), // Test data object stored in JSON format, likely referencing a specific data structure.
+    submissionGuidelines: text("submissionGuidelines"), // Optional, it'd provide specific instructions or requirements for how students should submit their assignments.
+    createdAt: timestamp("createdAt") // Timestamp of the test record creation (defaults to current timestamp).
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updatedAt"), // Timestamp of the last test record update.
+  },
+  (table) => ({
+    /**
+     * Index on the "userId" column for faster lookups by user ID.
+     */
+    userIdIndex: index("usersUserId").on(table.userId),
+  }),
+);

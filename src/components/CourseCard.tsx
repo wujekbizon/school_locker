@@ -1,11 +1,12 @@
 import { CourseData } from "@/constants/coursesData";
 import Image from "next/image";
+import CustomButton from "./CustomButton";
 
 export default function CourseCard(props: { course: CourseData }) {
   const { courseTitle, duration, imageSrc, progress } = props.course;
 
   return (
-    <div className="mb-1 flex w-full flex-col justify-between gap-4 rounded-xl bg-zinc-300 p-3 md:w-2/3 md:min-w-[320px]">
+    <div className="mb-1 flex w-full flex-col justify-between gap-4 rounded-xl bg-zinc-900 p-3 md:w-2/3 md:min-w-[320px]">
       <Image
         className="h-52 w-full rounded-lg object-cover"
         src={imageSrc}
@@ -15,14 +16,14 @@ export default function CourseCard(props: { course: CourseData }) {
         priority
       />
       <div className="flex w-full flex-row items-center justify-between py-2">
-        <p className="pb-2 text-lg font-bold text-zinc-700">{courseTitle}</p>
-        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-500">
-          <p className="text-xs font-bold text-zinc-900">{progress}%</p>
+        <p className="pb-2 text-lg font-bold text-zinc-100">{courseTitle}</p>
+        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-950 bg-amber-500">
+          <p className="text-sm font-bold text-zinc-900">{progress}%</p>
         </div>
       </div>
       <div className="flex w-full items-center gap-2">
         <svg
-          fill="#000000"
+          fill="#f0f0f0"
           height="20px"
           width="20px"
           xmlns="http://www.w3.org/2000/svg"
@@ -39,15 +40,16 @@ export default function CourseCard(props: { course: CourseData }) {
           </g>
         </svg>
         <div className="flex items-center gap-2">
-          <p className="text-base text-zinc-700">Duration: </p>
-          <p className="text-base font-bold text-zinc-700">
+          <p className="text-base text-zinc-300">Duration: </p>
+          <p className="text-base font-bold text-zinc-100">
             {duration} months{" "}
           </p>
         </div>
       </div>
-      <button className="w-full rounded-md  bg-zinc-400 py-1 text-black hover:bg-zinc-500">
+      <CustomButton href="/courses">
         {progress < 100 ? "Continue" : "Completed"}
-      </button>
+      </CustomButton>
+      {/* <button className="w-full rounded-md  bg-zinc-400 py-1 text-black hover:bg-zinc-500"></button> */}
     </div>
   );
 }
