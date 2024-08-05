@@ -1,40 +1,40 @@
-import CustomButton from "@/components/CustomButton";
-import Image from "next/image";
-import Link from "next/link";
+import SubmitButton from "@/app/_components/SubmitButton";
+import TutorsHero from "@/app/_components/TutorsHero";
+import ProfessionalTutors from "@/components/ProfessionalTutors";
+import { Input } from "@/components/ui/input";
 
 export default function CoursesTutorsPage() {
   return (
-    <section className="h-full w-full overflow-y-auto scrollbar-webkit">
-      <div className="flex h-full w-full flex-col items-center  justify-around bg-zinc-950 p-5 md:p-10">
-        <div className="flex w-full flex-col items-center gap-5 rounded-2xl p-0 lg:p-10 xl:w-2/3">
-          <h1 className="text-center text-3xl font-bold text-zinc-200 sm:text-4xl md:text-[45px] md:leading-[50px]">
-            Get Personal & Online Private Tutoring with School Locker Experts
-          </h1>
-          <p className="w-[90%] text-center text-sm text-zinc-500 sm:text-lg md:text-xl lg:w-full ">
-            Our specialists can help you find the right tutor for you or your
-            kids.
-          </p>
-        </div>
-        <div className="relative flex h-1/2 w-[90%] items-center justify-center md:w-2/3 xl:w-1/2 ">
-          <Image
-            className="h-[90%] w-full rounded-3xl object-cover sm:h-full"
-            src="/tutors2.jpg"
-            width={500}
-            height={500}
-            priority
-            alt="tutors"
-          />
-          <div className="absolute left-auto right-auto top-[-70px] animate-bounce md:top-[-70px]">
-            <Link href="/courses/tutors/#tutor">
-              <button className="h-16 w-52 rounded-lg border-2 border-border/50 bg-amber-400 text-xl font-bold text-zinc-950 sm:w-80 sm:text-2xl md:h-20 md:text-3xl lg:h-28 lg:w-96 lg:text-4xl">
-                Find Tutor Now
-              </button>
-            </Link>
+    <section className="h-full w-full overflow-y-auto scroll-smooth scrollbar-webkit">
+      <TutorsHero />
+      <div className="w-full bg-gradient-to-b from-zinc-950 from-0% via-zinc-900 via-50% to-zinc-950 to-100% pb-20">
+        <ProfessionalTutors />
+      </div>
+      <div className="h-3/4 w-full bg-black">
+        <div className="flex h-2/3 w-full items-end bg-zinc-800 bg-[url('/contact.jpg')] bg-cover bg-center bg-blend-color-dodge">
+          <div className=" mb-[-170px] ml-auto mr-auto flex h-[350px] w-full flex-col justify-between rounded-none border border-border/50 bg-zinc-950 p-8 sm:mb-[-100px] sm:w-[550px] sm:rounded-md md:ml-[20%]">
+            <p className="cursor-pointer text-base text-zinc-400 underline hover:text-amber-400">
+              Call Us: <a href="callto:800123456">800-123-4567</a>
+            </p>
+            <h2 className="text-4xl font-semibold text-zinc-200">
+              Do You Need Help?
+            </h2>
+            <p className="text-base text-zinc-500">
+              Submit your email and we'll find the perfect tutor for you.
+            </p>
+
+            <Input type="text" placeholder="Enter Your Email" />
+            <SubmitButton label="Send" loading="Sending..." />
           </div>
         </div>
       </div>
-      <div id="tutor" className="">
-        <h2>All Tutors Guaranted by Us</h2>
+      <div id="tutor" className="h-full w-full p-10">
+        <div className="flex w-full flex-col gap-12 md:w-2/3">
+          <h2 className="text-2xl font-semibold text-zinc-200 sm:text-3xl">
+            Find the right tutors for you
+          </h2>
+          <div className="flex w-full flex-wrap justify-evenly gap-8"></div>
+        </div>
       </div>
     </section>
   );
