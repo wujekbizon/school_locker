@@ -1,8 +1,8 @@
-import { Tutors } from "@/constants/tutorsData";
+import { Tutor } from "@/constants/tutorsData";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function TutorsList(props: { tutors: Tutors[] }) {
+export default function TutorsList(props: { tutors: Tutor[] }) {
   return (
     <div className="flex h-28 w-full overflow-x-auto rounded-xl bg-zinc-900 p-2.5  scrollbar-webkit">
       <div className="flex h-full w-full flex-row items-center justify-around rounded-md bg-zinc-950">
