@@ -8,7 +8,7 @@ import { coursesData } from "@/constants/coursesData";
 import CourseCard from "./CourseCard";
 import Link from "next/link";
 import { tutorsData } from "@/constants/tutorsData";
-import TutorsList from "./TutorsList";
+import TutorsList from "./TutorsBadgesList";
 import AddIcon from "./icons/AddIcon";
 import AssignmentsList from "./AssignmentsList";
 import { assignmentsData } from "@/constants/assignmentData";

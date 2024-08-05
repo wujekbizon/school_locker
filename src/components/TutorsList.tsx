@@ -1,27 +1,18 @@
 import { Tutor } from "@/constants/tutorsData";
-import Image from "next/image";
-import Link from "next/link";
+import TutorCard from "./TutorCard";
 
 export default function TutorsList(props: { tutors: Tutor[] }) {
   return (
-    <div className="flex h-28 w-full overflow-x-auto rounded-xl bg-zinc-900 p-2.5  scrollbar-webkit">
-      <div className="flex h-full w-full flex-row items-center justify-around rounded-md bg-zinc-950">
-        {props.tutors.map((tutor) => (
-          <Link
-            className="transition ease-in-out hover:scale-105"
-            href={`/courses/tutors/${tutor.id}`}
-            key={tutor.id}
-          >
-            <Image
-              className="h-[70px] w-[70px] rounded-full object-cover"
-              src={tutor.tutorImgSrc}
-              alt="user"
-              width={200}
-              height={200}
-              priority
-            />
-          </Link>
-        ))}
+    <div id="tutor" className="flex w-full justify-center p-5 md:p-10">
+      <div className="flex w-full flex-col gap-20 py-10 md:w-2/3">
+        <h2 className="text-center text-3xl font-semibold text-zinc-200 sm:text-3xl">
+          Find the right tutors for you
+        </h2>
+        <div className="flex w-full flex-wrap justify-evenly gap-8">
+          {props.tutors.map((tutor) => (
+            <TutorCard key={tutor.id} tutor={tutor} />
+          ))}
+        </div>
       </div>
     </div>
   );

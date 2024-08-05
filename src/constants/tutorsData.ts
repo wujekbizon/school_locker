@@ -9,6 +9,7 @@ export interface Tutor {
   tutorName: string;
   tutorImgSrc: string;
   role: TutorRoles;
+  about: string;
 }
 
 export const tutorsData: Tutor[] = [
@@ -17,17 +18,20 @@ export const tutorsData: Tutor[] = [
     tutorName: "Greg",
     tutorImgSrc: "/tutor2.jpg",
     role: TutorRoles.WesaFounder,
+    about: "",
   },
   {
     id: "core2",
     tutorName: "Core",
     tutorImgSrc: "/bot.png",
     role: TutorRoles.AIEngineer,
+    about: "",
   },
   {
     id: "aurora3",
     tutorName: "Aurora",
     tutorImgSrc: "/tutor.png",
     role: TutorRoles.LeadTutor,
+    about: "",
   },
 ];
