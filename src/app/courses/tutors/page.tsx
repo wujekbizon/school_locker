@@ -1,32 +1,35 @@
 import CustomButton from "@/components/CustomButton";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CoursesTutorsPage() {
   return (
-    <section className="h-full w-full">
-      <div className="flex h-[75vh] w-full  bg-black p-20">
-        <div className="flex h-full w-1/3 flex-col justify-evenly rounded-3xl bg-zinc-950 px-5 py-3">
-          <h1 className="text-[39px] font-bold leading-10 text-zinc-200">
+    <section className="h-full w-full overflow-y-auto scrollbar-webkit">
+      <div className="flex h-full w-full flex-col items-center  justify-around bg-zinc-950 p-5 md:p-10">
+        <div className="flex w-full flex-col items-center gap-5 rounded-2xl p-0 lg:p-10 xl:w-2/3">
+          <h1 className="text-center text-3xl font-bold text-zinc-200 sm:text-4xl md:text-[45px] md:leading-[50px]">
             Get Personal & Online Private Tutoring with School Locker Experts
           </h1>
-          <p className="text-base text-zinc-400">
+          <p className="w-[90%] text-center text-sm text-zinc-500 sm:text-lg md:text-xl lg:w-full ">
             Our specialists can help you find the right tutor for you or your
             kids.
           </p>
-          <CustomButton href="/courses/tutors/#tutor">
-            Find Tutor Now
-          </CustomButton>
         </div>
-        <div className="flex h-full w-2/3 items-center justify-center">
-          <div className="flex h-[90%] w-3/4 items-center justify-center ">
-            <Image
-              className="h-full w-full rounded-bl-[200px] rounded-br-3xl rounded-tl-3xl rounded-tr-[200px] object-cover"
-              src="/tutors.jpg"
-              width={500}
-              height={500}
-              priority
-              alt="tutors"
-            />
+        <div className="relative flex h-1/2 w-[90%] items-center justify-center md:w-2/3 xl:w-1/2 ">
+          <Image
+            className="h-[90%] w-full rounded-3xl object-cover sm:h-full"
+            src="/tutors2.jpg"
+            width={500}
+            height={500}
+            priority
+            alt="tutors"
+          />
+          <div className="absolute left-auto right-auto top-[-70px] animate-bounce md:top-[-70px]">
+            <Link href="/courses/tutors/#tutor">
+              <button className="h-16 w-52 rounded-lg border-2 border-border/50 bg-amber-400 text-xl font-bold text-zinc-950 sm:w-80 sm:text-2xl md:h-20 md:text-3xl lg:h-28 lg:w-96 lg:text-4xl">
+                Find Tutor Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>
