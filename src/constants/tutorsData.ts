@@ -15,7 +15,7 @@ export interface Tutor {
 export const tutorsData: Tutor[] = [
   {
     id: "greg1",
-    tutorName: "Greg",
+    tutorName: "Mr Greg",
     tutorImgSrc: "/tutor2.jpg",
     role: TutorRoles.WesaFounder,
     about: "",
