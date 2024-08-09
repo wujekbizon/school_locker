@@ -38,7 +38,6 @@ export async function deleteUserFromDb(id: string): Promise<void> {
    *                   providing a more informative message.
    */
   try {
-    console.log(id);
     await db.delete(users).where(eq(users.userId, id));
   } catch (error) {
     console.error("Error deleting user:", error);
