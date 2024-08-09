@@ -13,6 +13,11 @@ export interface Tutor {
   students: number;
   reviews: number;
   rating: number;
+  courses: number;
+  facebook: string;
+  twitter: string;
+  youtube: string;
+  linkedin: string;
 }
 
 export const tutorsData: Tutor[] = [
@@ -25,6 +30,11 @@ export const tutorsData: Tutor[] = [
     students: 19,
     reviews: 30,
     rating: 4.7,
+    courses: 3,
+    facebook: "https://www.facebook.com/grzegorz.wolfinger/",
+    twitter: "https://x.com/GregWolfinger",
+    youtube: "https://www.youtube.com/@wujekbizon1",
+    linkedin: "https://www.linkedin.com/in/grzegorz-wolfinger-b88856229/",
   },
   {
     id: "core-engineer",
@@ -35,6 +45,11 @@ export const tutorsData: Tutor[] = [
     students: 49,
     reviews: 1192,
     rating: 4.8,
+    courses: 7,
+    facebook: "https://www.facebook.com/",
+    twitter: "https://x.com/",
+    youtube: "https://www.youtube.com/",
+    linkedin: "https://www.linkedin.com/",
   },
   {
     id: "aurora-techadvisor",
@@ -45,5 +60,10 @@ export const tutorsData: Tutor[] = [
     students: 129,
     reviews: 11564,
     rating: 4.9,
+    courses: 15,
+    facebook: "https://www.facebook.com/",
+    twitter: "https://x.com/",
+    youtube: "https://www.youtube.com/",
+    linkedin: "https://www.linkedin.com/",
   },
 ];
